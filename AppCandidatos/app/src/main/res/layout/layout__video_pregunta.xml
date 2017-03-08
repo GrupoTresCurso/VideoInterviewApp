@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tictum.appcandidatos.activities.Activity5_VideoPregunta">
+    tools:context="com.example.tictum.appcandidatos.activities.Activity_VideoPregunta">
 
 </android.support.constraint.ConstraintLayout>
