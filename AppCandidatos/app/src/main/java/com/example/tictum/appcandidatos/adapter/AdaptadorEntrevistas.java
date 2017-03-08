@@ -7,7 +7,10 @@ import com.example.tictum.appcandidatos.beans.Entrevista;
 
 public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
 
-    public AdaptadorEntrevistas(Context context,int resource) {
+public AdaptadorEntrevistas(Context context,int resource) {
         super(context, resource);
-    }
-}
+
+
+
+        }
+        }
