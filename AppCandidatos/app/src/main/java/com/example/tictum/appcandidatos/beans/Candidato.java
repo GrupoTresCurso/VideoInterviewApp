@@ -1,4 +1,4 @@
-package beans;
+package com.example.tictum.appcandidatos.beans;
 
 /**
  * Created by Tictum on 07/03/2017.

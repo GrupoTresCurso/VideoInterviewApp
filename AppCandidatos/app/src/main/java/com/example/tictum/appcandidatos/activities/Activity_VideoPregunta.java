@@ -1,15 +1,15 @@
-package activities;
+package com.example.tictum.appcandidatos.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.tictum.appcandidatos.R;
 
-public class Activity_GrabarRespuesta extends AppCompatActivity {
+public class Activity_VideoPregunta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity6__grabar_respuesta);
+        setContentView(R.layout.layout__video_pregunta);
     }
 }
