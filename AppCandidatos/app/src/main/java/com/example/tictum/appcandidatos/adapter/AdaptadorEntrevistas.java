@@ -15,6 +15,7 @@ public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
     class ViewHolder{
     TextView nombreEntrevista;
     }
+
     // constructor del adaptador para mostrar la lista de entrevistas
     public AdaptadorEntrevistas(Context context,Entrevista[] listaEntrevistas) {
         super(context, R.layout.layout_mostrar_entrevistas,listaEntrevistas);

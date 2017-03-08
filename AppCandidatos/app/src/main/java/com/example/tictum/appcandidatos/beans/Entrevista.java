@@ -1,11 +1,12 @@
 package com.example.tictum.appcandidatos.beans;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 
-public class Entrevista {
+public class Entrevista implements Serializable {
 
     private int idEntrevista;
     private String nombreEntrevista;
