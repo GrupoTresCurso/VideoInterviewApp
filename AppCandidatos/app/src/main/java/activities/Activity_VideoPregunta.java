@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.tictum.appcandidatos.R;
 
-public class Activity1_SplachScreen extends AppCompatActivity {
+public class Activity_VideoPregunta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity1__splach_screen);
+        setContentView(R.layout.layout__video_pregunta);
     }
 }

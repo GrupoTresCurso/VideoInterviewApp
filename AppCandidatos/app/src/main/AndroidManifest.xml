@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="activities.Activity1_SplachScreen">
+        <activity android:name="activities.Activity_SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="activities.Activity2_ListaEntrevistas" />
-        <activity android:name="activities.activity3_VideoIntroTransicion" />
-        <activity android:name="activities.Activity4_Formulario" />
-        <activity android:name="activities.Activity5_VideoPregunta" />
-        <activity android:name="activities.Activity6_GrabarRespuesta"></activity>
+        <activity android:name="activities.Activity_ListaEntrevistas" />
+        <activity android:name="activities.activity_VideoIntroTransicion" />
+        <activity android:name="activities.Activity_Formulario" />
+        <activity android:name="activities.Activity_VideoPregunta" />
+        <activity android:name="activities.Activity_GrabarRespuesta"></activity>
     </application>
 
 </manifest>

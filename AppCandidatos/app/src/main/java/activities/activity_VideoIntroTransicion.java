@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.tictum.appcandidatos.R;
 
-public class Activity6_GrabarRespuesta extends AppCompatActivity {
+public class activity_VideoIntroTransicion extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity6__grabar_respuesta);
+        setContentView(R.layout.layout__video_intro_transicion);
     }
 }
