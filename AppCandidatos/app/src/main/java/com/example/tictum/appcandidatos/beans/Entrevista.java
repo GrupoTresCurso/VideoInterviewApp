@@ -1,7 +1,6 @@
 package com.example.tictum.appcandidatos.beans;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
