@@ -13,15 +13,27 @@
         android:layout_height="50dp"
         android:layout_margin="0dp"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_border">
+
         <TextView
+            android:id="@+id/Temporizador"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:background="@drawable/custom_border"
+            android:text="00:00"/>
+        <Button
+            android:id="@+id/BotonMandarVideo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:text="responder"
+            android:textSize="20dp"
+            android:background="@drawable/custom_border"/>
 
     </LinearLayout>
 
