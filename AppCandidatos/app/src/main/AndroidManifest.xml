@@ -17,15 +17,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.Activity_ListaEntrevistas" />
-        <activity android:name=".activities.activity_VideoIntroTransicion" />
+        <activity
+            android:name=".activities.activity_VideoIntroTransicion"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activities.Activity_Formulario" />
-        <activity android:name=".activities.Activity_VideoPregunta" />
-        <activity android:name=".activities.Activity_GrabarRespuesta" />
+        <activity  android:name=".activities.Activity_VideoPregunta"
+                    android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activities.Activity_GrabarRespuesta"
+                  android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activities.Activity_Despedida" />
         <activity android:name=".activities.Activity_Adjuntos" />
         <activity android:name=".activities.Activity_Formulario2" />
         <activity android:name=".activities.Activity_Formulario3" />
         <activity android:name=".activities.Activity_Formulario4"></activity>
     </application>
+
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

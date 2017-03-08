@@ -4,10 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
    tools:context="com.example.tictum.appcandidatos.activities.Activity_VideoPregunta">
 
 
 
 
+=======
+    tools:context="com.example.tictum.appcandidatos.activities.Activity_VideoPregunta">
+>>>>>>> 886fecd8ef5ebf0b35b349d0f8791586169ad62a
 
 </android.support.constraint.ConstraintLayout>

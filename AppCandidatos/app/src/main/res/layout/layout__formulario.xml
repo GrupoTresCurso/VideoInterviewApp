@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:orientation="vertical"
+=======
+>>>>>>> 886fecd8ef5ebf0b35b349d0f8791586169ad62a
     tools:context="com.example.tictum.appcandidatos.activities.Activity_Formulario">
 
     <TextView
