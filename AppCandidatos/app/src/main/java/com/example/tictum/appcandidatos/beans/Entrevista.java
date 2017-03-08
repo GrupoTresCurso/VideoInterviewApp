@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public class Entrevista {
 
     private int idEntrevista;
+    private String nombreEntrevista;
+    private String nombrePuesto;
     private boolean tieneVideoIntro;
     private ArrayList<Formulario> formularios;
     private ArrayList<Video> videoTransicion;
@@ -92,5 +94,21 @@ public class Entrevista {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public String getNombreEntrevista() {
+        return nombreEntrevista;
+    }
+
+    public void setNombreEntrevista(String nombreEntrevista) {
+        this.nombreEntrevista = nombreEntrevista;
+    }
+
+    public String getNombrePuesto() {
+        return nombrePuesto;
+    }
+
+    public void setNombrePuesto(String nombrePuesto) {
+        this.nombrePuesto = nombrePuesto;
     }
 }
