@@ -20,7 +20,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         setContentView(R.layout.layout__lista_entrevistas);
         // Creamos la lista de las entrevistas para hacerles un listener a cada una
         // esta lista se va a traer de la base de datos
-        Entrevista[] listaVacia = {new Entrevista()};
+        Entrevista[] listaVacia = {new Entrevista("Puesto 1"),new Entrevista("Puesto 2")};
         // el adaptador para ver la lista de las entrevistas
         AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaVacia);
         // Donde vamos a mostrar los objetos Entrevista

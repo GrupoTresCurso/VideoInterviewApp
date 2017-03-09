@@ -7,6 +7,7 @@
         android:icon="@mipmap/videointerview"
         android:label="Video InterView"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.Activity_SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -19,7 +20,7 @@
         <activity android:name=".activities.Activity_ListaEntrevistas" />
         <activity
             android:name=".activities.activity_VideoIntroTransicion"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:name=".activities.Activity_Formulario" />
         <activity  android:name=".activities.Activity_VideoPregunta"
                     android:theme="@style/Theme.AppCompat.NoActionBar"/>

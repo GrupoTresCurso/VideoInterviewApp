@@ -18,16 +18,5 @@ public class Activity_Formulario3 extends AppCompatActivity {
 
         radio_group_comunicacion = (RadioGroup) findViewById(R.id.radio_group_comunicacion);
 
-
-
-
-
-
-
-
-
 }
-
-
-
 }

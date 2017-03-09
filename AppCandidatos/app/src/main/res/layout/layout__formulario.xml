@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +10,8 @@
     <TextView
         android:id="@+id/pregunta1"
         style="@style/fuentesPreguntas"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/pregunta1" />
@@ -18,6 +20,7 @@
         android:id="@+id/radio_group_experiencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:paddingLeft="100dp">
 
         <RadioButton
@@ -42,35 +45,32 @@
             android:id="@+id/opcion4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/opcionCuatro" />
-
+            android:text="Más de 5 años" />
 
     </RadioGroup>
 
     <TextView
         android:id="@+id/pregunta2"
         style="@style/fuentesPreguntas"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text="@string/pregunta2" />
 
     <Spinner
         android:id="@+id/spinner_nacionalidad"
-        android:layout_width="128dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
-
 
     <Button
         android:id="@+id/btn_siguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="@string/btn_siguiente"
-
-        />
-
+        android:layout_marginTop="70dp"
+        android:text="@string/btn_siguiente"/>
 
 </LinearLayout>

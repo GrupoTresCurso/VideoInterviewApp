@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,17 +7,17 @@
     tools:context="com.example.tictum.appcandidatos.activities.Activity_Formulario2">
 
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/pregunta3"
-        style="@style/fuentesPreguntas"
-        />
+        style="@style/fuentesPreguntas" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:orientation="vertical">
 
@@ -32,25 +31,19 @@
             android:id="@+id/tecnologia2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tecnologia2"
-
-            />
+            android:text="@string/tecnologia2" />
 
         <CheckBox
             android:id="@+id/tecnologia3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tecnologia3"
-
-            />
+            android:text="@string/tecnologia3" />
 
         <CheckBox
             android:id="@+id/tecnologia4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tecnologia4"
-
-            />
+            android:text="@string/tecnologia4" />
 
     </LinearLayout>
 
@@ -59,27 +52,24 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/pregunta4"
-        style="@style/fuentesPreguntas"
-        />
+        style="@style/fuentesPreguntas" />
 
     <EditText
         android:id="@+id/edad"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
 
     <Button
         android:id="@+id/btn_siguiente2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_siguiente"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        />
-
-
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center" />
 
 </LinearLayout>

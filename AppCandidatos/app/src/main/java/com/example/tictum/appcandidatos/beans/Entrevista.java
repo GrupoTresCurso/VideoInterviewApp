@@ -21,6 +21,11 @@ public class Entrevista implements Serializable {
     public Entrevista() {
     }
 
+    // Constructor para probar la app una demo se puede borrar despues
+    public Entrevista(String nombrePuesto) {
+        this.nombrePuesto = nombrePuesto;
+    }
+
     public Entrevista(int idEntrevista, boolean tieneVideoIntro, List<Formulario> formularios, List<Video> videoTransicion, List<Video> preguntaVideo, Formulario cuestionarioSatifaccion, List<Adjunto> adjunto, String mensaje) {
         this.idEntrevista = idEntrevista;
         this.tieneVideoIntro = tieneVideoIntro;
