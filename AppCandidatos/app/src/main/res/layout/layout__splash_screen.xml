@@ -6,9 +6,9 @@
     tools:context="com.example.tictum.appcandidatos.activities.Activity_SplashScreen">
 
     <ImageView
-        android:src="@drawable/designmuestra"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:src="@drawable/imagenfinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center" />
 
 </RelativeLayout>

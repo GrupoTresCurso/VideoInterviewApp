@@ -12,15 +12,10 @@ import com.example.tictum.appcandidatos.beans.Entrevista;
 
 public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
 
-<<<<<<< HEAD
 public AdaptadorEntrevistas(Context context,int resource) {
         super(context, resource);
-
-
-
         }
-        }
-=======
+
     class ViewHolder{
     TextView nombreEntrevista;
     }
@@ -47,4 +42,3 @@ public AdaptadorEntrevistas(Context context,int resource) {
     }
 
 }
->>>>>>> 886fecd8ef5ebf0b35b349d0f8791586169ad62a
