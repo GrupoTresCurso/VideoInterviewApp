@@ -1,23 +1,25 @@
-package com.example.tictum.appcandidatos.beans;
+package beans;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import java.util.ArrayList;
-
-
+@Entity
 public class Pregunta {
 
+    @Id
+    @GeneratedValue
     private int idPregunta;
     private String labelPregunta;
     private String tipoPregunta;
-    private ArrayList<String> opciones;
+    private String[] opciones;
     private int posicionEnFormulario;
 
     public Pregunta() {
     }
 
-    public Pregunta(int idPregunta, String labelPregunta, String tipoPregunta, ArrayList<String> opciones, int posicionEnFormulario) {
-        this.idPregunta = idPregunta;
+    public Pregunta(String labelPregunta, String tipoPregunta, String[] opciones, int posicionEnFormulario) {
         this.labelPregunta = labelPregunta;
         this.tipoPregunta = tipoPregunta;
         this.opciones = opciones;
@@ -48,11 +50,11 @@ public class Pregunta {
         this.tipoPregunta = tipoPregunta;
     }
 
-    public ArrayList<String> getOpciones() {
+    public String[] getOpciones() {
         return opciones;
     }
 
-    public void setOpciones(ArrayList<String> opciones) {
+    public void setOpciones(String[] opciones) {
         this.opciones = opciones;
     }
 

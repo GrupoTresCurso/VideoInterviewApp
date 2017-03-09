@@ -1,29 +1,38 @@
-package com.example.tictum.appcandidatos.beans;
+package beans;
 
-
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+public class Entrevista {
 
-
-public class Entrevista implements Serializable {
-
+    @Id
+    @GeneratedValue
     private int idEntrevista;
     private String nombreEntrevista;
     private String nombrePuesto;
-    private boolean tieneVideoIntro;
-    private ArrayList<Formulario> formularios;
-    private ArrayList<Video> videoTransicion;
-    private ArrayList<Video> preguntaVideo;
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean tieneVideoIntro = false;
+    @ManyToMany
+    private List<Formulario> formularios;
+    @ManyToMany
+    private List<Video> videoTransicion;
+    @ManyToMany
+    private List<Video> preguntaVideo;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "idFormulario")
     private Formulario cuestionarioSatifaccion;
-    private ArrayList<Adjunto> adjunto;
+    @ManyToMany
+    private List<Adjunto> adjunto;
     private String mensaje;
 
     public Entrevista() {
     }
 
-    public Entrevista(int idEntrevista, boolean tieneVideoIntro, ArrayList<Formulario> formularios, ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, ArrayList<Adjunto> adjunto, String mensaje) {
-        this.idEntrevista = idEntrevista;
+    public Entrevista(String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, ArrayList<Formulario> formularios, ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, ArrayList<Adjunto> adjunto, String mensaje) {
+        this.nombreEntrevista = nombreEntrevista;
+        this.nombrePuesto = nombrePuesto;
         this.tieneVideoIntro = tieneVideoIntro;
         this.formularios = formularios;
         this.videoTransicion = videoTransicion;
@@ -37,64 +46,56 @@ public class Entrevista implements Serializable {
         return idEntrevista;
     }
 
-    public void setIdEntrevista(int idEntrevista) {
-        this.idEntrevista = idEntrevista;
-    }
-
     public boolean isTieneVideoIntro() {
         return tieneVideoIntro;
     }
 
-    public void setTieneVideoIntro(boolean tieneVideoIntro) {
-        this.tieneVideoIntro = tieneVideoIntro;
-    }
-
-    public ArrayList<Formulario> getFormularios() {
+    public List<Formulario> getFormularios() {
         return formularios;
     }
 
-    public void setFormularios(ArrayList<Formulario> formularios) {
-        this.formularios = formularios;
-    }
-
-    public ArrayList<Video> getVideoTransicion() {
+    public List<Video> getVideoTransicion() {
         return videoTransicion;
     }
 
-    public void setVideoTransicion(ArrayList<Video> videoTransicion) {
-        this.videoTransicion = videoTransicion;
-    }
-
-    public ArrayList<Video> getPreguntaVideo() {
+    public List<Video> getPreguntaVideo() {
         return preguntaVideo;
     }
 
-    public void setPreguntaVideo(ArrayList<Video> preguntaVideo) {
-        this.preguntaVideo = preguntaVideo;
-    }
-
-    public Formulario getCuestionarioSatifaccion() {
+    public beans.Formulario getCuestionarioSatifaccion() {
         return cuestionarioSatifaccion;
     }
 
-    public void setCuestionarioSatifaccion(Formulario cuestionarioSatifaccion) {
-        this.cuestionarioSatifaccion = cuestionarioSatifaccion;
-    }
-
-    public ArrayList<Adjunto> getAdjunto() {
+    public List<Adjunto> getAdjunto() {
         return adjunto;
-    }
-
-    public void setAdjunto(ArrayList<Adjunto> adjunto) {
-        this.adjunto = adjunto;
     }
 
     public String getMensaje() {
         return mensaje;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setIdEntrevista(int idEntrevista) {
+        this.idEntrevista = idEntrevista;
+    }
+
+    public void setTieneVideoIntro(boolean tieneVideoIntro) {
+        this.tieneVideoIntro = tieneVideoIntro;
+    }
+
+    public void setFormularios(ArrayList<Formulario> formularios) {
+        this.formularios = formularios;
+    }
+
+    public void setVideoTransicion(ArrayList<Video> videoTransicion) {
+        this.videoTransicion = videoTransicion;
+    }
+
+    public void setPreguntaVideo(ArrayList<Video> preguntaVideo) {
+        this.preguntaVideo = preguntaVideo;
+    }
+
+    public void setCuestionarioSatifaccion(beans.Formulario cuestionarioSatifaccion) {
+        this.cuestionarioSatifaccion = cuestionarioSatifaccion;
     }
 
     public String getNombreEntrevista() {
@@ -111,5 +112,13 @@ public class Entrevista implements Serializable {
 
     public void setNombrePuesto(String nombrePuesto) {
         this.nombrePuesto = nombrePuesto;
+    }
+
+    public void setAdjunto(ArrayList<Adjunto> adjunto) {
+        this.adjunto = adjunto;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 }

@@ -1,14 +1,14 @@
-package com.example.tictum.appcandidatos.beans;
+package beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-
-/**
- * Created by TictumManaña on 08/03/2017.
- */
-
-
+@Entity
 public class Adjunto {
 
+    @Id
+    @GeneratedValue
     private int idAdjunto;
     private String etiquetaAdjunto;
     private int posicionEnEntrevista;
@@ -16,8 +16,7 @@ public class Adjunto {
     public Adjunto() {
     }
 
-    public Adjunto(int idAdjunto, String etiquetaAdjunto, int posicionEnEntrevista) {
-        this.idAdjunto = idAdjunto;
+    public Adjunto(String etiquetaAdjunto, int posicionEnEntrevista) {
         this.etiquetaAdjunto = etiquetaAdjunto;
         this.posicionEnEntrevista = posicionEnEntrevista;
     }

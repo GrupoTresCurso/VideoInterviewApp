@@ -1,23 +1,32 @@
-package com.example.tictum.appcandidatos.beans;
+package beans;
 
+import javax.persistence.*;
 
-
+@Entity
 public class Usuario {
 
-
+    @Id
+    @GeneratedValue
     private int idUsuario;
+    @Column(unique = true)
     private String nombreUsuario;
     private String password;
-    private boolean isAdministrador;
-    private boolean isReclutador;
-    private boolean isResponsableContratacion;
-    private boolean isCandidato;
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean isAdministrador = false;
+
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean isReclutador = false;
+
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean isResponsableContratacion = false;
+
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean isCandidato = false;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String password, boolean isAdministrador, boolean isReclutador, boolean isResponsableContratacion, boolean isCandidato) {
-        this.idUsuario = idUsuario;
+    public Usuario(String nombreUsuario, String password, boolean isAdministrador, boolean isReclutador, boolean isResponsableContratacion, boolean isCandidato) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.isAdministrador = isAdministrador;

@@ -1,10 +1,15 @@
-package com.example.tictum.appcandidatos.beans;
+package beans;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 
-
-
+@Entity
 public class Video {
 
+    @Id
+    @GeneratedValue
     private int idVideo;
     private String nombreVideo;
     private String linkVideo;
@@ -14,8 +19,7 @@ public class Video {
     public Video() {
     }
 
-    public Video(int idVideo, String nombreVideo, String linkVideo, int posicionEnEntrevista, String tipoVideo) {
-        this.idVideo = idVideo;
+    public Video(String nombreVideo, String linkVideo, int posicionEnEntrevista, String tipoVideo) {
         this.nombreVideo = nombreVideo;
         this.linkVideo = linkVideo;
         this.posicionEnEntrevista = posicionEnEntrevista;

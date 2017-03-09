@@ -38,14 +38,14 @@ public class JsonEntrevistaParser {
         reader.beginArray();
         while (reader.hasNext()) {
             // Leer objeto
-            //entrevistas.add(leerEntrevista(reader));
+            entrevistas.add(leerEntrevista(reader));
         }
         reader.endArray();
         return entrevistas;
     }
 
     //ADAPTAR A JSON ENTREVISTAS
-    /*public Entrevista leerEntrevista(JsonReader reader) throws IOException {
+    public Entrevista leerEntrevista(JsonReader reader) throws IOException {
         String especie = null;
         String descripcion = null;
         String imagen = null;
@@ -70,5 +70,5 @@ public class JsonEntrevistaParser {
         }
         reader.endObject();
         //return new Animal(especie, descripcion, imagen);
-    }*/
+    }
 }
