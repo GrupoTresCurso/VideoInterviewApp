@@ -4,21 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:orientation="vertical"
-=======
->>>>>>> 886fecd8ef5ebf0b35b349d0f8791586169ad62a
     tools:context="com.example.tictum.appcandidatos.activities.Activity_Formulario">
 
     <TextView
         android:id="@+id/pregunta1"
+        style="@style/fuentesPreguntas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pregunta1"
-        style="@style/fuentesPreguntas"
-        />
+        android:text="@string/pregunta1" />
 
     <RadioGroup
+        android:id="@+id/radio_group_experiencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="100dp">
@@ -52,27 +49,26 @@
 
     <TextView
         android:id="@+id/pregunta2"
+        style="@style/fuentesPreguntas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/pregunta2"
-        style="@style/fuentesPreguntas"/>
+        android:text="@string/pregunta2" />
 
     <Spinner
         android:id="@+id/spinner_nacionalidad"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"         />
-
+        android:layout_gravity="center" />
 
 
     <Button
         android:id="@+id/btn_siguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_siguiente"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/btn_siguiente"
 
         />
 

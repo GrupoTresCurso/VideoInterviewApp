@@ -15,5 +15,14 @@ public class AdaptadorPaises  extends ArrayAdapter<Pais> {
     public AdaptadorPaises(Context context, int resource) {
         super(context, resource);
     }
+
+
+
+
+
+
+
+
+
 }
 

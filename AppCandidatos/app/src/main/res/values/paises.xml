@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="puntuacion">
+        <item name="espana">España</item>
+        <item name="francia">Francia</item>
+        <item name="alemania">Alemania</item>
+        <item name="inglaterra">Inglaterra</item>
+        <item name="grecia">Grecia</item>
+        <item name="noruega">Noruega</item>
+        <item name="chipre">Chipre</item>
+        <item name="letonia">Letonia</item>
+        <item name="finlandia">Finlandia</item>
+        <item name="suecia">Suecia</item>
+    </string-array>
+</resources>
