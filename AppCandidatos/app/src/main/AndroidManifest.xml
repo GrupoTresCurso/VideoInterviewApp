@@ -26,7 +26,10 @@
         <activity android:name=".activities.Activity_GrabarRespuesta"
                   android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activities.Activity_Despedida" />
-        <activity android:name=".activities.Activity_Adjuntos"></activity>
+        <activity android:name=".activities.Activity_Adjuntos" />
+        <activity android:name=".activities.Activity_Formulario2" />
+        <activity android:name=".activities.Activity_Formulario3" />
+        <activity android:name=".activities.Activity_Formulario4"></activity>
     </application>
 
     <uses-feature android:name="android.hardware.camera"

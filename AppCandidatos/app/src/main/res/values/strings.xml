@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">AppCandidatos</string>
+    <string name="pregunta1">¿Cuántos años de experiencia en java tienes?</string>
+    <string name="pregunta2">¿De qué pais eres?</string>
+    <string name="pregunta3">Marca las tecnologías con las que has trabajado:</string>
+    <string name="pregunta4">¿Cuántos años tienes?</string>
+    <string name="opcionUno">Sin experiencia.</string>
+    <string name="opcionDos">Entre 1 y 3 años.</string>
+    <string name="opcionTres">Entre 3 y 5 años.</string>
+    <string name="opcionCuatro"><![CDATA[> 5 años.]]></string>
+    <string name="nacionalidad">Selecciona tu país</string>
+    <string name="tecnologia1">AngularJs</string>
+    <string name="tecnologia2">PHP</string>
+    <string name="tecnologia3">Python</string>
+    <string name="tecnologia4">Sql</string>
+    <string name="btn_siguiente">Siguiente</string>
+    <string name="pregunta5">¿Cual es tu grado de satisfacción con la calidad de la entrevista?</string>
+    <string name="pregunta6">¿La calidad de comunicación ha sido?</string>
+    <string name="mala">Mala</string>
+    <string name="aceptable">Aceptable</string>
+    <string name="buena">Buena</string>
+    <string name="excelente">Excelente</string>
+    <string name="peregunta7">Danos tu opinion con respecto a la experiencia que has tenido al realizar esta entrevista con Video Interview App</string>
+    <string name="btn_enviar">Enviar</string>
+
 </resources>
