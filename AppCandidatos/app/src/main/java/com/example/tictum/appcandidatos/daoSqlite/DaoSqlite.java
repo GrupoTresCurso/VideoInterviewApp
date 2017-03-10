@@ -25,7 +25,6 @@ public class DaoSqlite extends SQLiteOpenHelper {
     private static final String COL_LISTA_VIDEOS = "videoTransicion";
     private static final String COL_LISTA_PREGUNTA_VIDEO = "preguntaVideo";
     private static final String COL_FORMULARIO = "cuestionarioSatifaccion";
-    private static final String COL_LISTA_ADJUNTOS = "adjunto";
     private static final String COL_MENSAJE = "mensaje";
 
 
