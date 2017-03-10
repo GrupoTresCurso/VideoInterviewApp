@@ -2,7 +2,7 @@ package com.example.tictum.appcandidatos.parsers;
 
 import android.util.JsonReader;
 
-import com.example.tictum.appcandidatos.beans.Adjunto;
+
 import com.example.tictum.appcandidatos.beans.Entrevista;
 
 import java.io.IOException;
@@ -11,9 +11,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by carmenicuadrado on 08/03/2017.
- */
 
 //http://www.hermosaprogramacion.com/2015/01/android-json-parsing/
 
@@ -38,14 +35,14 @@ public class  JsonEntrevistaParser {
         reader.beginArray();
         while (reader.hasNext()) {
             // Leer objeto
-            //entrevistas.add(leerEntrevista(reader));
+            entrevistas.add(leerEntrevista(reader));
         }
         reader.endArray();
         return entrevistas;
     }
 
     //ADAPTAR A JSON ENTREVISTAS
-    /*public Entrevista leerEntrevista(JsonReader reader) throws IOException {
+    public Entrevista leerEntrevista(JsonReader reader) throws IOException {
         String especie = null;
         String descripcion = null;
         String imagen = null;
@@ -70,5 +67,6 @@ public class  JsonEntrevistaParser {
         }
         reader.endObject();
         //return new Animal(especie, descripcion, imagen);
-    }*/
+        return null;
+    }
 }

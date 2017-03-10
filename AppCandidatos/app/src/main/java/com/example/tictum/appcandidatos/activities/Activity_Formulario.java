@@ -12,6 +12,7 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorPaises;
 import com.example.tictum.appcandidatos.beans.Pais;
 
+
 public class Activity_Formulario extends AppCompatActivity {
 
     private RadioGroup radioGroupExperiencia;

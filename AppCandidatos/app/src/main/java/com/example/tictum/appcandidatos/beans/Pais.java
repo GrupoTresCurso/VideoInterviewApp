@@ -1,12 +1,12 @@
 package com.example.tictum.appcandidatos.beans;
 
 /**
- * Created by Juanjo on 08/03/2017.
+ * Created by Juanjo on 10/03/2017.
  */
 
 public class Pais {
 
-    private String nombre;
+    String nombre;
 
     public Pais(String nombre) {
         this.nombre = nombre;

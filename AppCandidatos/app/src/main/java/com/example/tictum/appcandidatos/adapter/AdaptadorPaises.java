@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.example.tictum.appcandidatos.R;
+=======
+>>>>>>> 5a725690d7d5a989a2d9c7585ea5629aafe70494
 import com.example.tictum.appcandidatos.beans.Pais;
 
 /**

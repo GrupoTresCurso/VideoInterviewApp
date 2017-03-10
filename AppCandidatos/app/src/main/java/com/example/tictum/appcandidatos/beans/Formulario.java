@@ -2,20 +2,20 @@ package com.example.tictum.appcandidatos.beans;
 
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class Formulario {
 
+    
     private int idFormulario;
     private String nombreFormulario;
-    private ArrayList<Pregunta> preguntas;
+    private List<Pregunta> preguntas;
 
     public Formulario() {
     }
 
-    public Formulario(int idFormulario, String nombreFormulario, ArrayList<Pregunta> preguntas) {
-        this.idFormulario = idFormulario;
+    public Formulario(String nombreFormulario, ArrayList<Pregunta> preguntas) {
         this.nombreFormulario = nombreFormulario;
         this.preguntas = preguntas;
     }
@@ -40,7 +40,7 @@ public class Formulario {
         return nombreFormulario;
     }
 
-    public ArrayList<Pregunta> getPreguntas() {
+    public List<Pregunta> getPreguntas() {
         return preguntas;
     }
 }

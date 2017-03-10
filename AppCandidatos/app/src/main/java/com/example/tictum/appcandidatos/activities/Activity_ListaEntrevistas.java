@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorEntrevistas;
-import com.example.tictum.appcandidatos.beans.Entrevista;
 
 
 public class Activity_ListaEntrevistas extends AppCompatActivity {

@@ -2,22 +2,22 @@ package com.example.tictum.appcandidatos.beans;
 
 
 
+
 public class Usuario {
 
-
+    
     private int idUsuario;
     private String nombreUsuario;
     private String password;
-    private boolean isAdministrador;
-    private boolean isReclutador;
-    private boolean isResponsableContratacion;
-    private boolean isCandidato;
+    private boolean isAdministrador = false;
+    private boolean isReclutador = false;
+    private boolean isResponsableContratacion = false;
+    private boolean isCandidato = false;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String password, boolean isAdministrador, boolean isReclutador, boolean isResponsableContratacion, boolean isCandidato) {
-        this.idUsuario = idUsuario;
+    public Usuario(String nombreUsuario, String password, boolean isAdministrador, boolean isReclutador, boolean isResponsableContratacion, boolean isCandidato) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.isAdministrador = isAdministrador;

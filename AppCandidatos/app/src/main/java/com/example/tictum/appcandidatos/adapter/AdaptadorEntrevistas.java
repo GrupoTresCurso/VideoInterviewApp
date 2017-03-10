@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
-import com.example.tictum.appcandidatos.beans.Entrevista;
 
 public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
 
