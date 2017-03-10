@@ -3,16 +3,17 @@ package com.example.tictum.appcandidatos.beans;
 import java.util.List;
 
 public class Respuesta {
-	
+
 	private int idRespuesta;
 	private int idEntrevista;
 	private int idCandidato;
 	private List<Video> videosRespuestas;
 	private List<String> respuestas;
 	private List<Archivo> adjuntos;
-	
-	
-	
+	private int notaCandidato;
+
+
+
 	public Respuesta() {
 		super();
 	}
@@ -20,7 +21,7 @@ public class Respuesta {
 
 
 	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas,
-			List<String> respuestas, List<Archivo> adjuntos) {
+					 List<String> respuestas, List<Archivo> adjuntos) {
 		super();
 		this.idRespuesta = idRespuesta;
 		this.idEntrevista = idEntrevista;
@@ -101,7 +102,6 @@ public class Respuesta {
 	public void setAdjuntos(List<Archivo> adjuntos) {
 		this.adjuntos = adjuntos;
 	}
-	
 	
 	
 	
