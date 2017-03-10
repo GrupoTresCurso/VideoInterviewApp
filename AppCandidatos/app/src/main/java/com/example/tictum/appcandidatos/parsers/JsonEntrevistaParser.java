@@ -17,7 +17,7 @@ import java.util.List;
 
 //http://www.hermosaprogramacion.com/2015/01/android-json-parsing/
 
-public class JsonEntrevistaParser {
+public class  JsonEntrevistaParser {
 
     public List<Entrevista> readJsonStream(InputStream in) throws IOException {
         // Nueva instancia JsonReader
