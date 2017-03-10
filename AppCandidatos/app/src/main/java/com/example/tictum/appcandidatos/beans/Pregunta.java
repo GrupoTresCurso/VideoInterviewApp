@@ -1,15 +1,12 @@
-package beans;
+package com.example.tictum.appcandidatos.beans;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-@Entity
+
+
 public class Pregunta {
 
-    @Id
-    @GeneratedValue
+    
     private int idPregunta;
     private String labelPregunta;
     private String tipoPregunta;

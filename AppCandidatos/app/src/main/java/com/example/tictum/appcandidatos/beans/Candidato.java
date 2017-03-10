@@ -1,25 +1,17 @@
-package beans;
+package com.example.tictum.appcandidatos.beans;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-@Entity
 public class Candidato {
 
-    @Id
-    @GeneratedValue
+    
     private int idCandidato;
     private String nombre;
     private String apellidos;
     private String dni;
     private String email;
     private int edad;
-    @Column(columnDefinition = "TINYINT(1)")
     private boolean isHombre = false;
     private String numeroTelefono;
-    @Column(columnDefinition = "TINYINT(1)")
     private boolean entrevistaRealizada = false;
     private Integer nota;
     private String cv;

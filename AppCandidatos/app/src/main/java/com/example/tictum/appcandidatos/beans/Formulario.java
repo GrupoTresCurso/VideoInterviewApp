@@ -1,20 +1,15 @@
-package beans;
+package com.example.tictum.appcandidatos.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+
 public class Formulario {
 
-    @Id
-    @GeneratedValue
+    
     private int idFormulario;
     private String nombreFormulario;
-    @ManyToMany
     private List<Pregunta> preguntas;
 
     public Formulario() {

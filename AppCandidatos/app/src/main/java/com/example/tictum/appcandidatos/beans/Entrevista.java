@@ -1,44 +1,34 @@
-package beans;
+package com.example.tictum.appcandidatos.beans;
 
-import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+
 public class Entrevista {
 
-    @Id
-    @GeneratedValue
+    
     private int idEntrevista;
     private String nombreEntrevista;
     private String nombrePuesto;
-    @Column(columnDefinition = "TINYINT(1)")
     private boolean tieneVideoIntro = false;
-    @ManyToMany
     private List<Formulario> formularios;
-    @ManyToMany
     private List<Video> videoTransicion;
-    @ManyToMany
-    private List<Video> preguntaVideo;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "idFormulario")
+    private List<Video> preguntasVideo;
     private Formulario cuestionarioSatifaccion;
-    @ManyToMany
-    private List<Adjunto> adjunto;
     private String mensaje;
 
     public Entrevista() {
     }
 
-    public Entrevista(String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, ArrayList<Formulario> formularios, ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, ArrayList<Adjunto> adjunto, String mensaje) {
+    public Entrevista(String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, ArrayList<Formulario> formularios, ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, String mensaje) {
         this.nombreEntrevista = nombreEntrevista;
         this.nombrePuesto = nombrePuesto;
         this.tieneVideoIntro = tieneVideoIntro;
         this.formularios = formularios;
         this.videoTransicion = videoTransicion;
-        this.preguntaVideo = preguntaVideo;
+        this.preguntasVideo = preguntaVideo;
         this.cuestionarioSatifaccion = cuestionarioSatifaccion;
-        this.adjunto = adjunto;
         this.mensaje = mensaje;
     }
 
@@ -59,15 +49,11 @@ public class Entrevista {
     }
 
     public List<Video> getPreguntaVideo() {
-        return preguntaVideo;
+        return preguntasVideo;
     }
 
-    public beans.Formulario getCuestionarioSatifaccion() {
+    public Formulario getCuestionarioSatifaccion() {
         return cuestionarioSatifaccion;
-    }
-
-    public List<Adjunto> getAdjunto() {
-        return adjunto;
     }
 
     public String getMensaje() {
@@ -91,10 +77,10 @@ public class Entrevista {
     }
 
     public void setPreguntaVideo(ArrayList<Video> preguntaVideo) {
-        this.preguntaVideo = preguntaVideo;
+        this.preguntasVideo = preguntaVideo;
     }
 
-    public void setCuestionarioSatifaccion(beans.Formulario cuestionarioSatifaccion) {
+    public void setCuestionarioSatifaccion(Formulario cuestionarioSatifaccion) {
         this.cuestionarioSatifaccion = cuestionarioSatifaccion;
     }
 
@@ -112,10 +98,6 @@ public class Entrevista {
 
     public void setNombrePuesto(String nombrePuesto) {
         this.nombrePuesto = nombrePuesto;
-    }
-
-    public void setAdjunto(ArrayList<Adjunto> adjunto) {
-        this.adjunto = adjunto;
     }
 
     public void setMensaje(String mensaje) {

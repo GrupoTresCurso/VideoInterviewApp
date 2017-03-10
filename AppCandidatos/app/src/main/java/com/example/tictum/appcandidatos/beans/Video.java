@@ -1,15 +1,11 @@
-package beans;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+package com.example.tictum.appcandidatos.beans;
 
 
-@Entity
+
+
 public class Video {
 
-    @Id
-    @GeneratedValue
+    
     private int idVideo;
     private String nombreVideo;
     private String linkVideo;

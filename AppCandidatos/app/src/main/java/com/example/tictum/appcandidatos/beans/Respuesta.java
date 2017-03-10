@@ -1,5 +1,4 @@
-package beans;
-
+package com.example.tictum.appcandidatos.beans;
 import java.util.List;
 
 public class Respuesta {

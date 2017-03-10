@@ -1,4 +1,4 @@
-package beans;
+package com.example.tictum.appcandidatos.beans;
 
 public class Archivo {
 	
