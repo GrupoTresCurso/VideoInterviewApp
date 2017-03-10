@@ -2,6 +2,10 @@ package com.example.tictum.appcandidatos.parsers;
 
 import android.util.JsonReader;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3496c62faf439ded5d3c3bcaca93232e85d718d5
 import com.example.tictum.appcandidatos.beans.Entrevista;
 
 import java.io.IOException;
@@ -13,7 +17,7 @@ import java.util.List;
 
 //http://www.hermosaprogramacion.com/2015/01/android-json-parsing/
 
-public class JsonEntrevistaParser {
+public class  JsonEntrevistaParser {
 
     public List<Entrevista> readJsonStream(InputStream in) throws IOException {
         // Nueva instancia JsonReader
@@ -65,6 +69,10 @@ public class JsonEntrevistaParser {
             }
         }
         reader.endObject();
+<<<<<<< HEAD
+=======
+        //return new Animal(especie, descripcion, imagen);
+>>>>>>> 3496c62faf439ded5d3c3bcaca93232e85d718d5
         return null;
     }
 }

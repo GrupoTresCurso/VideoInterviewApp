@@ -59,11 +59,11 @@
         android:text="@string/pregunta2" />
 
     <Spinner
-        android:id="@+id/spinner_nacionalidad"
-        android:layout_marginTop="10dp"
+        android:id="@+id/pais_origen"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/btn_siguiente"
@@ -73,4 +73,5 @@
         android:layout_marginTop="70dp"
         android:text="@string/btn_siguiente"/>
 
+    
 </LinearLayout>
