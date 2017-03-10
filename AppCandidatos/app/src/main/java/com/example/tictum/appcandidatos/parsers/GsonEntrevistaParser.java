@@ -1,6 +1,5 @@
 package com.example.tictum.appcandidatos.parsers;
 
-import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 

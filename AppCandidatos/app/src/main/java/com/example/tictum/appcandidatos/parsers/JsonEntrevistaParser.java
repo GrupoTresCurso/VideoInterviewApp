@@ -3,7 +3,6 @@ package com.example.tictum.appcandidatos.parsers;
 import android.util.JsonReader;
 
 import com.example.tictum.appcandidatos.beans.Adjunto;
-import com.example.tictum.appcandidatos.beans.Entrevista;
 
 import java.io.IOException;
 import java.io.InputStream;

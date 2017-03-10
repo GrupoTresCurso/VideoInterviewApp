@@ -1,15 +1,12 @@
 package com.example.tictum.appcandidatos.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorAdjuntos;
 import com.example.tictum.appcandidatos.beans.Adjunto;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Activity_Adjuntos extends AppCompatActivity {
 

@@ -6,12 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Adjunto;
-import com.example.tictum.appcandidatos.beans.Entrevista;
 
 /**
  * Created by carmenicuadrado on 08/03/2017.
