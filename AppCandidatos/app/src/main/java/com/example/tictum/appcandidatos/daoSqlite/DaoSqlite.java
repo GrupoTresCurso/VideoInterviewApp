@@ -16,18 +16,17 @@ public class DaoSqlite extends SQLiteOpenHelper {
     // Entrevista entrevista = (Entrevista)jsonParser.getBeanById();
 
     // Constantes que creamos para la creacion de tabla entrevistas a traves de los atributos del objeto entrevista
-    private static final String TABLA_USUARIOS = "tabla_entrevistas";
+    private static final String TABLA_ENTREVISTAS = "tabla_entrevistas";
     private static final String COL_ID_ENTREVISTA = "idEntrevista";
     private static final String COL_NOMBRE_ENTREVISTA = "nombreEntrevista";
     private static final String COL_NOMBRE_PUESTO = "nombrePuesto";
     private static final String COL_TIENE_VIDEO_INTRO = "tieneVideoIntro";
-    private static final String COL_LISTA_FORMULARIOS = "formularios";
-    private static final String COL_LISTA_VIDEOS = "videoTransicion";
-    private static final String COL_LISTA_PREGUNTA_VIDEO = "preguntaVideo";
-    private static final String COL_FORMULARIO = "cuestionarioSatifaccion";
+    private static final String COL_FORMULARIO = "cuestionarioSatisfaccion";
     private static final String COL_MENSAJE = "mensaje";
 
-
+    private static final String tictalent = "CREATE TABLE " + TABLA_ENTREVISTAS + " ("
+            + COL_ID_ENTREVISTA + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_NOMBRE_ENTREVISTA + "TEXT NOT NULL )";
 
     public DaoSqlite(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

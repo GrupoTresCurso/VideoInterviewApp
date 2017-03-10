@@ -1,13 +1,13 @@
 package com.example.tictum.appcandidatos.beans;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Entrevista {
+public class Entrevista implements Serializable{
 
-    
     private int idEntrevista;
     private String nombreEntrevista;
     private String nombrePuesto;
@@ -19,6 +19,10 @@ public class Entrevista {
     private String mensaje;
 
     public Entrevista() {
+    }
+
+    public Entrevista(String nombrePuesto) {
+        this.nombrePuesto = nombrePuesto;
     }
 
     public Entrevista(String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, ArrayList<Formulario> formularios, ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, String mensaje) {

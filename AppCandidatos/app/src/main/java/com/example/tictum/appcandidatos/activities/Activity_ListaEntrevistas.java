@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorEntrevistas;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 
 
 public class Activity_ListaEntrevistas extends AppCompatActivity {
@@ -19,9 +20,9 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         setContentView(R.layout.layout__lista_entrevistas);
         // Creamos la lista de las entrevistas para hacerles un listener a cada una
         // esta lista se va a traer de la base de datos
-        Entrevista[] listaVacia = {new Entrevista("Puesto 1"),new Entrevista("Puesto 2")};
+        Entrevista[] listaEntrevista = {new Entrevista("Puesto 1"),new Entrevista("Puesto 2")};
         // el adaptador para ver la lista de las entrevistas
-        AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaVacia);
+        AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaEntrevista);
         // Donde vamos a mostrar los objetos Entrevista
         ListView listaEntrevistas = (ListView) findViewById(R.id.listaEntrevistas);
         // Adjudicamos el adaptador

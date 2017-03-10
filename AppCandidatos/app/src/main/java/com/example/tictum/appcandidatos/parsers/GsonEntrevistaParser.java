@@ -1,5 +1,6 @@
 package com.example.tictum.appcandidatos.parsers;
 
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -9,9 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by carmenicuadrado on 09/03/2017.
- */
+
 
 public class GsonEntrevistaParser {
     public List leerFlujoJson(InputStream in) throws IOException {
