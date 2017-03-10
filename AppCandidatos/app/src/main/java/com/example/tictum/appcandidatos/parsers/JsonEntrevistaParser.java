@@ -11,9 +11,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by carmenicuadrado on 08/03/2017.
- */
 
 //http://www.hermosaprogramacion.com/2015/01/android-json-parsing/
 
