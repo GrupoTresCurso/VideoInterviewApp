@@ -11,7 +11,7 @@ public class Candidato {
         private int edad;
         private boolean isHombre = false;
         private String numeroTelefono;
-        private String cv;
+        private String rutaCurriculum;
 
         public Candidato() {
         }
