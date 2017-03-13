@@ -21,11 +21,13 @@ public class Entrevista implements Serializable{
     public Entrevista() {
     }
 
+    // para pruebas se puede borrar despues
     public Entrevista(String nombrePuesto) {
         this.nombrePuesto = nombrePuesto;
     }
 
-    public Entrevista(String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, ArrayList<Formulario> formularios, ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, String mensaje) {
+    public Entrevista(String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, ArrayList<Formulario> formularios,
+                      ArrayList<Video> videoTransicion, ArrayList<Video> preguntaVideo, Formulario cuestionarioSatifaccion, String mensaje) {
         this.nombreEntrevista = nombreEntrevista;
         this.nombrePuesto = nombrePuesto;
         this.tieneVideoIntro = tieneVideoIntro;
