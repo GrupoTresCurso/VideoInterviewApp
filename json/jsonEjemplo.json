@@ -143,7 +143,7 @@
                 "edad": 30,
                 "isHombre": false,
 				"numeroTelefono":"666555888",
-				"cv": "http://tictumTalent.com/videos/cvCandidato.pdf"
+				"rutaCurriculum": "http://tictumTalent.com/videos/cvCandidato.pdf"
 			},
 			{
                 "idCandidato": 3,
@@ -154,7 +154,7 @@
                 "edad": 30,
                 "isHombre": false,
 				"numeroTelefono":"666555888",
-				"cv": "http://tictumTalent.com/videos/cvCandidato.pdf"
+				"rutaCurriculum": "http://tictumTalent.com/videos/cvCandidato.pdf"
 			}
 		]
 		
