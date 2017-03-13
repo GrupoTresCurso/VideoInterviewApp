@@ -95,7 +95,7 @@ public class DaoSqlite extends SQLiteOpenHelper {
     private static final String COL_EDAD = "edad";
     private static final String COL_IS_HOMBRE = "isHombre";
     private static final String COL_TELEFONO = "numeroTelefono";
-    private static final String COL_CV = "cv";  //CAAAAAAAAAAAMBIAR NOMBRE POR rutaCurriculum
+    private static final String COL_RUTA_CURRICULUM = "rutaCurriculum";
 
     // Creamos la tabla candidato
     private static final String TABLE_CANDIDATO = "CREATE TABLE " + TABLA_CANDIDATO + " ("
@@ -107,7 +107,7 @@ public class DaoSqlite extends SQLiteOpenHelper {
             + COL_EDAD + "INTEGER NOT NULL, "
             + COL_IS_HOMBRE + "TEXT NOT NULL, "
             + COL_TELEFONO + "TEXT NOT NULL, "
-            + COL_CV + "TEXT NOT NULL, "
+            + COL_RUTA_CURRICULUM + "TEXT NOT NULL, "
             + ");";
 
     // Constantes que creamos para la creacion de tabla Entrevista-Formulario

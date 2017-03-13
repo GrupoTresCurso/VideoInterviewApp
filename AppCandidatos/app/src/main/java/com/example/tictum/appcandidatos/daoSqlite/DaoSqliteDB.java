@@ -1,7 +1,10 @@
 package com.example.tictum.appcandidatos.daoSqlite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.tictum.appcandidatos.beans.Formulario;
 
 public class DaoSqliteDB {
 
@@ -48,5 +51,13 @@ public class DaoSqliteDB {
         db.close();
     }
 
+    // metodo de insercion de formularios recibimos un objeto formulario y lo insertamos en bd
+    public long insertarFormulario(Formulario formulario){
+        ContentValues nuevoFormulario = new ContentValues();
+        nuevoFormulario.put("idFormulario",formulario.getIdFormulario());
+        nuevoFormulario.put("nombreFormulario",formulario.getNombreFormulario());
+        // falta un atributo que se añadio despues, completar
+        return db.insert(TABLA_FORMULARIO,null, nuevoFormulario);
+    }
 
 }

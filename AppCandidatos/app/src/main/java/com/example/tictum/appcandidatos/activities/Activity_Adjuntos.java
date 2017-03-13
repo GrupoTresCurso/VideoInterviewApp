@@ -23,5 +23,6 @@ public class Activity_Adjuntos extends AppCompatActivity {
         //ListView lista = (ListView) findViewById(R.id.listaAdjuntos);
         //lista.setAdapter(adapter);
 
+
     }
 }
