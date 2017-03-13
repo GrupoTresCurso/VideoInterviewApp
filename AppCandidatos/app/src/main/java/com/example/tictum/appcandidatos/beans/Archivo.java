@@ -17,6 +17,11 @@ public class Archivo {
 		this.rutaArchivo = rutaArchivo;
 	}
 
+	public Archivo(String nombreArchivo, String rutaArchivo) {
+		this.nombreArchivo = nombreArchivo;
+		this.rutaArchivo = rutaArchivo;
+	}
+
 	public int getIdArchivo() {
 		return idArchivo;
 	}

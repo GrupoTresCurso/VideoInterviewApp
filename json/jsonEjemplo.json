@@ -1,0 +1,162 @@
+[
+	{
+		"idEntrevista": 1,
+		"nombreEntrevista": "Entrevista de prueba",
+		"nombrePuesto": "Full-Stack Developer",
+        "tieneVideoIntro": true,
+        "formularios": [
+			{
+				"idFormulario": 2,
+				"nombreFormulario": "formularioInicio",
+				"preguntas": [
+					{
+                        "idPregunta": 0,
+						"labelPregunta": "¿Cuántos años de experiencia en java tienes?",
+						"tipoPregunta": "radioButton",
+						"opciones": ["opcion1", "opcion2", "opcion3", "opcion4"],
+						"posicionEnFormulario": 1
+					},
+					{
+						"idPregunta": 0,
+                        "labelPregunta": "¿De qué pais eres?",
+						"tipoPregunta": "select",
+						"opciones": ["opcion1", "opcion2", "opcion3", "opcion4"],
+						"posicionEnFormulario": 2
+					},
+					{
+						"labelPregunta": "Marca las tecnologías con las que has trabajado",
+						"tipoPregunta": "checkBox",
+						"opciones": ["opcion1", "opcion2", "opcion3", "opcion4"],
+						"posicionEnFormulario": 3
+					},
+					{  
+                        "idPregunta": 0,
+						"labelPregunta": "¿Cuántos años tienes?",
+						"tipoPregunta": "textArea",
+						"opciones": [],
+						"posicionEnFormulario": 4
+					},
+					{
+                        "idPregunta": 0,
+						"labelPregunta": "¿Cuántos años tienes?",
+						"tipoPregunta": "text",
+						"opciones": [],
+						"posicionEnFormulario": 5
+					}
+				],
+				"posicionEnEntrevista": 2
+			}
+
+		],
+		"videoTransicion": [
+			{
+				"idVideo": 3,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 9,
+                "tipoVideo": "transicion"
+			},
+
+			{
+				"idVideo": 5,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 4,
+                "tipoVideo": "transicion"
+			}
+
+		],
+		"preguntasVideo": [
+			{
+				"idVideo": 11,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 6,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 12,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 7,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 13,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 8,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 13,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 9,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 14,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 10,
+                "tipoVideo": "pregunta"
+			}
+
+		],		
+        "cuestionarioSatifaccion": {
+				"idFormulario": 18,
+				"nombreFormulario": "formularioEstandarFeedBack",
+				"preguntas": [
+					{
+						"idPregunta": 20,
+                        "labelPregunta": "¿Cual es tu grado de satisfacción con la calidad de la entrevista?",
+						"tipoPregunta": "select",
+						"opciones": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+						"posicionEnFormulario": 1
+					},
+					{
+						"idPregunta": 21,
+                        "labelPregunta": "¿La calidad de comunicación ha sido?",
+						"tipoPregunta": "radioButton",
+						"opciones": ["opcion1", "opcion2", "opcion3", "opcion4"],
+						"posicionEnFormulario": 2
+					},										
+					{
+						"idPregunta": 22,
+                        "labelPregunta": "¿Danos tu opinion con respecto a la experiencia que has tenido al realizar esta entrevista con Video Interview App?",
+						"tipoPregunta": "textArea",
+						"opciones": [],
+						"posicionEnFormulario": 4
+					}
+				],
+				"posicionEnEntrevista": 10
+			},		
+		"mensaje": "Chao",
+        "listaCandidatos": [
+			{
+                "idCandidato": 0,
+				"nombre": "Juan",
+				"apellidos": "Pérez Herrera",
+				"dni": "05041262J",
+				"email": "emailCandidato@gmail.com",
+                "edad": 30,
+                "isHombre": false,
+				"numeroTelefono":"666555888",
+				"rutaCurriculum": "http://tictumTalent.com/videos/cvCandidato.pdf"
+			},
+			{
+                "idCandidato": 3,
+				"nombre": "Juan",
+				"apellidos": "Pérez Herrera",
+				"dni": "05041262J",
+				"email": "emailCandidato@gmail.com",
+                "edad": 30,
+                "isHombre": false,
+				"numeroTelefono":"666555888",
+				"rutaCurriculum": "http://tictumTalent.com/videos/cvCandidato.pdf"
+			}
+		]
+		
+	}
+]

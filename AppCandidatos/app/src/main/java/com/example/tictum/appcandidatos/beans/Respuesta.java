@@ -10,7 +10,7 @@ public class Respuesta {
 	private List<Video> videosRespuestas;
 	private List<String> respuestas;
 	private List<Archivo> adjuntos;
-	private int notaCandidato;
+	private float notaCandidato;
 
 
 
@@ -18,95 +18,78 @@ public class Respuesta {
 		super();
 	}
 
-
-
-	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas,
-					 List<String> respuestas, List<Archivo> adjuntos) {
-		super();
+	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
 		this.idRespuesta = idRespuesta;
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
 		this.videosRespuestas = videosRespuestas;
 		this.respuestas = respuestas;
 		this.adjuntos = adjuntos;
+		this.notaCandidato = notaCandidato;
 	}
 
-
+	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
+		this.idEntrevista = idEntrevista;
+		this.idCandidato = idCandidato;
+		this.videosRespuestas = videosRespuestas;
+		this.respuestas = respuestas;
+		this.adjuntos = adjuntos;
+		this.notaCandidato = notaCandidato;
+	}
 
 	public int getIdRespuesta() {
 		return idRespuesta;
 	}
 
-
-
 	public void setIdRespuesta(int idRespuesta) {
 		this.idRespuesta = idRespuesta;
 	}
-
-
 
 	public int getIdEntrevista() {
 		return idEntrevista;
 	}
 
-
-
 	public void setIdEntrevista(int idEntrevista) {
 		this.idEntrevista = idEntrevista;
 	}
-
-
 
 	public int getIdCandidato() {
 		return idCandidato;
 	}
 
-
-
 	public void setIdCandidato(int idCandidato) {
 		this.idCandidato = idCandidato;
 	}
-
-
 
 	public List<Video> getVideosRespuestas() {
 		return videosRespuestas;
 	}
 
-
-
 	public void setVideosRespuestas(List<Video> videosRespuestas) {
 		this.videosRespuestas = videosRespuestas;
 	}
-
-
 
 	public List<String> getRespuestas() {
 		return respuestas;
 	}
 
-
-
 	public void setRespuestas(List<String> respuestas) {
 		this.respuestas = respuestas;
 	}
-
-
 
 	public List<Archivo> getAdjuntos() {
 		return adjuntos;
 	}
 
-
-
 	public void setAdjuntos(List<Archivo> adjuntos) {
 		this.adjuntos = adjuntos;
 	}
-	
-	
-	
-	
-	
-	
 
+	public float getNotaCandidato() {
+		return notaCandidato;
+	}
+
+	public void setNotaCandidato(float notaCandidato) {
+		this.notaCandidato = notaCandidato;
+	}
 }

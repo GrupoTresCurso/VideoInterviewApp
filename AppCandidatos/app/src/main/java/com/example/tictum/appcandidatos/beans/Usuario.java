@@ -26,6 +26,16 @@ public class Usuario {
         this.isCandidato = isCandidato;
     }
 
+    public Usuario(int idUsuario, String nombreUsuario, String password, boolean isAdministrador, boolean isReclutador, boolean isResponsableContratacion, boolean isCandidato) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.isAdministrador = isAdministrador;
+        this.isReclutador = isReclutador;
+        this.isResponsableContratacion = isResponsableContratacion;
+        this.isCandidato = isCandidato;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
