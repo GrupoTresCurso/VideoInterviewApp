@@ -16,6 +16,14 @@ public class Video {
     public Video() {
     }
 
+    public Video(int idVideo, String nombreVideo, String linkVideo, int posicionEnEntrevista, String tipoVideo) {
+        this.idVideo = idVideo;
+        this.nombreVideo = nombreVideo;
+        this.linkVideo = linkVideo;
+        this.posicionEnEntrevista = posicionEnEntrevista;
+        this.tipoVideo = tipoVideo;
+    }
+
     public Video(String nombreVideo, String linkVideo, int posicionEnEntrevista, String tipoVideo) {
         this.nombreVideo = nombreVideo;
         this.linkVideo = linkVideo;

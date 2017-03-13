@@ -23,6 +23,14 @@ public class Pregunta {
         this.posicionEnFormulario = posicionEnFormulario;
     }
 
+    public Pregunta(int idPregunta, String labelPregunta, String tipoPregunta, String[] opciones, int posicionEnFormulario) {
+        this.idPregunta = idPregunta;
+        this.labelPregunta = labelPregunta;
+        this.tipoPregunta = tipoPregunta;
+        this.opciones = opciones;
+        this.posicionEnFormulario = posicionEnFormulario;
+    }
+
     public int getIdPregunta() {
         return idPregunta;
     }
