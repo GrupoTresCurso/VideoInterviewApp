@@ -17,6 +17,7 @@ public class Entrevista implements Serializable{
     private List<Video> preguntasVideo;
     private Formulario cuestionarioSatifaccion;
     private String mensaje;
+    private List<Candidato> listaCandidatos;
 
     public Entrevista() {
     }

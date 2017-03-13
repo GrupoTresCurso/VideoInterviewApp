@@ -11,6 +11,7 @@ public class Formulario {
     private int idFormulario;
     private String nombreFormulario;
     private List<Pregunta> preguntas;
+    private int posicionEnEntrevista;
 
     public Formulario() {
     }

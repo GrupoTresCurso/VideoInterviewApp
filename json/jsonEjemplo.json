@@ -1,90 +1,12 @@
 [
 	{
-		"idEntrevista": "58bd487b7ca4cfad7bbde087",
-		"titulo": "Entrevista de prueba",
-		"puestoNombre": "Full-Stack Developer",
-		"candidatos": [
+		"idEntrevista": 1,
+		"nombreEntrevista": "Entrevista de prueba",
+		"nombrePuesto": "Full-Stack Developer",
+        "tieneVideoIntro": true,
+        "formularios": [
 			{
-                "idCandidato": 0,
-				"Nombre": "Juan",
-				"Apellidos": "Pérez Herrera",
-				"DNI": "05041262J",
-				"email": "emailCandidato@gmail.com",
-				"numeroTelefono":"666555888",
-				"estrevistaRealizada": true,
-				"nota": 9,
-				"CV": "http://tictumTalent.com/videos/cvCandidato.pdf"
-			},
-			{    
-                "idCandidato": 1,
-				"Nombre": "Juan",
-				"Apellidos": "Pérez Herrera",
-				"DNI": "05041262J",
-				"email": "emailCandidato@gmail.com",
-				"numeroTelefono": "666555888",
-				"estrevistaRealizada": true,
-				"nota": 9,
-				"CV": "http://tictumTalent.com/videos/cvCandidato.pdf"
-			}
-		],
-		"videoIntro":{
-			"idVideo": "68bd487b7ca4cfad7bbde086",
-			"nombreVideo": "video-nombre",
-			"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-			"posicionEnEntrevista": 1
-		},
-		"videosTransicion": [
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde086",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 9
-			},
-
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde088",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 3
-			}
-
-		],
-		"videosPreguntas": [
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde086",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 5
-			},
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde086",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 6
-			},
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde086",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 7
-			},
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde086",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 8
-			},
-			{
-				"idVideo": "68bd487b7ca4cfad7bbde086",
-				"nombreVideo": "video-nombre",
-				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
-				"posicionEnEntrevista": 9
-			}
-
-		],
-		"formularios": [
-			{
-				"idFormulario": "68bd487b7ca4cfad7bbde086",
+				"idFormulario": 2,
 				"nombreFormulario": "formularioInicio",
 				"preguntas": [
 					{
@@ -123,46 +45,118 @@
 					}
 				],
 				"posicionEnEntrevista": 2
+			}
+
+		],
+		"videoTransicion": [
+			{
+				"idVideo": 3,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 9,
+                "tipoVideo": "transicion"
+			},
+
+			{
+				"idVideo": 5,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 4,
+                "tipoVideo": "transicion"
+			}
+
+		],
+		"preguntasVideo": [
+			{
+				"idVideo": 11,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 6,
+                "tipoVideo": "pregunta"
 			},
 			{
-				"idFormulario": "74bd487b7ca4cfad7bbde124",
+				"idVideo": 12,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 7,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 13,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 8,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 13,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 9,
+                "tipoVideo": "pregunta"
+			},
+			{
+				"idVideo": 14,
+				"nombreVideo": "video-nombre",
+				"linkVideo": "http://tictumTalent.com/videos/video-nombre.mp4",
+				"posicionEnEntrevista": 10,
+                "tipoVideo": "pregunta"
+			}
+
+		],		
+        "cuestionarioSatifaccion": {
+				"idFormulario": 18,
 				"nombreFormulario": "formularioEstandarFeedBack",
 				"preguntas": [
 					{
-						"labelPregunta": "¿Cual es tu grado de satisfacción con la calidad de la entrevista?",
+						"idPregunta": 20,
+                        "labelPregunta": "¿Cual es tu grado de satisfacción con la calidad de la entrevista?",
 						"tipoPregunta": "select",
 						"opciones": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 						"posicionEnFormulario": 1
 					},
 					{
-						"labelPregunta": "¿La calidad de comunicación ha sido?",
+						"idPregunta": 21,
+                        "labelPregunta": "¿La calidad de comunicación ha sido?",
 						"tipoPregunta": "radioButton",
 						"opciones": ["opcion1", "opcion2", "opcion3", "opcion4"],
 						"posicionEnFormulario": 2
 					},										
 					{
-						"labelPregunta": "¿Danos tu opinion con respecto a la experiencia que has tenido al realizar esta entrevista con Video Interview App?",
+						"idPregunta": 22,
+                        "labelPregunta": "¿Danos tu opinion con respecto a la experiencia que has tenido al realizar esta entrevista con Video Interview App?",
 						"tipoPregunta": "textArea",
 						"opciones": [],
 						"posicionEnFormulario": 4
 					}
 				],
 				"posicionEnEntrevista": 10
-			}
-
-		],
-		"adjuntos": [
+			},		
+		"mensaje": "Chao",
+        "listaCandidatos": [
 			{
-                "idAdjunto": 12,
-				"etiquetaAdjunto": "Adjunta tu CV"
-				
+                "idCandidato": 0,
+				"nombre": "Juan",
+				"apellidos": "Pérez Herrera",
+				"dni": "05041262J",
+				"email": "emailCandidato@gmail.com",
+                "edad": 30,
+                "isHombre": false,
+				"numeroTelefono":"666555888",
+				"cv": "http://tictumTalent.com/videos/cvCandidato.pdf"
+			},
+			{
+                "idCandidato": 3,
+				"nombre": "Juan",
+				"apellidos": "Pérez Herrera",
+				"dni": "05041262J",
+				"email": "emailCandidato@gmail.com",
+                "edad": 30,
+                "isHombre": false,
+				"numeroTelefono":"666555888",
+				"cv": "http://tictumTalent.com/videos/cvCandidato.pdf"
 			}
-		],
-		"mensajeDespedida": "Chao",
-		{
-			"mensaje":"Muchas Gracias",
-			"posicionEnEntrevista":12
-		}
-
+		]
+		
 	}
 ]
