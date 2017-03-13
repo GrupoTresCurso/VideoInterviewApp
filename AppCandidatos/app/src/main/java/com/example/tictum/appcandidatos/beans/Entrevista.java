@@ -15,7 +15,7 @@ public class Entrevista implements Serializable{
     private List<Formulario> formularios;
     private List<Video> videoTransicion;
     private List<Video> preguntasVideo;
-    private Formulario cuestionarioSatifaccion;
+    private Formulario cuestionarioSatisfaccion;
     private String mensaje;
     private List<Candidato> listaCandidatos;
 
@@ -35,7 +35,7 @@ public class Entrevista implements Serializable{
         this.formularios = formularios;
         this.videoTransicion = videoTransicion;
         this.preguntasVideo = preguntasVideo;
-        this.cuestionarioSatifaccion = cuestionarioSatifaccion;
+        this.cuestionarioSatisfaccion = cuestionarioSatifaccion;
         this.mensaje = mensaje;
         this.listaCandidatos = listaCandidatos;
     }
@@ -47,7 +47,7 @@ public class Entrevista implements Serializable{
         this.formularios = formularios;
         this.videoTransicion = videoTransicion;
         this.preguntasVideo = preguntasVideo;
-        this.cuestionarioSatifaccion = cuestionarioSatifaccion;
+        this.cuestionarioSatisfaccion = cuestionarioSatifaccion;
         this.mensaje = mensaje;
         this.listaCandidatos = listaCandidatos;
     }
@@ -76,7 +76,7 @@ public class Entrevista implements Serializable{
         this.nombrePuesto = nombrePuesto;
     }
 
-    public boolean isTieneVideoIntro() {
+    public boolean TieneVideoIntro() {
         return tieneVideoIntro;
     }
 
@@ -109,11 +109,11 @@ public class Entrevista implements Serializable{
     }
 
     public Formulario getCuestionarioSatifaccion() {
-        return cuestionarioSatifaccion;
+        return cuestionarioSatisfaccion;
     }
 
     public void setCuestionarioSatifaccion(Formulario cuestionarioSatifaccion) {
-        this.cuestionarioSatifaccion = cuestionarioSatifaccion;
+        this.cuestionarioSatisfaccion = cuestionarioSatifaccion;
     }
 
     public String getMensaje() {

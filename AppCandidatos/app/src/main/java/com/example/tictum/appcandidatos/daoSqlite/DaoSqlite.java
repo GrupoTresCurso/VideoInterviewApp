@@ -6,19 +6,8 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 
 public class DaoSqlite extends SQLiteOpenHelper {
-
-    // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
-    JsonEntrevistaParser jsonParser = new JsonEntrevistaParser();
-    // Obtenemos el objeto entrevista a partir de un metodo
-    // Entrevista entrevista = (Entrevista)jsonParser.getBeanById();
-
-    // debemos crear una version para la base de datos para futuros cambios
-    private static final int VERSION = 1;
-    // nombre de la base de datos donde vamos a tener todas las tablas
-    private static final String NOMBRE_BBDD = "tictalent";
 
     // Constantes que creamos para la creacion de tabla formulario a traves de los atributos del objeto formulario
     private static final String TABLA_FORMULARIO = "tabla_formulario";
@@ -176,12 +165,12 @@ public class DaoSqlite extends SQLiteOpenHelper {
             +");";
 
     // contructores por defecto de la clase DaoSqlite
-    public DaoSqlite(Context context, String NOMBRE_BD, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, NOMBRE_BBDD, factory, VERSION);
+    public DaoSqlite(Context context, String nameDB, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, nameDB, factory, version);
     }
 
-    public DaoSqlite(Context context, String NOMBRE_BD, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
-        super(context, NOMBRE_BBDD, factory, VERSION, errorHandler);
+    public DaoSqlite(Context context, String nameDB, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+        super(context, nameDB, factory, version, errorHandler);
     }
 
     // Para la creacion de las tablas
