@@ -1,4 +1,4 @@
-package com.example.tictum.appcandidatos.daoSqlite;
+package com.example.tictum.appcandidatos.sqliteDAO;
 
 
 import android.content.Context;

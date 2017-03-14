@@ -27,9 +27,7 @@ public class Activity_Formulario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout__formulario);
 
-
         radioGroupExperiencia = (RadioGroup) findViewById(R.id.radio_group_experiencia);
-
 
         Pais espania = new Pais("España");
         Pais uk = new Pais("Inglaterra");
@@ -45,7 +43,6 @@ public class Activity_Formulario extends AppCompatActivity {
         spinnerNacionalidad.setDropDownViewResource(R.layout.item_paises);
 
         spinner.setAdapter(spinnerNacionalidad);
-
 
         btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
 

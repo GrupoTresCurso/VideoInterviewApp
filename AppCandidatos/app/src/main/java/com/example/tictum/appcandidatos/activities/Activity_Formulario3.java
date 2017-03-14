@@ -34,9 +34,6 @@ public class Activity_Formulario3 extends AppCompatActivity {
 
                 Intent intent = new Intent(Activity_Formulario3.this,Activity_Formulario4.class);
 
-
-
-
                 startActivity(intent);
             }
         });

@@ -25,10 +25,7 @@ public class Activity_Formulario4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
             }
         });
-
-
     }
 }
