@@ -116,10 +116,10 @@ public class DaoSqlite extends SQLiteOpenHelper {
 
     // Constantes que creamos para la creacion de tabla Formulario_Pregunta
     private static final String TABLA_FORMULARIO_PREGUNTA = "tabla_formulario_pregunta";
-    private static final String COL_ID_FORM = "idEntrevista";
+    private static final String COL_ID_FORM = "idFormulario";
     private static final String COL_IDPREGUNTA = "idPregunta";
 
-    // Creamos la tabla Entrevista-Formulario
+    // Creamos la tabla Formulario_Pregunta
     private static final String TABLE_FORMULARIO_PREGUNTA = "CREATE TABLE " + TABLA_FORMULARIO_PREGUNTA + " ("
             + COL_ID_FORM + " INTEGER NOT NULL, "
             + COL_IDPREGUNTA + " INTEGER NOT NULL, "
@@ -138,19 +138,6 @@ public class DaoSqlite extends SQLiteOpenHelper {
             + COL_IDVIDEO + " INTEGER NOT NULL, "
             + "FOREIGN KEY("+ COL_ID_ENTREVIST +") REFERENCES "+ TABLA_ENTREVISTA +"("+ COL_ID_ENTREVISTA +"), "
             + "FOREIGN KEY("+ COL_IDVIDEO +") REFERENCES "+ TABLA_VIDEO +"("+ COL_ID_VIDEO +")"
-            +");";
-
-    // Constantes que creamos para la creacion de tabla Entrevista-VideoTransicion
-    private static final String TABLA_ENTREVISTA_VIDEO_TRANSICION = "tabla_entrevista_video_transicion";
-    private static final String COL_IDENTREVIST = "idEntrevista";
-    private static final String COL_IDVIDEO_T = "idVideo";
-
-    // Creamos la tabla Entrevista-Video
-    private static final String TABLE_ENTREVISTA_VIDEO_TRANSICION = "CREATE TABLE " + TABLA_ENTREVISTA_VIDEO_TRANSICION + " ("
-            + COL_IDENTREVIST + " INTEGER NOT NULL, "
-            + COL_IDVIDEO_T + " INTEGER NOT NULL, "
-            + "FOREIGN KEY("+ COL_IDENTREVIST +") REFERENCES "+ TABLA_ENTREVISTA +"("+ COL_ID_ENTREVISTA +"), "
-            + "FOREIGN KEY("+ COL_IDVIDEO_T +") REFERENCES "+ TABLA_VIDEO +"("+ COL_ID_VIDEO +")"
             +");";
 
     // Constantes que creamos para la creacion de tabla Entrevista-Candidato
@@ -186,7 +173,6 @@ public class DaoSqlite extends SQLiteOpenHelper {
         db.execSQL(TABLE_ENTREVISTA_FORMULARIO);
         db.execSQL(TABLE_FORMULARIO_PREGUNTA);
         db.execSQL(TABLE_ENTREVISTA_VIDEO);
-        db.execSQL(TABLE_ENTREVISTA_VIDEO_TRANSICION);
         db.execSQL(TABLE_ENTREVISTA_CANDIDATO);
     }
 
