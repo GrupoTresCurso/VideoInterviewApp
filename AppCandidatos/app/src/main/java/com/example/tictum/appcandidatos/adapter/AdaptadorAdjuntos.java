@@ -9,19 +9,19 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
-import com.example.tictum.appcandidatos.beans.Adjunto;
+import com.example.tictum.appcandidatos.beans.Archivo;
 
 /**
  * Created by carmenicuadrado on 08/03/2017.
  */
 
-public class AdaptadorAdjuntos extends ArrayAdapter<Adjunto> {
+public class AdaptadorAdjuntos extends ArrayAdapter<Archivo> {
 
     class ViewHolder{
         TextView etiquetaAdjunto;
     }
     // constructor del adaptador para mostrar la lista de adjuntos
-    public AdaptadorAdjuntos(Context context, Adjunto[] listaAdjuntos) {
+    public AdaptadorAdjuntos(Context context, Archivo[] listaAdjuntos) {
         super(context, R.layout.item_adjunto, listaAdjuntos);
     }
 
@@ -44,7 +44,7 @@ public class AdaptadorAdjuntos extends ArrayAdapter<Adjunto> {
         }
 
 
-        holder.etiquetaAdjunto.setText(getItem(position).getEtiquetaAdjunto());
+        holder.etiquetaAdjunto.setText(getItem(position).getNombreArchivo());
         return (itemView);
     }
 }

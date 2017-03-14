@@ -2,10 +2,9 @@ package com.example.tictum.appcandidatos.parsers;
 
 import android.util.JsonReader;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 3496c62faf439ded5d3c3bcaca93232e85d718d5
+
+
 import com.example.tictum.appcandidatos.beans.Entrevista;
 
 import java.io.IOException;
@@ -69,10 +68,9 @@ public class  JsonEntrevistaParser {
             }
         }
         reader.endObject();
-<<<<<<< HEAD
-=======
+
         //return new Animal(especie, descripcion, imagen);
->>>>>>> 3496c62faf439ded5d3c3bcaca93232e85d718d5
+
         return null;
     }
 }
