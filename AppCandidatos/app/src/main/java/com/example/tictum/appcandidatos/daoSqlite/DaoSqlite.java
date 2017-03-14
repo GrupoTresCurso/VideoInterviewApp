@@ -44,7 +44,7 @@ public class DaoSqlite extends SQLiteOpenHelper {
 
     // Constantes que creamos para la creacion de tabla pregunta a traves de los atributos del objeto pregunta
     private static final String TABLA_PREGUNTA = "tabla_pregunta";
-    private static final String COL_ID_PREGUNTA = "idEntrevista";
+    private static final String COL_ID_PREGUNTA = "idPregunta";
     private static final String COL_LABEL_PREGUNTA = "labelPregunta";
     private static final String COL_TIPO_PREGUNTA = "tipoPregunta";
     private static final String COL_OPCIONES = "opciones";

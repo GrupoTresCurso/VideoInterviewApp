@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
+import com.example.tictum.appcandidatos.beans.Pregunta;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ public class DaoSqliteDB {
     private static final String TABLA_ENTREVISTA_FORMULARIO = "tabla_entrevista_formulario";
     private static final String TABLA_FORMULARIO_PREGUNTA = "tabla_formulario_pregunta";
     private static final String TABLA_ENTREVISTA_VIDEO = "tabla_entrevista_video";
-    private static final String TABLA_ENTREVISTA_VIDEO_TRANSICION = "tabla_entrevista_video_transicion";
     private static final String TABLA_ENTREVISTA_CANDIDATO = "tabla_entrevista_candidato";
 
     // atributos necesarios para usar en esta clase
@@ -144,7 +144,7 @@ public class DaoSqliteDB {
         return db.insert(TABLA_ENTREVISTA, null, nuevaEntrevista);
     }
 
-    // metodo para recuperar un formulario de la base de datos
+    // metodo para recuperar una Entrevista de la base de datos
     public Entrevista getEntrevista(int idEntrevista){
         // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_ENTREVISTA + " WHERE idEntrevista = " + idEntrevista, null);
@@ -157,18 +157,18 @@ public class DaoSqliteDB {
         Entrevista entrevista = new Entrevista();
         // si el cursor contiene un resultado en este caso
         // cursor es un array donde en cada posicion esta cada campo de la tabla
+
+        boolean ToF;
+        if (cursor.getInt(3) == 1){ // Si contiene un 1 devolvemos true
+            ToF = true;
+        } else { // si no devolvemos false
+            ToF = false;
+        }
+
         if (cursor.moveToFirst()){
             entrevista.setIdEntrevista(cursor.getInt(0));
             entrevista.setNombreEntrevista(cursor.getString(1));
             entrevista.setNombrePuesto(cursor.getString(2));
-
-            boolean ToF;
-            if (cursor.getInt(3) == 1){ // Si contiene un 1 devolvemos true
-                ToF = true;
-            } else { // si no devolvemos false
-                ToF = false;
-            }
-
             entrevista.setTieneVideoIntro(ToF);
             entrevista.setCuestionarioSatisfaccion(getFormulario(cursor.getInt(4)));
             entrevista.setMensaje(cursor.getString(5));
@@ -211,6 +211,72 @@ public class DaoSqliteDB {
         // devolvemos la lista de formularios
         return listaEntrevistas;
     }
+    // metodo de insercion de formularios recibimos un objeto formulario y lo insertamos en bd
+    public long insertPregunta(Pregunta pregunta){
+        ContentValues nuevaPregunta = new ContentValues();
+        nuevaPregunta.put("idPregunta", pregunta.getIdPregunta());
+        nuevaPregunta.put("labelPregunta",pregunta.getLabelPregunta());
+        nuevaPregunta.put("tipoPregunta", pregunta.getTipoPregunta());
+        nuevaPregunta.put("opciones", pregunta.getOpciones().toString());
+        nuevaPregunta.put("posicionEnFormulario",pregunta.getPosicionEnFormulario());
+        return db.insert(TABLA_PREGUNTA, null, nuevaPregunta);
+    }
+
+    // metodo para recuperar un formulario de la base de datos
+    public Pregunta getPregunta(int idPregunta){
+        // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_PREGUNTA + " WHERE idPregunta = " + idPregunta, null);
+        // si el cursor no devuelve resultados lo cerramos
+        if (cursor.getCount() == 0){
+            cursor.close();
+            return  null;
+        }
+        // Creamos objeto formulario que vamos a devolver posteriormente
+        Pregunta pregunta = new Pregunta();
+        // si el cursor contiene un resultado en este caso
+        // cursor es un array donde en cada posicion esta cada campo de la tabla
+        String[] arrayOpciones = cursor.getString(3).split(",");
+        if (cursor.moveToFirst()){
+            pregunta.setIdPregunta(cursor.getInt(0));
+            pregunta.setLabelPregunta(cursor.getString(1));
+            pregunta.setTipoPregunta(cursor.getString(2));
+            pregunta.setOpciones(arrayOpciones);
+            pregunta.setPosicionEnFormulario(cursor.getInt(4));
+        }
+        // cerramos cursor para que elimine lo que tiene
+        cursor.close();
+        // devolvemos objeto pregunta con los campos pertenecientes a su id
+        return pregunta;
+    }
+
+    // metodo para obtener todos los objetos formulario de la base de datos
+    public ArrayList<Pregunta> getAllPreguntas(){
+        // obtenemos todos los registros de la tabla formulario
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_PREGUNTA, null);
+        // si el cursor no devuelve resultados lo cerramos
+        if (cursor.getCount() == 0){
+            cursor.close();
+            return  null;
+        }
+        //  creamos la lista donde vamos a tener todos los objetos pregunta
+        ArrayList<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
+        // mientras que haya resultados en el cursor los convertimos en objetos pregunta
+        while (cursor.moveToNext()){
+            Pregunta pregunta = new Pregunta();
+            pregunta.setIdPregunta(cursor.getInt(0));
+            pregunta.setLabelPregunta(cursor.getString(1));
+            pregunta.setTipoPregunta(cursor.getString(2));
+            String[] arrayOpciones = cursor.getString(3).split(",");
+            pregunta.setOpciones(arrayOpciones);
+            pregunta.setPosicionEnFormulario(cursor.getInt(4));
+            listaPreguntas.add(pregunta);
+        }
+        cursor.close();
+        // devolvemos la lista de formularios
+        return listaPreguntas;
+    }
+
+
 
 
 }
