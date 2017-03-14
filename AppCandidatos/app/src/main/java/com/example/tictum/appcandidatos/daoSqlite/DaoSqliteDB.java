@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
+import com.example.tictum.appcandidatos.beans.Video;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 
 import java.util.ArrayList;
@@ -211,6 +212,39 @@ public class DaoSqliteDB {
         // devolvemos la lista de formularios
         return listaEntrevistas;
     }
+
+    /******* Métodos videos *******/
+
+    // metodo para recuperar un video de la base de datos
+    public Video getVideo(int idVideo){
+        // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_VIDEO + " WHERE idVideo = " + idVideo, null);
+        // si el cursor no devuelve resultados lo cerramos
+        if (cursor.getCount() == 0){
+            cursor.close();
+            return  null;
+        }
+        // Creamos objeto video que vamos a devolver posteriormente
+        Video video = new Video();
+        // si el cursor contiene un resultado en este caso
+        // cursor es un array donde en cada posicion esta cada campo de la tabla
+        if (cursor.moveToFirst()){
+            video.setIdVideo(cursor.getInt(0));
+            video.setNombreVideo(cursor.getString(1));
+            video.setPosicionEnEntrevista(cursor.getInt(2));
+        }
+        // cerramos cursor para que elimine lo que tiene
+        cursor.close();
+        // devolvemos objeto video con los campos pertenecientes a su id
+        return video;
+    }
+
+
+
+
+
+
+
 
 
 }
