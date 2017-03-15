@@ -151,7 +151,7 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_IDRESPUEST + "INTEGER NOT NULL, "
             + COL_ID_ARCHIVO + "INTEGER NOT NULL, "
             + "FOREIGN KEY("+ COL_IDRESPUEST +") REFERENCES "+ TABLA_RESPUESTA +"("+ COL_ID_RESPUESTA +"), "
-            + "FOREIGN KEY("+ COL_ID_ARCHIVO +") REFERENCES "+ TABLA_VIDEO +"("+ COL_ID_VIDEO +")"
+            + "FOREIGN KEY("+ COL_ID_ARCHIVO +") REFERENCES "+ TABLA_ARCHIVO +"("+ COL_ID_ARCHIVO +")"
             +");";
 
     // Constantes que creamos para la creacion de tabla Entrevista-Formulario
