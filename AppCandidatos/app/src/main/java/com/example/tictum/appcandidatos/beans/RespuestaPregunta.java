@@ -1,23 +1,20 @@
 package com.example.tictum.appcandidatos.beans;
 
-/**
- * Created by Usuario on 15/03/2017.
- */
 
 public class RespuestaPregunta {
 
     private int idRespuestaPregunta;
-    private int idPreunta;
+    private int idPregunta;
     private String respuestaString;
 
-    public RespuestaPregunta(int idRespuestaPregunta, int idPreunta, String respuestaString) {
+    public RespuestaPregunta(int idRespuestaPregunta, int idPregunta, String respuestaString) {
         this.idRespuestaPregunta = idRespuestaPregunta;
-        this.idPreunta = idPreunta;
+        this.idPregunta = idPregunta;
         this.respuestaString = respuestaString;
     }
 
-    public RespuestaPregunta(int idPreunta, String respuestaString) {
-        this.idPreunta = idPreunta;
+    public RespuestaPregunta(int idPregunta, String respuestaString) {
+        this.idPregunta = idPregunta;
         this.respuestaString = respuestaString;
     }
 

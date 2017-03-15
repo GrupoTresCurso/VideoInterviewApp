@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.tictum.appcandidatos.beans.Candidato;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Video;
@@ -171,7 +172,18 @@ public class EntrevistaDAO {
             nuevaEntrevistaVideo.put("idEntrevista",entrevista.getIdEntrevista());
             nuevaEntrevistaVideo.put("idVideo",video.getIdVideo());
         }
-        return db.insert(TABLA_ENTREVISTA_FORMULARIO, null, nuevaEntrevistaVideo);
+        return db.insert(TABLA_ENTREVISTA_VIDEO, null, nuevaEntrevistaVideo);
+    }
+
+    public long insertEntrevistaCandidato(Entrevista entrevista){
+        ContentValues nuevaEntrevistaCandidato = new ContentValues();
+        List<Candidato> listaCandidatos = entrevista.getListaCandidatos();
+        for (Candidato candidato : listaCandidatos) {
+            nuevaEntrevistaCandidato.put("idEntrevista",entrevista.getIdEntrevista());
+            nuevaEntrevistaCandidato.put("idCandidato",candidato.getIdCandidato());
+        }
+        return db.insert(TABLA_ENTREVISTA_CANDIDATO, null, nuevaEntrevistaCandidato);
+
     }
 
 }

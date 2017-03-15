@@ -1,9 +1,14 @@
 package com.example.tictum.appcandidatos.sqliteDAO;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.tictum.appcandidatos.beans.Candidato;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
+
+import java.util.ArrayList;
 
 public class CandidatoDAO {
     // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
@@ -47,4 +52,95 @@ public class CandidatoDAO {
     public void close(){
         db.close();
     }
+
+    public long insertCandidato(Candidato candidato){
+
+        int ToF;
+        if (candidato.isHombre()){ // Si contiene un true guardamos 1 en base de datos
+            ToF = 1;
+        } else { // si no guardamos un 0
+            ToF = 0;
+        }
+
+        ContentValues nuevoCandidato = new ContentValues();
+        nuevoCandidato.put("idCandidato",candidato.getIdCandidato());
+        nuevoCandidato.put("nombre",candidato.getNombre());
+        nuevoCandidato.put("apellidos",candidato.getApellidos());
+        nuevoCandidato.put("dni",candidato.getDni());
+        nuevoCandidato.put("email",candidato.getEmail());
+        nuevoCandidato.put("edad",candidato.getEdad());
+        nuevoCandidato.put("isHombre",ToF);
+        nuevoCandidato.put("telefono",candidato.getNumeroTelefono());
+        nuevoCandidato.put("rutaCurriculum",candidato.getRutaCurriculum());
+        return db.insert(TABLA_CANDIDATO, null, nuevoCandidato);
+    }
+
+    public Candidato getCandidato(int idCandidato){
+        // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_CANDIDATO + " WHERE idEntrevista = " + idCandidato, null);
+        // si el cursor no devuelve resultados lo cerramos
+        if (cursor.getCount() == 0){
+            cursor.close();
+            return  null;
+        }
+
+        boolean ToF;
+        if (cursor.getInt(6) == 1){ // Si contiene un 1 devolvemos true
+            ToF = true;
+        } else { // si no devolvemos false
+            ToF = false;
+        }
+
+        Candidato candidato = new Candidato();
+
+        if (cursor.moveToFirst()){
+            candidato.setIdCandidato(cursor.getInt(0));
+            candidato.setNombre(cursor.getString(1));
+            candidato.setApellidos(cursor.getString(2));
+            candidato.setDni(cursor.getString(3));
+            candidato.setEmail(cursor.getString(4));
+            candidato.setEdad(cursor.getInt(5));
+            candidato.setHombre(ToF);
+            candidato.setNumeroTelefono(cursor.getString(7));
+            candidato.setRutaCurriculum(cursor.getString(8));
+        }
+        // cerramos cursor para que elimine lo que tiene
+        cursor.close();
+        return candidato;
+    }
+
+    public ArrayList<Candidato> getAllCandidatos(){
+        // obtenemos todos los registros de la tabla candidato
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_CANDIDATO, null);
+        // si el cursor no devuelve resultados lo cerramos
+        if (cursor.getCount() == 0){
+            cursor.close();
+            return  null;
+        }
+        ArrayList<Candidato> listaCandidatos = new ArrayList<Candidato>();
+        while (cursor.moveToNext()){
+            Candidato candidato = new Candidato();
+            candidato.setIdCandidato(cursor.getInt(0));
+            candidato.setNombre(cursor.getString(1));
+            candidato.setApellidos(cursor.getString(2));
+            candidato.setDni(cursor.getString(3));
+            candidato.setEmail(cursor.getString(4));
+            candidato.setEdad(cursor.getInt(5));
+            boolean ToF;
+            if (cursor.getInt(6) == 1){ // Si contiene un 1 devolvemos true
+                ToF = true;
+            } else { // si no devolvemos false
+                ToF = false;
+            }
+            candidato.setHombre(ToF);
+            candidato.setNumeroTelefono(cursor.getString(7));
+            candidato.setRutaCurriculum(cursor.getString(8));
+        }
+        cursor.close();
+
+
+        return listaCandidatos;
+
+    }
+
 }

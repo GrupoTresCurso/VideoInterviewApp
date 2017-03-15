@@ -19,7 +19,7 @@ public class SqliteDB extends SQLiteOpenHelper {
     private static final String TABLE_FORMULARIO = "CREATE TABLE " + TABLA_FORMULARIO + " ("
             + COL_ID_FORMULARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NOMBRE_FORMULARIO + "TEXT NOT NULL, "
-            + COL_POS_EN_ENTREVISTA + "INTEGER"
+            + COL_POS_EN_ENTREVISTA + "INTEGER NOT NULL"
             +");";
 
     // Constantes que creamos para la creacion de tabla entrevista a traves de los atributos del objeto entrevista
@@ -36,8 +36,8 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_ID_ENTREVISTA + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NOMBRE_ENTREVISTA + "TEXT NOT NULL, "
             + COL_NOMBRE_PUESTO + "TEXT NOT NULL, "
-            + COL_TIENE_VIDEO_INTRO + "INTEGER(1), "
-            + COL_FORMULARIO + "INTEGER, "
+            + COL_TIENE_VIDEO_INTRO + "INTEGER(1) NOT NULL, "
+            + COL_FORMULARIO + "INTEGER NOT NULL, "
             + COL_MENSAJE + "TEXT NOT NULL,"
             + "FOREIGN KEY("+ COL_FORMULARIO +") REFERENCES "+ TABLA_FORMULARIO +"("+ COL_ID_FORMULARIO +")"
             +");";
@@ -56,7 +56,7 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_LABEL_PREGUNTA + "TEXT NOT NULL, "
             + COL_TIPO_PREGUNTA + "TEXT NOT NULL, "
             + COL_OPCIONES + "TEXT NOT NULL, "
-            + COL_POS_FORMULARIO + "INTEGER"
+            + COL_POS_FORMULARIO + "INTEGER NOT NULL"
             + ");";
 
     // Constantes que creamos para la creacion de tabla video a traves de los atributos del objeto video
@@ -72,7 +72,7 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_ID_VIDEO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NOMBRE_VIDEO + "TEXT NOT NULL, "
             + COL_LINK_VIDEO + "TEXT NOT NULL, "
-            + COL_POS_ENTREVISTA + "INTEGER, "
+            + COL_POS_ENTREVISTA + "INTEGER NOT NULL, "
             + COL_TIPO_VIDEO + "TEXT NOT NULL"
             + ");";
 
@@ -84,7 +84,7 @@ public class SqliteDB extends SQLiteOpenHelper {
     private static final String COL_DNI = "dni";
     private static final String COL_EMAIL = "email";
     private static final String COL_EDAD = "edad";
-    private static final String COL_IS_HOMBRE = "isHombre";
+    private static final String COL_SEXO = "sexo";
     private static final String COL_TELEFONO = "numeroTelefono";
     private static final String COL_RUTA_CURRICULUM = "rutaCurriculum";
 
@@ -96,7 +96,7 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_DNI + "TEXT NOT NULL, "
             + COL_EMAIL + "TEXT NOT NULL, "
             + COL_EDAD + "INTEGER NOT NULL, "
-            + COL_IS_HOMBRE + "TEXT NOT NULL, "
+            + COL_SEXO + "TEXT NOT NULL, "
             + COL_TELEFONO + "TEXT NOT NULL, "
             + COL_RUTA_CURRICULUM + "TEXT NOT NULL"
             + ");";
