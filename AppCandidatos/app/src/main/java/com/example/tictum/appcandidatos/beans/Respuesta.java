@@ -9,27 +9,27 @@ public class Respuesta {
 	private int idCandidato;
 	private List<Video> videosRespuestas;
 	private List<String> respuestas;
-	private List<Archivo> adjuntos;
+	private List<Archivo> archivosAdjuntos;
 	private float notaCandidato;
 
 	public Respuesta() {}
 
-	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
+	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
 		this.idRespuesta = idRespuesta;
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
 		this.videosRespuestas = videosRespuestas;
 		this.respuestas = respuestas;
-		this.adjuntos = adjuntos;
+		this.archivosAdjuntos = archivosAdjuntos;
 		this.notaCandidato = notaCandidato;
 	}
 
-	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
+	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
 		this.videosRespuestas = videosRespuestas;
 		this.respuestas = respuestas;
-		this.adjuntos = adjuntos;
+		this.archivosAdjuntos = archivosAdjuntos;
 		this.notaCandidato = notaCandidato;
 	}
 
@@ -73,12 +73,12 @@ public class Respuesta {
 		this.respuestas = respuestas;
 	}
 
-	public List<Archivo> getAdjuntos() {
-		return adjuntos;
+	public List<Archivo> getArchivosAdjuntos() {
+		return archivosAdjuntos;
 	}
 
-	public void setAdjuntos(List<Archivo> adjuntos) {
-		this.adjuntos = adjuntos;
+	public void setArchivosAdjuntos(List<Archivo> archivosAdjuntos) {
+		this.archivosAdjuntos = archivosAdjuntos;
 	}
 
 	public float getNotaCandidato() {
