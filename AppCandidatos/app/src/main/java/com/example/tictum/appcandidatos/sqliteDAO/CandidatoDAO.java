@@ -55,13 +55,6 @@ public class CandidatoDAO {
 
     public long insertCandidato(Candidato candidato){
 
-        int ToF;
-        if (candidato.isHombre()){ // Si contiene un true guardamos 1 en base de datos
-            ToF = 1;
-        } else { // si no guardamos un 0
-            ToF = 0;
-        }
-
         ContentValues nuevoCandidato = new ContentValues();
         nuevoCandidato.put("idCandidato",candidato.getIdCandidato());
         nuevoCandidato.put("nombre",candidato.getNombre());
@@ -69,7 +62,7 @@ public class CandidatoDAO {
         nuevoCandidato.put("dni",candidato.getDni());
         nuevoCandidato.put("email",candidato.getEmail());
         nuevoCandidato.put("edad",candidato.getEdad());
-        nuevoCandidato.put("isHombre",ToF);
+        nuevoCandidato.put("isHombre",candidato.getSexo());
         nuevoCandidato.put("telefono",candidato.getNumeroTelefono());
         nuevoCandidato.put("rutaCurriculum",candidato.getRutaCurriculum());
         return db.insert(TABLA_CANDIDATO, null, nuevoCandidato);
@@ -84,13 +77,6 @@ public class CandidatoDAO {
             return  null;
         }
 
-        boolean ToF;
-        if (cursor.getInt(6) == 1){ // Si contiene un 1 devolvemos true
-            ToF = true;
-        } else { // si no devolvemos false
-            ToF = false;
-        }
-
         Candidato candidato = new Candidato();
 
         if (cursor.moveToFirst()){
@@ -100,7 +86,7 @@ public class CandidatoDAO {
             candidato.setDni(cursor.getString(3));
             candidato.setEmail(cursor.getString(4));
             candidato.setEdad(cursor.getInt(5));
-            candidato.setHombre(ToF);
+            candidato.setSexo(cursor.getString(6));
             candidato.setNumeroTelefono(cursor.getString(7));
             candidato.setRutaCurriculum(cursor.getString(8));
         }
@@ -126,21 +112,12 @@ public class CandidatoDAO {
             candidato.setDni(cursor.getString(3));
             candidato.setEmail(cursor.getString(4));
             candidato.setEdad(cursor.getInt(5));
-            boolean ToF;
-            if (cursor.getInt(6) == 1){ // Si contiene un 1 devolvemos true
-                ToF = true;
-            } else { // si no devolvemos false
-                ToF = false;
-            }
-            candidato.setHombre(ToF);
+            candidato.setSexo(cursor.getString(6));
             candidato.setNumeroTelefono(cursor.getString(7));
             candidato.setRutaCurriculum(cursor.getString(8));
         }
         cursor.close();
-
-
         return listaCandidatos;
-
     }
 
 }
