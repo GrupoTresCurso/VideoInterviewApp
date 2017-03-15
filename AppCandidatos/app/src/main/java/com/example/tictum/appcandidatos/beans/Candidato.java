@@ -9,34 +9,34 @@ public class Candidato {
         private String dni;
         private String email;
         private int edad;
-        private boolean isHombre = false;
+        private String sexo;
         private String numeroTelefono;
         private String rutaCurriculum;
 
         public Candidato() {
         }
 
-        public Candidato(int idCandidato, String nombre, String apellidos, String dni, String email, int edad,
-                         boolean isHombre, String numeroTelefono, String rutaCurriculum) {
-            super();
-            this.idCandidato = idCandidato;
-            this.nombre = nombre;
-            this.apellidos = apellidos;
-            this.dni = dni;
-            this.email = email;
-            this.edad = edad;
-            this.isHombre = isHombre;
-            this.numeroTelefono = numeroTelefono;
-            this.rutaCurriculum = rutaCurriculum;
-        }
-
-    public Candidato(String nombre, String apellidos, String dni, String email, int edad, boolean isHombre, String numeroTelefono, String rutaCurriculum) {
+    public Candidato(int idCandidato, String nombre, String apellidos, String dni, String email,
+                     int edad, String sexo, String numeroTelefono, String rutaCurriculum) {
+        this.idCandidato = idCandidato;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.email = email;
         this.edad = edad;
-        this.isHombre = isHombre;
+        this.sexo = sexo;
+        this.numeroTelefono = numeroTelefono;
+        this.rutaCurriculum = rutaCurriculum;
+    }
+
+    public Candidato(String nombre, String apellidos, String dni, String email, int edad,
+                     String sexo, String numeroTelefono, String rutaCurriculum) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.email = email;
+        this.edad = edad;
+        this.sexo = sexo;
         this.numeroTelefono = numeroTelefono;
         this.rutaCurriculum = rutaCurriculum;
     }
@@ -89,15 +89,15 @@ public class Candidato {
             this.edad = edad;
         }
 
-        public boolean isHombre() {
-            return isHombre;
+        public String getSexo() {
+            return sexo;
+        }
+    
+        public void setSexo(String sexo) {
+            this.sexo = sexo;
         }
 
-        public void setHombre(boolean isHombre) {
-            this.isHombre = isHombre;
-        }
-
-        public String getNumeroTelefono() {
+    public String getNumeroTelefono() {
             return numeroTelefono;
         }
 
