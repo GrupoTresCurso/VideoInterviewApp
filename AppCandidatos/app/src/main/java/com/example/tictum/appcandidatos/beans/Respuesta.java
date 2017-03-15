@@ -8,7 +8,7 @@ public class Respuesta {
 	private int idEntrevista;
 	private int idCandidato;
 	private List<Video> videosRespuestas;
-	private List<RespuestaPregunta> respuestas;
+	private List<String> respuestas;
 	private List<Archivo> adjuntos;
 	private float notaCandidato;
 
@@ -18,8 +18,7 @@ public class Respuesta {
 		super();
 	}
 
-	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas,
-					 List<RespuestaPregunta> respuestas, List<Archivo> adjuntos, float notaCandidato) {
+	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
 		this.idRespuesta = idRespuesta;
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
@@ -29,8 +28,7 @@ public class Respuesta {
 		this.notaCandidato = notaCandidato;
 	}
 
-	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas,
-					 List<RespuestaPregunta> respuestas, List<Archivo> adjuntos, float notaCandidato) {
+	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
 		this.videosRespuestas = videosRespuestas;
@@ -71,11 +69,11 @@ public class Respuesta {
 		this.videosRespuestas = videosRespuestas;
 	}
 
-	public List<RespuestaPregunta> getRespuestas() {
+	public List<String> getRespuestas() {
 		return respuestas;
 	}
 
-	public void setRespuestas(List<RespuestaPregunta> respuestas) {
+	public void setRespuestas(List<String> respuestas) {
 		this.respuestas = respuestas;
 	}
 
