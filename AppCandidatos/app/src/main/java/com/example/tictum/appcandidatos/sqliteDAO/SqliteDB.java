@@ -101,6 +101,8 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_RUTA_CURRICULUM + "TEXT NOT NULL"
             + ");";
 
+    // constantes para la creacion de la tabla Respuesta
+
     // Constantes que creamos para la creacion de tabla Entrevista-Formulario
     private static final String TABLA_ENTREVISTA_FORMULARIO = "tabla_entrevista_formulario";
     private static final String COL_IDENTREVISTA = "idEntrevista";
@@ -178,6 +180,5 @@ public class SqliteDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

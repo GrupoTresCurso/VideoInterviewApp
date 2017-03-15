@@ -12,11 +12,7 @@ public class Respuesta {
 	private List<Archivo> adjuntos;
 	private float notaCandidato;
 
-
-
-	public Respuesta() {
-		super();
-	}
+	public Respuesta() {}
 
 	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> adjuntos, float notaCandidato) {
 		this.idRespuesta = idRespuesta;

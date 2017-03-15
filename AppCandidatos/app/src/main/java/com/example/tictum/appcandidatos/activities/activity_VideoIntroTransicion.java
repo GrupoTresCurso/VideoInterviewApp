@@ -84,9 +84,6 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
                     }
                 }
             });
-
         }
         }
-
-
     }
