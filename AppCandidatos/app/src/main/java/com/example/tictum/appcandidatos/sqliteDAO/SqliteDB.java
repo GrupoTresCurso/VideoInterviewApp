@@ -102,6 +102,23 @@ public class SqliteDB extends SQLiteOpenHelper {
             + ");";
 
     // constantes para la creacion de la tabla Respuesta
+    private static final String TABLA_RESPUESTA = "tabla_respuesta";
+    private static final String COL_ID_RESPUESTA = "idRespuesta";
+    private static final String COL_ID_ENTRVSTA = "idEntrevista";
+    private static final String COL_ID_CANDIDAT = "idCandidato";
+    private static final String COL_NOTA = "notaCandidato";
+    private static final String COL_RESPUESTAS = "respuestas";
+
+    // creamos la tabla respuesta
+    private static final String TABLE_RESPUESTA = "CREATE TABLE " + TABLA_RESPUESTA + " ("
+            + COL_ID_RESPUESTA + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_ID_ENTRVSTA + "INTEGER NOT NULL,"
+            + COL_ID_CANDIDAT + "INTEGER NOT NULL, "
+            + COL_NOTA + "TEXT NOT NULL,"
+            + COL_RESPUESTAS + "TEXT NOT NULL"
+            + "FOREIGN KEY("+ COL_ID_ENTRVSTA +") REFERENCES "+ TABLA_ENTREVISTA +"("+ COL_ID_ENTREVISTA +")"
+            + "FOREIGN KEY("+ COL_ID_CANDIDAT +") REFERENCES "+ TABLA_CANDIDATO +"("+ COL_ID_CANDIDATO +")"
+            + ");";
 
     // Constantes que creamos para la creacion de tabla Entrevista-Formulario
     private static final String TABLA_ENTREVISTA_FORMULARIO = "tabla_entrevista_formulario";
