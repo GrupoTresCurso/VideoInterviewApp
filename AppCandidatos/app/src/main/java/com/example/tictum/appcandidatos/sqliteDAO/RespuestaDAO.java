@@ -21,6 +21,8 @@ public class RespuestaDAO {
     private static final String NOMBRE_BBDD = "tictalent";
 
     private static final String TABLA_RESPUESTA = "tabla_respuesta";
+    private static final String TABLA_RESPUESTA_VIDEO = "tabla_respuesta_video";
+    private static final String TABLA_RESPUESTA_ARCHIVO = "tabla_respuesta_archivo";
 
     // atributos necesarios para usar en esta clase
     private SQLiteDatabase db;

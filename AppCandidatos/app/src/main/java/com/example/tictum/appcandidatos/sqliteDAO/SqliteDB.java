@@ -223,6 +223,10 @@ public class SqliteDB extends SQLiteOpenHelper {
         db.execSQL(TABLE_PREGUNTA);
         db.execSQL(TABLE_VIDEO);
         db.execSQL(TABLE_CANDIDATO);
+        db.execSQL(TABLE_ARCHIVO);
+        db.execSQL(TABLE_RESPUESTA);
+        db.execSQL(TABLE_RESPUESTA_VIDEO);
+        db.execSQL(TABLE_RESPUESTA_ARCHIVO);
         db.execSQL(TABLE_ENTREVISTA_FORMULARIO);
         db.execSQL(TABLE_FORMULARIO_PREGUNTA);
         db.execSQL(TABLE_ENTREVISTA_VIDEO);

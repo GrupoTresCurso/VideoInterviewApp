@@ -1,11 +1,13 @@
 package com.example.tictum.appcandidatos.sqliteDAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.example.tictum.appcandidatos.beans.Video;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
+
+import java.util.ArrayList;
 
 public class VideoDAO {
 
@@ -50,6 +52,16 @@ public class VideoDAO {
         db.close();
     }
 
+    public long insertVideo(Video video){
+        ContentValues nuevoVideo = new ContentValues();
+        nuevoVideo.put("idVideo",video.getIdVideo());
+        nuevoVideo.put("nombreVideo",video.getNombreVideo());
+        nuevoVideo.put("linkVideo",video.getLinkVideo());
+        nuevoVideo.put("posicionEnEntrevista",video.getPosicionEnEntrevista());
+        nuevoVideo.put("tipoVideo",video.getTipoVideo());
+        return db.insert(TABLA_VIDEO, null, nuevoVideo);
+    }
+
     // metodo para recuperar un video de la base de datos
     public Video getVideo(int idVideo){
         // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
@@ -66,12 +78,40 @@ public class VideoDAO {
         if (cursor.moveToFirst()){
             video.setIdVideo(cursor.getInt(0));
             video.setNombreVideo(cursor.getString(1));
-            video.setPosicionEnEntrevista(cursor.getInt(2));
+            video.setLinkVideo(cursor.getString(2));
+            video.setPosicionEnEntrevista(cursor.getInt(3));
+            video.setTipoVideo(cursor.getString(4));
         }
         // cerramos cursor para que elimine lo que tiene
         cursor.close();
         // devolvemos objeto video con los campos pertenecientes a su id
         return video;
     }
+
+    public ArrayList<Video> getAllVideos(){
+        // obtenemos todos los registros de la tabla entrevista
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_VIDEO, null);
+        // si el cursor no devuelve resultados lo cerramos
+        if (cursor.getCount() == 0){
+            cursor.close();
+            return  null;
+        }
+        //  creamos la lista donde vamos a tener todos los objetos formularios
+        ArrayList<Video> listaVideos = new ArrayList<Video>();
+        // mientras que haya resultados en el cursor los convertimos en objetos formulario
+        while (cursor.moveToNext()){
+            Video video = new Video();
+            video.setIdVideo(cursor.getInt(0));
+            video.setNombreVideo(cursor.getString(1));
+            video.setLinkVideo(cursor.getString(2));
+            video.setPosicionEnEntrevista(cursor.getInt(3));
+            video.setTipoVideo(cursor.getString(4));
+            listaVideos.add(video);
+        }
+        cursor.close();
+        // devolvemos la lista de formularios
+        return listaVideos;
+    }
+
 
 }
