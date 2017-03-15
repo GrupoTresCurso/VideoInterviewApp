@@ -29,7 +29,7 @@ public class FormularioDAO {
 
     // atributos necesarios para usar en esta clase
     private SQLiteDatabase db;
-    private DaoSqlite daoSqlite;
+    private SqliteDB sqliteDB;
     private PreguntaDAO preguntaDAO;
 
 
@@ -39,7 +39,7 @@ public class FormularioDAO {
     // constructor para usar la base de datos que tenemos creada con sus tablas
     public FormularioDAO(Context context) {
         // Creamos objeto Sqlite con el respectivo constructor pasando el nombre de la base de datos y la version
-        daoSqlite = new DaoSqlite(context, NOMBRE_BBDD, null, VERSION);
+        sqliteDB = new SqliteDB(context, NOMBRE_BBDD, null, VERSION);
         preguntaDAO = new PreguntaDAO();
     }
 
@@ -50,12 +50,12 @@ public class FormularioDAO {
 
     //metodo para poder escribir en la base de datos (insert,update,delete)
     public void openForWrite(){
-        db = daoSqlite.getWritableDatabase();
+        db = sqliteDB.getWritableDatabase();
     }
 
     // metodo para leer de la base de datos los registros que hay en ella
     public void openForRead(){
-        db = daoSqlite.getReadableDatabase();
+        db = sqliteDB.getReadableDatabase();
     }
 
     // metodo para cerrar la conexion con la base de datos

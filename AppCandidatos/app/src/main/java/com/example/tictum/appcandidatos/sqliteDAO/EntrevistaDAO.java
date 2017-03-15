@@ -8,9 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
+import com.example.tictum.appcandidatos.beans.Video;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EntrevistaDAO {
 
@@ -26,17 +28,21 @@ public class EntrevistaDAO {
     private static final String NOMBRE_BBDD = "tictalent";
 
     private static final String TABLA_ENTREVISTA = "tabla_entrevista";
+    private static final String TABLA_ENTREVISTA_FORMULARIO = "tabla_entrevista_formulario";
+    private static final String TABLA_ENTREVISTA_VIDEO = "tabla_entrevista_video";
+    private static final String TABLA_ENTREVISTA_CANDIDATO = "tabla_entrevista_candidato";
+
 
     // atributos necesarios para usar en esta clase
     private SQLiteDatabase db;
-    private DaoSqlite daoSqlite;
-    private FormularioDAO formulario;
+    private SqliteDB sqliteDB;
+    private FormularioDAO formularioDAO;
 
     // constructor para usar la base de datos que tenemos creada con sus tablas
     public EntrevistaDAO(Context context) {
-        // Creamos objeto Sqlite con el respectivo constructor pasando el nombre de la base de datos y la version
-        daoSqlite = new DaoSqlite(context, NOMBRE_BBDD, null, VERSION);
-    formulario = new FormularioDAO();
+    // Creamos objeto Sqlite con el respectivo constructor pasando el nombre de la base de datos y la version
+    sqliteDB = new SqliteDB(context, NOMBRE_BBDD, null, VERSION);
+    formularioDAO = new FormularioDAO();
     }
 
     // metodo para obtener la base de datos
@@ -46,12 +52,12 @@ public class EntrevistaDAO {
 
     //metodo para poder escribir en la base de datos (insert,update,delete)
     public void openForWrite(){
-        db = daoSqlite.getWritableDatabase();
+        db = sqliteDB.getWritableDatabase();
     }
 
     // metodo para leer de la base de datos los registros que hay en ella
     public void openForRead(){
-        db = daoSqlite.getReadableDatabase();
+        db = sqliteDB.getReadableDatabase();
     }
 
     // metodo para cerrar la conexion con la base de datos
@@ -106,7 +112,7 @@ public class EntrevistaDAO {
             entrevista.setNombreEntrevista(cursor.getString(1));
             entrevista.setNombrePuesto(cursor.getString(2));
             entrevista.setTieneVideoIntro(ToF);
-            entrevista.setCuestionarioSatisfaccion(formulario.getFormulario(cursor.getInt(4)));
+            entrevista.setCuestionarioSatisfaccion(formularioDAO.getFormulario(cursor.getInt(4)));
             entrevista.setMensaje(cursor.getString(5));
         }
         // cerramos cursor para que elimine lo que tiene
@@ -139,7 +145,7 @@ public class EntrevistaDAO {
                 ToF = false;
             }
             entrevista.setTieneVideoIntro(ToF);
-            entrevista.setCuestionarioSatisfaccion(formulario.getFormulario(cursor.getInt(4)));
+            entrevista.setCuestionarioSatisfaccion(formularioDAO.getFormulario(cursor.getInt(4)));
             entrevista.setMensaje(cursor.getString(5));
             listaEntrevistas.add(entrevista);
         }
@@ -147,4 +153,25 @@ public class EntrevistaDAO {
         // devolvemos la lista de formularios
         return listaEntrevistas;
     }
+
+    public long insertEntrevista_Formulario(Entrevista entrevista){
+        ContentValues nuevaEntrevistaFormulario = new ContentValues();
+        List<Formulario> listaFormularios = entrevista.getFormularios();
+        for (Formulario formulario : listaFormularios) {
+            nuevaEntrevistaFormulario.put("idEntrevista",entrevista.getIdEntrevista());
+            nuevaEntrevistaFormulario.put("idFormulario",formulario.getIdFormulario());
+        }
+        return db.insert(TABLA_ENTREVISTA_FORMULARIO, null, nuevaEntrevistaFormulario);
+    }
+
+    public  long insertEntrevista_Video(Entrevista entrevista){
+        ContentValues nuevaEntrevistaVideo = new ContentValues();
+        List<Video> listaVideos = entrevista.getListaVideos();
+        for (Video video : listaVideos) {
+            nuevaEntrevistaVideo.put("idEntrevista",entrevista.getIdEntrevista());
+            nuevaEntrevistaVideo.put("idVideo",video.getIdVideo());
+        }
+        return db.insert(TABLA_ENTREVISTA_FORMULARIO, null, nuevaEntrevistaVideo);
+    }
+
 }

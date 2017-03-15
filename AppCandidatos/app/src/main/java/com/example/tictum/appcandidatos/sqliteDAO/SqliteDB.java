@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-public class DaoSqlite extends SQLiteOpenHelper {
+public class SqliteDB extends SQLiteOpenHelper {
 
     // Constantes que creamos para la creacion de tabla formulario a traves de los atributos del objeto formulario
     private static final String TABLA_FORMULARIO = "tabla_formulario";
@@ -153,12 +153,12 @@ public class DaoSqlite extends SQLiteOpenHelper {
             + "FOREIGN KEY("+ COL_IDCANDIDATO +") REFERENCES "+ TABLA_CANDIDATO +"("+ COL_ID_CANDIDATO +")"
             +");";
 
-    // contructores por defecto de la clase DaoSqlite
-    public DaoSqlite(Context context, String nameDB, SQLiteDatabase.CursorFactory factory, int version) {
+    // contructores por defecto de la clase SqliteDB
+    public SqliteDB(Context context, String nameDB, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, nameDB, factory, version);
     }
 
-    public DaoSqlite(Context context, String nameDB, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+    public SqliteDB(Context context, String nameDB, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
         super(context, nameDB, factory, version, errorHandler);
     }
 

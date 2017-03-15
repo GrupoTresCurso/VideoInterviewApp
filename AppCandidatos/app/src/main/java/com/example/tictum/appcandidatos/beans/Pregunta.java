@@ -1,12 +1,7 @@
 package com.example.tictum.appcandidatos.beans;
 
-
-
-
-
 public class Pregunta {
 
-    
     private int idPregunta;
     private String labelPregunta;
     private String tipoPregunta;

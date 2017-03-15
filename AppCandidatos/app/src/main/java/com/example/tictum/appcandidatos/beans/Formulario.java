@@ -1,7 +1,6 @@
 package com.example.tictum.appcandidatos.beans;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 
