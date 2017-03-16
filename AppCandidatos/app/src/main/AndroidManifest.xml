@@ -7,29 +7,38 @@
         android:icon="@mipmap/videointerview"
         android:label="Video InterView"
         android:supportsRtl="true"
-        android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.Activity_SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+                  android:theme="@style/Theme.AppCompat.NoActionBar"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Activity_ListaEntrevistas" />
+        <activity android:name=".activities.Activity_ListaEntrevistas"
+                  android:screenOrientation="portrait"/>
         <activity android:name=".activities.activity_VideoIntroTransicion"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".activities.Activity_Formulario" />
-        <activity  android:name=".activities.Activity_VideoPregunta"
-                    android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".activities.Activity_GrabarRespuesta"
+                  android:theme="@style/Theme.AppCompat.NoActionBar"
+                  android:screenOrientation="portrait" />
+        <activity android:name=".activities.Activity_Formulario"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Activity_VideoPregunta"
+                  android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".activities.Activity_Despedida" />
-        <activity android:name=".activities.Activity_Adjuntos" />
-        <activity android:name=".activities.Activity_Formulario2" />
-        <activity android:name=".activities.Activity_Formulario3" />
-        <activity android:name=".activities.Activity_Formulario4"></activity>
+        <activity android:name=".activities.Activity_GrabarRespuesta"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activities.Activity_Despedida"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Activity_Adjuntos"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Activity_Formulario2"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Activity_Formulario3"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Activity_Formulario4"
+                  android:screenOrientation="portrait"/>
     </application>
 
     <uses-feature android:name="android.hardware.camera"
