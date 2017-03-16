@@ -11,6 +11,8 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorEntrevistas;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 
+import java.util.ArrayList;
+
 
 public class Activity_ListaEntrevistas extends AppCompatActivity {
 
@@ -20,13 +22,18 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         setContentView(R.layout.layout__lista_entrevistas);
         // Creamos la lista de las entrevistas para hacerles un listener a cada una
         // esta lista se va a traer de la base de datos
-        Entrevista[] listaEntrevista = {new Entrevista("Puesto 1"),new Entrevista("Puesto 2")};
+        ArrayList<Entrevista> listaEntrevista = new ArrayList<>();
+
+        listaEntrevista.add(new Entrevista("Puesto 1"));
+        listaEntrevista.add(new Entrevista("Puesto 2"));
+
         // el adaptador para ver la lista de las entrevistas
         AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaEntrevista);
         // Donde vamos a mostrar los objetos Entrevista
         ListView listaEntrevistas = (ListView) findViewById(R.id.listaEntrevistas);
         // Adjudicamos el adaptador
         listaEntrevistas.setAdapter(adaptador);
+
 
         // Un listener para cada objeto entrevista que se muestre en la lista y poder pasar a la sigueinte actividad
         listaEntrevistas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
