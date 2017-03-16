@@ -1,12 +1,8 @@
 package com.example.tictum.appcandidatos.beans;
 
 
-
-
-
 public class Video {
 
-    
     private int idVideo;
     private String nombreVideo;
     private String linkVideo;

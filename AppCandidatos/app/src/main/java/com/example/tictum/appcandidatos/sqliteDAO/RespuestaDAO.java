@@ -4,12 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.example.tictum.appcandidatos.beans.Video;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 
 import java.util.ArrayList;
 
-public class VideoDAO {
+public class RespuestaDAO {
 
     // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
     JsonEntrevistaParser jsonParser = new JsonEntrevistaParser();
@@ -20,14 +20,16 @@ public class VideoDAO {
     // nombre de la base de datos donde vamos a tener todas las tablas
     private static final String NOMBRE_BBDD = "tictalent";
 
-    private static final String TABLA_VIDEO = "tabla_video";
+    private static final String TABLA_RESPUESTA = "tabla_respuesta";
+    private static final String TABLA_RESPUESTA_VIDEO = "tabla_respuesta_video";
+    private static final String TABLA_RESPUESTA_ARCHIVO = "tabla_respuesta_archivo";
 
     // atributos necesarios para usar en esta clase
     private SQLiteDatabase db;
     private SqliteDB sqliteDB;
 
     // constructor para usar la base de datos que tenemos creada con sus tablas
-    public VideoDAO(Context context) {
+    public RespuestaDAO(Context context) {
         // Creamos objeto Sqlite con el respectivo constructor pasando el nombre de la base de datos y la version
         sqliteDB = new SqliteDB(context, NOMBRE_BBDD, null, VERSION);
     }
@@ -52,66 +54,63 @@ public class VideoDAO {
         db.close();
     }
 
-    public long insertVideo(Video video){
-        ContentValues nuevoVideo = new ContentValues();
-        nuevoVideo.put("idVideo",video.getIdVideo());
-        nuevoVideo.put("nombreVideo",video.getNombreVideo());
-        nuevoVideo.put("linkVideo",video.getLinkVideo());
-        nuevoVideo.put("posicionEnEntrevista",video.getPosicionEnEntrevista());
-        nuevoVideo.put("tipoVideo",video.getTipoVideo());
-        return db.insert(TABLA_VIDEO, null, nuevoVideo);
+    public long insertRespuesta(Respuesta respuesta){
+        ContentValues nuevaRespuesta = new ContentValues();
+        nuevaRespuesta.put("idRespuesta",respuesta.getIdRespuesta());
+        nuevaRespuesta.put("idEntrevista",respuesta.getIdEntrevista());
+        nuevaRespuesta.put("idCandidato",respuesta.getIdCandidato());
+        nuevaRespuesta.put("notaCandidato",Float.toString(respuesta.getNotaCandidato()));
+        nuevaRespuesta.put("respuestas",respuesta.getRespuestas().toString());
+        return db.insert(TABLA_RESPUESTA, null, nuevaRespuesta);
     }
 
-    // metodo para recuperar un video de la base de datos
-    public Video getVideo(int idVideo){
+    public Respuesta getRespuesta(int idRespuesta){
         // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_VIDEO + " WHERE idVideo = " + idVideo, null);
+            Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_RESPUESTA + " WHERE idRespuesta = " + idRespuesta, null);
         // si el cursor no devuelve resultados lo cerramos
         if (cursor.getCount() == 0){
             cursor.close();
             return  null;
         }
-        // Creamos objeto video que vamos a devolver posteriormente
-        Video video = new Video();
-        // si el cursor contiene un resultado en este caso
-        // cursor es un array donde en cada posicion esta cada campo de la tabla
+        Respuesta respuesta = new Respuesta();
+        String[] arrayRespuestas = cursor.getString(4).split(",");
         if (cursor.moveToFirst()){
-            video.setIdVideo(cursor.getInt(0));
-            video.setNombreVideo(cursor.getString(1));
-            video.setLinkVideo(cursor.getString(2));
-            video.setPosicionEnEntrevista(cursor.getInt(3));
-            video.setTipoVideo(cursor.getString(4));
+            respuesta.setIdRespuesta(cursor.getInt(0));
+            respuesta.setIdEntrevista(cursor.getInt(1));
+            respuesta.setIdCandidato(cursor.getInt(2));
+            respuesta.setNotaCandidato(Float.parseFloat(cursor.getString(3)));
+            respuesta.setRespuestas(arrayRespuestas);
         }
         // cerramos cursor para que elimine lo que tiene
         cursor.close();
-        // devolvemos objeto video con los campos pertenecientes a su id
-        return video;
+        return respuesta;
     }
 
-    public ArrayList<Video> getAllVideos(){
+    public ArrayList<Respuesta> getAllRespuestas(){
         // obtenemos todos los registros de la tabla entrevista
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_VIDEO, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_RESPUESTA, null);
         // si el cursor no devuelve resultados lo cerramos
         if (cursor.getCount() == 0){
             cursor.close();
             return  null;
         }
         //  creamos la lista donde vamos a tener todos los objetos formularios
-        ArrayList<Video> listaVideos = new ArrayList<Video>();
+        ArrayList<Respuesta> listaRespuestas = new ArrayList<Respuesta>();
         // mientras que haya resultados en el cursor los convertimos en objetos formulario
         while (cursor.moveToNext()){
-            Video video = new Video();
-            video.setIdVideo(cursor.getInt(0));
-            video.setNombreVideo(cursor.getString(1));
-            video.setLinkVideo(cursor.getString(2));
-            video.setPosicionEnEntrevista(cursor.getInt(3));
-            video.setTipoVideo(cursor.getString(4));
-            listaVideos.add(video);
+            Respuesta respuesta = new Respuesta();
+            respuesta.setIdRespuesta(cursor.getInt(0));
+            respuesta.setIdEntrevista(cursor.getInt(1));
+            respuesta.setIdCandidato(cursor.getInt(2));
+            respuesta.setNotaCandidato(Float.parseFloat(cursor.getString(3)));
+            String[] arrayRespuestas = cursor.getString(4).split(",");
+            respuesta.setRespuestas(arrayRespuestas);
+            listaRespuestas.add(respuesta);
         }
         cursor.close();
         // devolvemos la lista de formularios
-        return listaVideos;
-    }
+        return listaRespuestas;
 
+    }
 
 }

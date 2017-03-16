@@ -45,11 +45,5 @@ public class Archivo {
 	public void setRutaArchivo(String rutaArchivo) {
 		this.rutaArchivo = rutaArchivo;
 	}
-	
-	
-	
-	
-	
-	
 
 }

@@ -90,7 +90,7 @@ public class SqliteDB extends SQLiteOpenHelper {
 
     // Creamos la tabla candidato
     private static final String TABLE_CANDIDATO = "CREATE TABLE " + TABLA_CANDIDATO + " ("
-            + COL_ID_CANDIDATO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_ID_CANDIDATO + "INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NOMBRE + "TEXT NOT NULL, "
             + COL_APELLIDOS + "TEXT NOT NULL, "
             + COL_DNI + "TEXT NOT NULL, "
@@ -100,6 +100,59 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_TELEFONO + "TEXT NOT NULL, "
             + COL_RUTA_CURRICULUM + "TEXT NOT NULL"
             + ");";
+
+    private static final String TABLA_ARCHIVO = "tabla_archivo";
+    private static final String COL_IDARCHIVO = "idArchivo";
+    private static final String COL_NOMBRE_ARCHIVO = "nombreArchivo";
+    private static final String COL_RUTA_ARCHIVO = "rutaArchivo";
+
+    private static final String TABLE_ARCHIVO = "CREATE TABLE " + TABLA_ARCHIVO + " ("
+            + COL_IDARCHIVO + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_NOMBRE_ARCHIVO + "TEXT NOT NULL"
+            + COL_RUTA_ARCHIVO + "TEXT NOT NULL"
+            + ");";
+
+    // constantes para la creacion de la tabla Respuesta
+    private static final String TABLA_RESPUESTA = "tabla_respuesta";
+    private static final String COL_ID_RESPUESTA = "idRespuesta";
+    private static final String COL_ID_ENTRVSTA = "idEntrevista";
+    private static final String COL_ID_CANDIDAT = "idCandidato";
+    private static final String COL_NOTA = "notaCandidato";
+    private static final String COL_RESPUESTAS = "respuestas";
+
+    // creamos la tabla respuesta
+    private static final String TABLE_RESPUESTA = "CREATE TABLE " + TABLA_RESPUESTA + " ("
+            + COL_ID_RESPUESTA + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_ID_ENTRVSTA + "INTEGER NOT NULL,"
+            + COL_ID_CANDIDAT + "INTEGER NOT NULL, "
+            + COL_NOTA + "TEXT NOT NULL,"
+            + COL_RESPUESTAS + "TEXT NOT NULL"
+            + "FOREIGN KEY("+ COL_ID_ENTRVSTA +") REFERENCES "+ TABLA_ENTREVISTA +"("+ COL_ID_ENTREVISTA +")"
+            + "FOREIGN KEY("+ COL_ID_CANDIDAT +") REFERENCES "+ TABLA_CANDIDATO +"("+ COL_ID_CANDIDATO +")"
+            + ");";
+
+    // constantes para creacion de la tabla respuesta-video
+    private static final String TABLA_RESPUESTA_VIDEO = "tabla_respuesta_video";
+    private static final String COL_IDRESPUESTA = "idRespuesta";
+    private static final String COL_ID_VIDIO = "idVideo";
+
+    private static final String TABLE_RESPUESTA_VIDEO = "CREATE TABLE " + TABLA_RESPUESTA_VIDEO + " ("
+            + COL_IDRESPUESTA + "INTEGER NOT NULL, "
+            + COL_ID_VIDIO + "INTEGER NOT NULL, "
+            + "FOREIGN KEY("+ COL_IDRESPUESTA +") REFERENCES "+ TABLA_RESPUESTA +"("+ COL_ID_RESPUESTA +"), "
+            + "FOREIGN KEY("+ COL_ID_VIDIO +") REFERENCES "+ TABLA_VIDEO +"("+ COL_ID_VIDEO +")"
+            +");";
+
+    private static final String TABLA_RESPUESTA_ARCHIVO = "tabla_respuesta_archivo";
+    private static final String COL_IDRESPUEST =  "idRespuesta";
+    private static final String COL_ID_ARCHIVO = "idArchivo";
+
+    private static final String TABLE_RESPUESTA_ARCHIVO = "CREATE TABLE " + TABLA_RESPUESTA_ARCHIVO + " ("
+            + COL_IDRESPUEST + "INTEGER NOT NULL, "
+            + COL_ID_ARCHIVO + "INTEGER NOT NULL, "
+            + "FOREIGN KEY("+ COL_IDRESPUEST +") REFERENCES "+ TABLA_RESPUESTA +"("+ COL_ID_RESPUESTA +"), "
+            + "FOREIGN KEY("+ COL_ID_ARCHIVO +") REFERENCES "+ TABLA_ARCHIVO +"("+ COL_ID_ARCHIVO +")"
+            +");";
 
     // Constantes que creamos para la creacion de tabla Entrevista-Formulario
     private static final String TABLA_ENTREVISTA_FORMULARIO = "tabla_entrevista_formulario";
@@ -170,6 +223,10 @@ public class SqliteDB extends SQLiteOpenHelper {
         db.execSQL(TABLE_PREGUNTA);
         db.execSQL(TABLE_VIDEO);
         db.execSQL(TABLE_CANDIDATO);
+        db.execSQL(TABLE_ARCHIVO);
+        db.execSQL(TABLE_RESPUESTA);
+        db.execSQL(TABLE_RESPUESTA_VIDEO);
+        db.execSQL(TABLE_RESPUESTA_ARCHIVO);
         db.execSQL(TABLE_ENTREVISTA_FORMULARIO);
         db.execSQL(TABLE_FORMULARIO_PREGUNTA);
         db.execSQL(TABLE_ENTREVISTA_VIDEO);
@@ -178,6 +235,5 @@ public class SqliteDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }
