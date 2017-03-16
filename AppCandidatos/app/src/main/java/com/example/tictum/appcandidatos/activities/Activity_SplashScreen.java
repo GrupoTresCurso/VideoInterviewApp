@@ -25,6 +25,6 @@ public class Activity_SplashScreen extends AppCompatActivity {
                 finish();
             }
             // el tiempo que se va a mostrar el splash screen
-        },4000);
+        },3000);
     }
 }

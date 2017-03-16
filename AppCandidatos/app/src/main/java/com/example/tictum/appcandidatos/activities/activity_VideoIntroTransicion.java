@@ -2,13 +2,9 @@ package com.example.tictum.appcandidatos.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.WindowManager;
-import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.tictum.appcandidatos.R;

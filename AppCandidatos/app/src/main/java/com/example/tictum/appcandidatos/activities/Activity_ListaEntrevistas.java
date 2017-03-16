@@ -37,7 +37,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
                     // Desde DONDE estamos hacia DONDE queremos ir
                     Intent intent = new Intent(Activity_ListaEntrevistas.this, activity_VideoIntroTransicion.class);
                     // Mandamos el objeto entrevista que ha seleccionado el usuario
-                    intent.putExtra("entrevista", entrevistaSelected);
+                    //intent.putExtra("entrevista", entrevistaSelected);
                     // LLamamos a la actividad Siguiente
                     startActivity(intent);
                 }
