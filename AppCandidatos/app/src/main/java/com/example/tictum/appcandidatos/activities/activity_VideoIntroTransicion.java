@@ -15,8 +15,7 @@ import com.example.tictum.appcandidatos.R;
 
 public class activity_VideoIntroTransicion extends AppCompatActivity{
 
-        private VideoView videoView;
-        private int position = 0;
+    private VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,65 +24,25 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
         setContentView(R.layout.layout__video_intro_transicion);
 
         // Muestra el Activity en modo Portrait.
-        this.setRequestedOrientation(
-                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        setUpVideoView();
+        // donde vamos a reproducir el video
+        videoView = (VideoView) findViewById(R.id.videoView);
+
+        // ruta del archivo que vamos a reproducir
+        String path = "android.resource://" + getPackageName() +"/" + R.raw.countdown;
+
+        // convertimos la ruta a una uri para la reproduccion
+        Uri pathUri = Uri.parse(path);
+
+        // añadimos el path
+        videoView.setVideoPath(path);
+
+        // reproducimos el video
+        videoView.start();
+
         // Despues de verse el video completo empezamos la actividad del formulario
        // Intent intent = new Intent(activity_VideoIntroTransicion.this,Activity_Formulario.class);
        // startActivity(intent);
     }
-
-    private void setUpVideoView(){
-        // Modificar para reproducir el video de la base de datos
-        // Prepara la URI del vídeo que será reproducido.
-        //videoView.setVideoURI("http://www.mysite.com/videos/myvideo.3gp");
-
-        // Inicializa la VideoView.
-        videoView = (VideoView) findViewById(R.id.videoView);
-       Uri uriPath = Uri.parse("android.resource://com.example.tictum.appcandidatos.activities/" + R.raw.countdown);
-
-        // Se crean los controles multimedia.
-        MediaController mediaController = new MediaController(this);
-        // Asigna los controles multimedia a la VideoView.
-        videoView.setMediaController(mediaController);
-
-
-        // intentamos reproducir el video, si hay un error al intentar acceder a el entonces error
-        try {
-            // Asigna la URI del vídeo que será reproducido a la vista.
-            videoView.setVideoURI(uriPath);
-            // Se asigna el foco a la VideoView.
-            videoView.requestFocus();
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-
-            // el video esta listo para ser reproducido
-            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-            /*
-             * Se indica al reproductor multimedia que el vídeo
-             * se reproducirá en un loop (on repeat).
-             */
-                    mediaPlayer.setLooping(true);
-
-                    if (position == 0) {
-                /*
-                 * Si tenemos una posición en savedInstanceState,
-                 * el vídeo debería comenzar desde aquí.
-                 */
-                        videoView.start();
-                    } else {
-                /*
-                 * Si venimos de un Activity "resumed",
-                 * la reproducción del vídeo será pausada.
-                 */
-                        videoView.pause();
-                    }
-                }
-            });
-        }
-        }
-    }
+}
