@@ -15,6 +15,9 @@ import java.util.List;
 
 public class RespuestaDAO {
 
+    public RespuestaDAO() {
+    }
+
     // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
     JsonEntrevistaParser jsonParser = new JsonEntrevistaParser();
 
