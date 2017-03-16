@@ -20,7 +20,6 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout__video_intro_transicion);
 
         // Muestra el Activity en modo Portrait.
