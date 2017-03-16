@@ -35,8 +35,9 @@ public class RespuestaManager {
         return respuestaDAO.insertRespuesta_Video(respuesta);
     }
 
-
-
+    public long insertRespuesta_Archivo(Respuesta respuesta){
+        return respuestaDAO.insertRespuesta_Archivo(respuesta);
+    }
 
 
 

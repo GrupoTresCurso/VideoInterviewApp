@@ -26,6 +26,7 @@ public class VideoActivity extends AppCompatActivity {
         //videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
+
         //videoView.setVideoURI(pathUri);
         videoView.setVideoPath(path);
 
