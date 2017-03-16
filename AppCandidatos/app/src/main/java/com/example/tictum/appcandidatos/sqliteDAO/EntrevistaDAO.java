@@ -41,9 +41,9 @@ public class EntrevistaDAO {
 
     // constructor para usar la base de datos que tenemos creada con sus tablas
     public EntrevistaDAO(Context context) {
-    // Creamos objeto Sqlite con el respectivo constructor pasando el nombre de la base de datos y la version
-    sqliteDB = new SqliteDB(context, NOMBRE_BBDD, null, VERSION);
-    formularioDAO = new FormularioDAO();
+        // Creamos objeto Sqlite con el respectivo constructor pasando el nombre de la base de datos y la version
+        sqliteDB = new SqliteDB(context, NOMBRE_BBDD, null, VERSION);
+        formularioDAO = new FormularioDAO();
     }
 
     // metodo para obtener la base de datos
@@ -101,18 +101,19 @@ public class EntrevistaDAO {
         // si el cursor contiene un resultado en este caso
         // cursor es un array donde en cada posicion esta cada campo de la tabla
 
-        boolean ToF;
+        // true or false
+        boolean tof;
         if (cursor.getInt(3) == 1){ // Si contiene un 1 devolvemos true
-            ToF = true;
+            tof = true;
         } else { // si no devolvemos false
-            ToF = false;
+            tof = false;
         }
 
         if (cursor.moveToFirst()){
             entrevista.setIdEntrevista(cursor.getInt(0));
             entrevista.setNombreEntrevista(cursor.getString(1));
             entrevista.setNombrePuesto(cursor.getString(2));
-            entrevista.setTieneVideoIntro(ToF);
+            entrevista.setTieneVideoIntro(tof);
             entrevista.setCuestionarioSatisfaccion(formularioDAO.getFormulario(cursor.getInt(4)));
             entrevista.setMensaje(cursor.getString(5));
         }
@@ -130,28 +131,28 @@ public class EntrevistaDAO {
             cursor.close();
             return  null;
         }
-        //  creamos la lista donde vamos a tener todos los objetos formularios
+        //  creamos la lista donde vamos a tener todos los objetos entrevista
         ArrayList<Entrevista> listaEntrevistas = new ArrayList<Entrevista>();
-        // mientras que haya resultados en el cursor los convertimos en objetos formulario
+        // mientras que haya resultados en el cursor los convertimos en objetos entrevista
         while (cursor.moveToNext()){
             Entrevista entrevista = new Entrevista();
             entrevista.setIdEntrevista(cursor.getInt(0));
             entrevista.setNombreEntrevista(cursor.getString(1));
             entrevista.setNombrePuesto(cursor.getString(2));
 
-            boolean ToF;
+            boolean tof;
             if (cursor.getInt(3) == 1){ // Si contiene un 1 devolvemos true
-                ToF = true;
+                tof = true;
             } else { // si no devolvemos false
-                ToF = false;
+                tof = false;
             }
-            entrevista.setTieneVideoIntro(ToF);
+            entrevista.setTieneVideoIntro(tof);
             entrevista.setCuestionarioSatisfaccion(formularioDAO.getFormulario(cursor.getInt(4)));
             entrevista.setMensaje(cursor.getString(5));
             listaEntrevistas.add(entrevista);
         }
         cursor.close();
-        // devolvemos la lista de formularios
+        // devolvemos la lista
         return listaEntrevistas;
     }
 

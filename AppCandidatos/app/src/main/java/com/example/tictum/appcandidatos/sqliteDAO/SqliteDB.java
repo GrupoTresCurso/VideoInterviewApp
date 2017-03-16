@@ -101,11 +101,13 @@ public class SqliteDB extends SQLiteOpenHelper {
             + COL_RUTA_CURRICULUM + "TEXT NOT NULL"
             + ");";
 
+    //contantes para la creacion de la tabla archivo
     private static final String TABLA_ARCHIVO = "tabla_archivo";
     private static final String COL_IDARCHIVO = "idArchivo";
     private static final String COL_NOMBRE_ARCHIVO = "nombreArchivo";
     private static final String COL_RUTA_ARCHIVO = "rutaArchivo";
 
+    // creamos la tabla archivo
     private static final String TABLE_ARCHIVO = "CREATE TABLE " + TABLA_ARCHIVO + " ("
             + COL_IDARCHIVO + "INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NOMBRE_ARCHIVO + "TEXT NOT NULL"
@@ -143,6 +145,7 @@ public class SqliteDB extends SQLiteOpenHelper {
             + "FOREIGN KEY("+ COL_ID_VIDIO +") REFERENCES "+ TABLA_VIDEO +"("+ COL_ID_VIDEO +")"
             +");";
 
+    // constantes para creacion de la tabla respuesta-archivo
     private static final String TABLA_RESPUESTA_ARCHIVO = "tabla_respuesta_archivo";
     private static final String COL_IDRESPUEST =  "idRespuesta";
     private static final String COL_ID_ARCHIVO = "idArchivo";

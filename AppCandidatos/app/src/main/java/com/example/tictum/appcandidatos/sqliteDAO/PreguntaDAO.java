@@ -96,7 +96,7 @@ public class PreguntaDAO {
 
     // metodo para obtener todos los objetos formulario de la base de datos
     public ArrayList<Pregunta> getAllPreguntas(){
-        // obtenemos todos los registros de la tabla formulario
+        // obtenemos todos los registros de la tabla pregunta
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_PREGUNTA, null);
         // si el cursor no devuelve resultados lo cerramos
         if (cursor.getCount() == 0){
@@ -117,7 +117,7 @@ public class PreguntaDAO {
             listaPreguntas.add(pregunta);
         }
         cursor.close();
-        // devolvemos la lista de formularios
+        // devolvemos la lista de preguntas
         return listaPreguntas;
     }
 

@@ -89,7 +89,7 @@ public class VideoDAO {
     }
 
     public ArrayList<Video> getAllVideos(){
-        // obtenemos todos los registros de la tabla entrevista
+        // obtenemos todos los registros de la tabla video
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_VIDEO, null);
         // si el cursor no devuelve resultados lo cerramos
         if (cursor.getCount() == 0){
@@ -98,7 +98,7 @@ public class VideoDAO {
         }
         //  creamos la lista donde vamos a tener todos los objetos formularios
         ArrayList<Video> listaVideos = new ArrayList<Video>();
-        // mientras que haya resultados en el cursor los convertimos en objetos formulario
+        // mientras que haya resultados en el cursor los convertimos en objetos video
         while (cursor.moveToNext()){
             Video video = new Video();
             video.setIdVideo(cursor.getInt(0));
@@ -109,7 +109,7 @@ public class VideoDAO {
             listaVideos.add(video);
         }
         cursor.close();
-        // devolvemos la lista de formularios
+        // devolvemos la lista de videos
         return listaVideos;
     }
 

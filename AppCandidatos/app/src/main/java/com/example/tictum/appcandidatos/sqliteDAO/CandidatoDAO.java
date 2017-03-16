@@ -115,9 +115,9 @@ public class CandidatoDAO {
             candidato.setSexo(cursor.getString(6));
             candidato.setNumeroTelefono(cursor.getString(7));
             candidato.setRutaCurriculum(cursor.getString(8));
+            listaCandidatos.add(candidato);
         }
         cursor.close();
         return listaCandidatos;
     }
-
 }

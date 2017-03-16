@@ -4,10 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.tictum.appcandidatos.beans.Archivo;
 import com.example.tictum.appcandidatos.beans.Respuesta;
+import com.example.tictum.appcandidatos.beans.Video;
 import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RespuestaDAO {
 
@@ -66,7 +70,7 @@ public class RespuestaDAO {
 
     public Respuesta getRespuesta(int idRespuesta){
         // Creamos un cursor que va a contener los resultados de la query en este caso solo obtendremos un resultado
-            Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_RESPUESTA + " WHERE idRespuesta = " + idRespuesta, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_RESPUESTA + " WHERE idRespuesta = " + idRespuesta, null);
         // si el cursor no devuelve resultados lo cerramos
         if (cursor.getCount() == 0){
             cursor.close();
@@ -108,9 +112,31 @@ public class RespuestaDAO {
             listaRespuestas.add(respuesta);
         }
         cursor.close();
-        // devolvemos la lista de formularios
+        // devolvemos la lista de respuestas
         return listaRespuestas;
-
     }
 
+    // metodo de insercion de formularios recibimos un objeto respuesta
+    public long insertRespuesta_Video(Respuesta respuesta){
+        ContentValues nuevaRespuesta_Video = new ContentValues();
+        List<Video> listaVideos = respuesta.getVideosRespuestas();
+        // recorremos las preguntas y solo guardamos su id
+        for (Video video: listaVideos) {
+            nuevaRespuesta_Video.put("idRespuesta",respuesta.getIdRespuesta());
+            nuevaRespuesta_Video.put("idVideo",video.getIdVideo());
+        }
+        return db.insert(TABLA_RESPUESTA_VIDEO, null, nuevaRespuesta_Video);
+    }
+
+    // metodo de insercion de formularios recibimos un objeto respuesta
+    public long insertRespuesta_Archivo(Respuesta respuesta){
+        ContentValues nuevaRespuesta_Archivo = new ContentValues();
+        List<Archivo> listaArchivos = respuesta.getArchivosAdjuntos();
+        // recorremos los archivos y solo guardamos su id
+        for (Archivo archivo: listaArchivos) {
+            nuevaRespuesta_Archivo.put("idRespuesta",respuesta.getIdRespuesta());
+            nuevaRespuesta_Archivo.put("idArchivo",archivo.getIdArchivo());
+        }
+        return db.insert(TABLA_RESPUESTA_ARCHIVO, null, nuevaRespuesta_Archivo);
+    }
 }

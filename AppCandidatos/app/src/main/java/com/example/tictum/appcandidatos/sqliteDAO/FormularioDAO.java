@@ -124,6 +124,7 @@ public class FormularioDAO {
     public long insertFormulario_Pregunta(Formulario formulario){
         ContentValues nuevoFormulario_Pregunta = new ContentValues();
         List<Pregunta> listaPreguntas = formulario.getPreguntas();
+        // recorremos las preguntas y solo guardamos su id
         for (Pregunta pregunta: listaPreguntas) {
             nuevoFormulario_Pregunta.put("idFormulario",formulario.getIdFormulario());
             nuevoFormulario_Pregunta.put("idPregunta",pregunta.getIdPregunta());
