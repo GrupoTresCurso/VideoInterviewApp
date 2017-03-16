@@ -9,6 +9,7 @@ public class Respuesta {
 	private int idCandidato;
 	private List<Video> videosRespuestas;
 	private List<String> respuestas;
+	private String respuestasString;
 	private List<Archivo> archivosAdjuntos;
 	private float notaCandidato;
 
@@ -18,21 +19,50 @@ public class Respuesta {
 		super();
 	}
 
-	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
+	//Constructores con idRespuesta
+	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas,
+					 List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
 		this.idRespuesta = idRespuesta;
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
 		this.videosRespuestas = videosRespuestas;
 		this.respuestas = respuestas;
+		this.respuestasString = HelperBeans.getStringFromArray(respuestas);
 		this.archivosAdjuntos = archivosAdjuntos;
 		this.notaCandidato = notaCandidato;
 	}
 
-	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
+	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas,
+					 String respuestasString, List<Archivo> archivosAdjuntos, float notaCandidato) {
+		this.idRespuesta = idRespuesta;
+		this.idEntrevista = idEntrevista;
+		this.idCandidato = idCandidato;
+		this.videosRespuestas = videosRespuestas;
+		this.respuestasString = respuestasString;
+		this.respuestas = HelperBeans.getArrayFromString(respuestasString);
+		this.archivosAdjuntos = archivosAdjuntos;
+		this.notaCandidato = notaCandidato;
+	}
+
+	//Constructores sin idRespuesta
+	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas,
+					 List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
 		this.videosRespuestas = videosRespuestas;
 		this.respuestas = respuestas;
+		this.respuestasString = HelperBeans.getStringFromArray(respuestas);
+		this.archivosAdjuntos = archivosAdjuntos;
+		this.notaCandidato = notaCandidato;
+	}
+
+	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas,
+					 String respuestasString, List<Archivo> archivosAdjuntos, float notaCandidato) {
+		this.idEntrevista = idEntrevista;
+		this.idCandidato = idCandidato;
+		this.videosRespuestas = videosRespuestas;
+		this.respuestasString = respuestasString;
+		this.respuestas = HelperBeans.getArrayFromString(respuestasString);
 		this.archivosAdjuntos = archivosAdjuntos;
 		this.notaCandidato = notaCandidato;
 	}
