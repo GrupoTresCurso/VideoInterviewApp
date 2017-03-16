@@ -12,9 +12,6 @@ import com.example.tictum.appcandidatos.R;
 
 import com.example.tictum.appcandidatos.beans.Pais;
 
-/**
- * Created by Juanjo on 08/03/2017.
- */
 
 public class AdaptadorPaises  extends ArrayAdapter<Pais> {
 
@@ -34,7 +31,7 @@ public class AdaptadorPaises  extends ArrayAdapter<Pais> {
             holder = new ViewHolderPaises();
 
 
-            holder.nombre = (TextView) itemView.findViewById(R.id.pais_origen);
+          //  holder.nombre = (TextView) itemView.findViewById(R.id.pais_origen);
             itemView.setTag(holder);
 
         } else {

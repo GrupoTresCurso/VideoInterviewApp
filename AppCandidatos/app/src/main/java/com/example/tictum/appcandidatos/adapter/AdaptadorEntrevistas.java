@@ -14,23 +14,19 @@ import java.util.ArrayList;
 
 public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
 
-public AdaptadorEntrevistas(Context context,int resource) {
-        super(context, resource);
-        }
-
     class ViewHolder{
     TextView nombreEntrevista;
     }
 
     // constructor del adaptador para mostrar la lista de entrevistas
-    public AdaptadorEntrevistas(Context context,ArrayList<Entrevista> listaEntrevistas) {
-        super(context, R.layout.layout_mostrar_entrevistas,listaEntrevistas);
+    public AdaptadorEntrevistas(Context context,Entrevista[] listaEntrevistas) {
+        super(context, R.layout.layout__lista_entrevistas,listaEntrevistas);
     }
 
     // obtenemos la vista de cada objeto entrevista y lo mostramos
     public View getView(int posicion,View convertView, ViewGroup parent){
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View itemView = inflater.inflate(R.layout.layout_mostrar_entrevistas,null);
+        View itemView = inflater.inflate(R.layout.layout__lista_entrevistas,null);
         AdaptadorEntrevistas.ViewHolder holder;
         holder = new AdaptadorEntrevistas.ViewHolder();
 

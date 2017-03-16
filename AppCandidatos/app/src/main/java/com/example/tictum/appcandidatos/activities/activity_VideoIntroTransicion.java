@@ -5,6 +5,9 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.tictum.appcandidatos.R;
@@ -16,19 +19,22 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout__video_intro_transicion);
-
-        // Muestra el Activity en modo Portrait.
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // donde vamos a reproducir el video
         videoView = (VideoView) findViewById(R.id.videoView);
 
         // ruta del archivo que vamos a reproducir
-        String path = "android.resource://" + getPackageName() +"/" + R.raw.countdown;
+        String path = "android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical;
 
         // convertimos la ruta a una uri para la reproduccion
         Uri pathUri = Uri.parse(path);
+
+        MediaController mediaController = new MediaController(this);
+
+        videoView.setMediaController(mediaController);
 
         // añadimos el path
         videoView.setVideoPath(path);
@@ -37,7 +43,7 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
         videoView.start();
 
         // Despues de verse el video completo empezamos la actividad del formulario
-       // Intent intent = new Intent(activity_VideoIntroTransicion.this,Activity_Formulario.class);
-       // startActivity(intent);
+      // Intent intent = new Intent(activity_VideoIntroTransicion.this,Activity_Formulario.class);
+       //startActivity(intent);
     }
 }

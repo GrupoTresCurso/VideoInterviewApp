@@ -18,9 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.Activity_ListaEntrevistas" />
-        <activity
-            android:name=".activities.activity_VideoIntroTransicion"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name=".activities.activity_VideoIntroTransicion"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activities.Activity_Formulario" />
         <activity  android:name=".activities.Activity_VideoPregunta"
                     android:theme="@style/Theme.AppCompat.NoActionBar"/>

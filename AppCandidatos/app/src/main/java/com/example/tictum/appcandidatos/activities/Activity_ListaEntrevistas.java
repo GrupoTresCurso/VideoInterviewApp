@@ -19,14 +19,10 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout__lista_entrevistas);
+        setContentView(R.layout.layout_mostrar_entrevistas);
         // Creamos la lista de las entrevistas para hacerles un listener a cada una
         // esta lista se va a traer de la base de datos
-        ArrayList<Entrevista> listaEntrevista = new ArrayList<>();
-
-        listaEntrevista.add(new Entrevista("Puesto 1"));
-        listaEntrevista.add(new Entrevista("Puesto 2"));
-
+        Entrevista[] listaEntrevista = {new Entrevista("Puesto 1"),new Entrevista("Puesto 2")};
         // el adaptador para ver la lista de las entrevistas
         AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaEntrevista);
         // Donde vamos a mostrar los objetos Entrevista
