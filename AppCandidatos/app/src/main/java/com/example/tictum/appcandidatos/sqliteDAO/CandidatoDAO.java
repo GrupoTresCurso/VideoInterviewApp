@@ -11,10 +11,6 @@ import com.example.tictum.appcandidatos.parsers.JsonEntrevistaParser;
 import java.util.ArrayList;
 
 public class CandidatoDAO {
-
-    public CandidatoDAO() {
-    }
-
     // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
     JsonEntrevistaParser jsonParser = new JsonEntrevistaParser();
     // Obtenemos el objeto entrevista a partir de un metodo
