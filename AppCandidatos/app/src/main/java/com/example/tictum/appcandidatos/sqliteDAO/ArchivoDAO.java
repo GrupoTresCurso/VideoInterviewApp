@@ -15,6 +15,7 @@ public class ArchivoDAO {
     // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
     JsonEntrevistaParser jsonParser = new JsonEntrevistaParser();
 
+
     // debemos crear una version para la base de datos para futuros cambios
     private static final int VERSION = 1;
 

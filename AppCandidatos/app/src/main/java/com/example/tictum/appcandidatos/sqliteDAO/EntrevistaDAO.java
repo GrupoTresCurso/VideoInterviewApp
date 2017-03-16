@@ -20,7 +20,7 @@ public class EntrevistaDAO {
     // Creamos un objeto jsonParser que es el que va a traer json convertidos en objetos
     JsonEntrevistaParser jsonParser = new JsonEntrevistaParser();
     // Obtenemos el objeto entrevista a partir de un metodo
-    // Entrevista entrevista = (Entrevista)jsonParser.getBeanById();
+    //Entrevista entrevista = (Entrevista)jsonParser.getBeanById();
 
     // debemos crear una version para la base de datos para futuros cambios
     private static final int VERSION = 1;
