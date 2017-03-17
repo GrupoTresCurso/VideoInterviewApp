@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaText">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/pregunta_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/pregunta_text"
+        />
+
+    <EditText
+        android:id="@+id/respuesta_text"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/btn_envio_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_envio_text"
+        android:layout_gravity="center" />
+
+
+</LinearLayout>
