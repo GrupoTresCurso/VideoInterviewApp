@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaRadioButton">
 
-</android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/pregunta_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pregunta1"
+        />
+
+    <RadioGroup
+        android:id="@+id/radio_group_pregunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="100dp">
+
+        <RadioButton
+            android:id="@+id/radio_opcion1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/opcionUno" />
+
+        <RadioButton
+            android:id="@+id/radio_opcion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/opcionDos" />
+
+        <RadioButton
+            android:id="@+id/radio_opcion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/opcionTres" />
+
+        <RadioButton
+            android:id="@+id/radio_opcion4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MÃ¡s de 5 aÃ±os" />
+
+    </RadioGroup>
+
+</LinearLayout>
