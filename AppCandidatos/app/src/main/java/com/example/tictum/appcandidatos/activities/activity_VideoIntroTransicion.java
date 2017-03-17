@@ -25,7 +25,7 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout__video_intro_transicion);
 
-       // Entrevista entrevista = (Entrevista) getIntent
+        Entrevista entrevista = (Entrevista)getIntent().getSerializableExtra("entrevista");
 
         // donde vamos a reproducir el video
         videoView = (VideoView) findViewById(R.id.videoView);

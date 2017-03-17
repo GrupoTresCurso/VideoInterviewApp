@@ -34,9 +34,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activities.Activity_Formulario"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.Activity_VideoPregunta"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -51,19 +48,20 @@
             android:name=".activities.Activity_Adjuntos"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Activity_Formulario2"
+            android:name=".activities.Activity_PreguntaText"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Activity_Formulario3"
+            android:name=".activities.Activity_PreguntaTextArea"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Activity_Formulario4"
+            android:name=".activities.Activity_PreguntaRadioButton"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.Activity_PreguntaText" />
-        <activity android:name=".activities.Activity_PreguntaTextArea" />
-        <activity android:name=".activities.Activity_PreguntaRadioButton" />
-        <activity android:name=".activities.Acitivity_PreguntaTextBox" />
-        <activity android:name=".activities.Activity_PreguntaSelect"></activity>
+        <activity
+            android:name=".activities.Acitivity_PreguntaTextBox"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_PreguntaSelect"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
