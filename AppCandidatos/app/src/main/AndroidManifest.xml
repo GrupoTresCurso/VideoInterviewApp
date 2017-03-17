@@ -2,49 +2,68 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tictum.appcandidatos">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/videointerview"
         android:label="Video InterView"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.Activity_SplashScreen"
-                  android:theme="@style/Theme.AppCompat.NoActionBar"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".activities.Activity_SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Activity_ListaEntrevistas"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.activity_VideoIntroTransicion"
-                  android:theme="@style/Theme.AppCompat.NoActionBar"
-                  android:screenOrientation="portrait" />
-        <activity android:name=".activities.Activity_Formulario"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.Activity_VideoPregunta"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".activities.Activity_GrabarRespuesta"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".activities.Activity_Despedida"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.Activity_Adjuntos"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.Activity_Formulario2"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.Activity_Formulario3"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activities.Activity_Formulario4"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.Activity_ListaEntrevistas"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.activity_VideoIntroTransicion"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.Activity_Formulario"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_VideoPregunta"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.Activity_GrabarRespuesta"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.Activity_Despedida"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_Adjuntos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_Formulario2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_Formulario3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_Formulario4"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.Activity_PreguntaText" />
+        <activity android:name=".activities.Activity_PreguntaTextArea" />
+        <activity android:name=".activities.Activity_PreguntaRadioButton" />
+        <activity android:name=".activities.Acitivity_PreguntaTextBox" />
+        <activity android:name=".activities.Activity_PreguntaSelect"></activity>
     </application>
-
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

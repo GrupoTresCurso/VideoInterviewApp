@@ -7,10 +7,6 @@ import com.example.tictum.appcandidatos.sqliteDAO.VideoDAO;
 
 import java.util.ArrayList;
 
-/**
- * Created by Usuario on 16/03/2017.
- */
-
 public class VideoManager {
 
     private VideoDAO videoDAO;
