@@ -27,7 +27,6 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         // Adjudicamos el adaptador
         listaEntrevistas.setAdapter(adaptador);
 
-
         // Un listener para cada objeto entrevista que se muestre en la lista y poder pasar a la sigueinte actividad
         listaEntrevistas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

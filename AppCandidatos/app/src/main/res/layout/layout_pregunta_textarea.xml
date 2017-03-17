@@ -11,7 +11,7 @@
         android:id="@+id/pregunta_textarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/peregunta7" />
+      />
 
 
     <EditText
