@@ -49,4 +49,14 @@
 
     </RadioGroup>
 
+    <Button
+        android:id="@+id/btn_envio_radiobutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_envio_text"
+        android:layout_gravity="center" />
+
+
+
 </LinearLayout>

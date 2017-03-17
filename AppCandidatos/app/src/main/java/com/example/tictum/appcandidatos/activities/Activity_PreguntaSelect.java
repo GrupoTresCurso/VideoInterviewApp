@@ -11,5 +11,9 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_select);
+
+
+
+
     }
 }
