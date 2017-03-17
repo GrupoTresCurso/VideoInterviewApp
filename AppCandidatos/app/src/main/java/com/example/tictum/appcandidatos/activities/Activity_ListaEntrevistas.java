@@ -9,9 +9,15 @@ import android.widget.ListView;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorEntrevistas;
+import com.example.tictum.appcandidatos.beans.Candidato;
 import com.example.tictum.appcandidatos.beans.Entrevista;
+import com.example.tictum.appcandidatos.beans.Formulario;
+import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Video;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class Activity_ListaEntrevistas extends AppCompatActivity {
@@ -22,8 +28,8 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         setContentView(R.layout.layout_mostrar_entrevistas);
         // Creamos la lista de las entrevistas para hacerles un listener a cada una
         // esta lista se va a traer de la base de datos
-        Entrevista[] listaEntrevista = {new Entrevista("Puesto 1"),new Entrevista("Puesto 2")};
         // el adaptador para ver la lista de las entrevistas
+        Entrevista[] listaEntrevista = (Entrevista[]) getIntent().getParcelableArrayExtra("listaEntrevistas");
         AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaEntrevista);
         // Donde vamos a mostrar los objetos Entrevista
         ListView listaEntrevistas = (ListView) findViewById(R.id.listaEntrevistas);
@@ -40,7 +46,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
                     // Desde DONDE estamos hacia DONDE queremos ir
                     Intent intent = new Intent(Activity_ListaEntrevistas.this, activity_VideoIntroTransicion.class);
                     // Mandamos el objeto entrevista que ha seleccionado el usuario
-                    //intent.putExtra("entrevista", entrevistaSelected);
+                    intent.putExtra("entrevista", entrevistaSelected);
                     // LLamamos a la actividad Siguiente
                     startActivity(intent);
                 }
