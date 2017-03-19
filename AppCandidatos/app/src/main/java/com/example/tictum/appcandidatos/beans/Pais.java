@@ -1,8 +1,5 @@
 package com.example.tictum.appcandidatos.beans;
 
-/**
- * Created by Juanjo on 10/03/2017.
- */
 
 public class Pais {
 

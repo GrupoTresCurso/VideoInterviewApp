@@ -21,6 +21,10 @@ public class Entrevista implements Serializable{
     public Entrevista() {
     }
 
+    public Entrevista(String nombrePuesto) {
+        this.nombrePuesto = nombrePuesto;
+    }
+
     public Entrevista(int idEntrevista, String nombreEntrevista, String nombrePuesto, boolean tieneVideoIntro, List<Formulario> formularios, List<Video> listaVideos, Formulario cuestionarioSatisfaccion, String mensaje, List<Candidato> listaCandidatos) {
         this.idEntrevista = idEntrevista;
         this.nombreEntrevista = nombreEntrevista;

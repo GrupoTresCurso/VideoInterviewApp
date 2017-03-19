@@ -1,10 +1,11 @@
 package com.example.tictum.appcandidatos.beans;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 
-public class Formulario {
+public class Formulario implements Serializable{
 
     
     private int idFormulario;

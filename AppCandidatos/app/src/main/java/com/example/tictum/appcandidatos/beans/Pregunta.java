@@ -1,6 +1,8 @@
 package com.example.tictum.appcandidatos.beans;
 
-public class Pregunta {
+import java.io.Serializable;
+
+public class Pregunta implements Serializable {
 
     private int idPregunta;
     private String labelPregunta;

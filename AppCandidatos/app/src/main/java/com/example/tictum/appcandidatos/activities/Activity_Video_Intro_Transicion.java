@@ -13,7 +13,7 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Video;
 
-public class activity_VideoIntroTransicion extends AppCompatActivity{
+public class Activity_Video_Intro_Transicion extends AppCompatActivity {
 
     private VideoView videoView;
 
@@ -23,9 +23,10 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.layout__video_intro_transicion);
+        setContentView(R.layout.layout_video_intro_transicion);
 
-        Entrevista entrevista = (Entrevista)getIntent().getSerializableExtra("entrevista");
+        // recibo el objeto entrevista de la activity anterior y reproduzco el video intro que tiene
+        Entrevista entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
 
         if (entrevista.TieneVideoIntro()) {
             // obtenemos el primer video que es el de transicion para todas las entrevistas si lo tiene
@@ -51,11 +52,12 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
             videoView.start();
 
             // si posicion actual del video (tpo en seg) coincide con la duracion final del video llamamos a la actividad
-            if (videoView.getCurrentPosition() == videoView.getDuration()) {
+            if (videoView.getDuration() == videoView.getCurrentPosition()) {
                 // Despues de verse el video completo empezamos la actividad del formulario
-                Intent intent = new Intent(activity_VideoIntroTransicion.this, Activity_PreguntaText.class);
+                Intent intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaText.class);
                 startActivity(intent);
             }
         }
+
     }
 }

@@ -30,10 +30,6 @@
             android:name=".activities.Activity_ListaEntrevistas"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.activity_VideoIntroTransicion"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
             android:name=".activities.Activity_VideoPregunta"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -57,10 +53,14 @@
             android:name=".activities.Activity_PreguntaRadioButton"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Acitivity_PreguntaTextBox"
+            android:name=".activities.Activity_PreguntaTextBox"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Activity_PreguntaSelect"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Activity_Video_Intro_Transicion"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="portrait"/>
     </application>
 
