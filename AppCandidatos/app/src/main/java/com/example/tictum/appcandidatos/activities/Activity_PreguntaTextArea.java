@@ -60,7 +60,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
 
-                    intent = new Intent(Activity_PreguntaTextArea.this, Activity_PreguntaTextBox.class);
+                    intent = new Intent(Activity_PreguntaTextArea.this, Activity_PreguntaCheckBox.class);
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
 

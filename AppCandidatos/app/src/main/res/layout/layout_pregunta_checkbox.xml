@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaTextBox">
+    tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaCheckBox">
 
 
     <TextView

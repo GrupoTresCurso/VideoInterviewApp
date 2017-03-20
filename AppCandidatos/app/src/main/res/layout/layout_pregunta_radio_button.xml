@@ -17,33 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:paddingLeft="100dp">
-
-        <RadioButton
-            android:id="@+id/radio_opcion1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/opcionUno" />
-
-        <RadioButton
-            android:id="@+id/radio_opcion2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/opcionDos" />
-
-        <RadioButton
-            android:id="@+id/radio_opcion3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/opcionTres" />
-
-        <RadioButton
-            android:id="@+id/radio_opcion4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Más de 5 años" />
-
-    </RadioGroup>
+        android:paddingLeft="100dp"/>
 
     <Button
         android:id="@+id/btn_envio_radiobutton"
