@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
@@ -18,14 +18,17 @@ import java.util.List;
 
 public class Activity_PreguntaRadioButton extends AppCompatActivity {
 
-    private TextView preguntaRadio;
-    private Button btnEnvioRadio;
+    private TextView preguntaRadioButton;
+    private RadioGroup radioGroupPregunta;
+    private Button btnEnvioRadioButton;
 
-    Formulario formulario;
-    List<Pregunta> listaPreguntas;
-    Pregunta preguntaActual;
-    Pregunta preguntaSiguiente;
-    Intent intent;
+    private Formulario formulario;
+    private List<Pregunta> listaPreguntas;
+    private Pregunta preguntaActual;
+    private Pregunta preguntaSiguiente;
+    private Intent intent;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,20 +41,26 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
         String[] opciones = preguntaActual.getOpciones();
 
-        preguntaRadio = (TextView)findViewById(R.id.pregunta_radio);
-        btnEnvioRadio = (Button)findViewById(R.id.btn_envio_radiobutton);
+        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio);
+        radioGroupPregunta = (RadioGroup)findViewById(R.id.radio_group_pregunta);
+        btnEnvioRadioButton = (Button)findViewById(R.id.btn_envio_radiobutton);
 
         for (int i = 0; i < opciones.length; i++) {
             RadioButton rdbtn = new RadioButton(this);
             rdbtn.setId(i);
             rdbtn.setText(opciones[i]);
-            ((ViewGroup)findViewById(R.id.radio_group_pregunta)).addView(rdbtn);
+            radioGroupPregunta.addView(rdbtn);
         }
 
-        btnEnvioRadio.setOnClickListener(new View.OnClickListener() {
+        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio_button);
+        preguntaRadioButton.setText(preguntaActual.getLabelPregunta());
+        
+        btnEnvioRadioButton = (Button)findViewById(R.id.btn_envio_radiobutton);
+
+        btnEnvioRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                
+            public void onClick(View v) {
+
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
                 }
@@ -84,7 +93,27 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        
-        
+
+            }
     }
-}
+
+    /*
+    private String getCheckedButton() {
+
+        int checkedRadioButtonId = radioGroupPregunta.getCheckedRadioButtonId();
+
+        String returnChecked = " ";
+
+        if (checkedRadioButtonId == R.id.radio_opcion1) {
+            returnChecked = "Sin experiencia.";
+        } else if (checkedRadioButtonId == R.id.radio_opcion2) {
+            returnChecked = "entre 1 a 3 años.";
+        } else if (checkedRadioButtonId == R.id.radio_opcion3) {
+            returnChecked = "entre 3 a 5 años.";
+        } else if (checkedRadioButtonId == R.id.radio_opcion4) {
+            returnChecked = "> 5 años.";
+        }
+        return returnChecked;
+    }
+
+    */
