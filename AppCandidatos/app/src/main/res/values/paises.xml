@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="puntuacion">
+    <string-array name="paises">
         <item name="espana">España</item>
         <item name="francia">Francia</item>
         <item name="alemania">Alemania</item>

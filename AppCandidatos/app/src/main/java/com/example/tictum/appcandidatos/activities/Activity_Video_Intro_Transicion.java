@@ -16,9 +16,6 @@ import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
 import com.example.tictum.appcandidatos.beans.Video;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Activity_Video_Intro_Transicion extends AppCompatActivity {
 
     private VideoView videoView;
@@ -76,7 +73,7 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
 
                         } else if (preguntaActual.getTipoPregunta().equals("checkBox")){
 
-                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaTextBox.class);
+                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaCheckBox.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("select")){
 

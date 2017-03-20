@@ -12,8 +12,6 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class Activity_PreguntaText extends AppCompatActivity {
@@ -65,7 +63,7 @@ public class Activity_PreguntaText extends AppCompatActivity {
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
 
-                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaTextBox.class);
+                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaCheckBox.class);
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
 

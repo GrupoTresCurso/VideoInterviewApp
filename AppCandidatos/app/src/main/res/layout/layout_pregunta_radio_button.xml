@@ -7,10 +7,10 @@
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaRadioButton">
 
     <TextView
-        android:id="@+id/pregunta_radio"
+        android:id="@+id/pregunta_radio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pregunta1" />
+       />
 
     <RadioGroup
         android:id="@+id/radio_group_pregunta"

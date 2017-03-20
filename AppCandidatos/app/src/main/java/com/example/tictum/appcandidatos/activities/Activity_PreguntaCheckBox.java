@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
@@ -15,47 +14,51 @@ import com.example.tictum.appcandidatos.beans.Pregunta;
 
 import java.util.List;
 
-public class Activity_PreguntaSelect extends AppCompatActivity {
+public class Activity_PreguntaCheckBox extends AppCompatActivity {
 
 
-    private TextView preguntaSelect;
-    private Spinner spinnerSelect;
-    private Button btnEnvioSelect;
+    private TextView preguntaCheckox;
 
+    private CheckBox checkboxTecnologia1;
+    private CheckBox checkboxTecnologia2;
+    private CheckBox checkboxTecnologia3;
+    private CheckBox checkboxTecnologia4;
 
-    private Formulario formulario;
-    private List<Pregunta> listaPreguntas;
-    private Pregunta preguntaActual;
-    private Pregunta preguntaSiguiente;
-    private Intent intent;
+    private Button btnEnvioCheckBox;
+
+   private Formulario formulario;
+   private  List<Pregunta> listaPreguntas;
+   private  Pregunta preguntaActual;
+   private  Pregunta preguntaSiguiente;
+   private   Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_pregunta_select);
+        setContentView(R.layout.layout_pregunta_checkbox);
 
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
 
-        preguntaSelect=(TextView)findViewById(R.id.pregunta_select);
-        preguntaSelect.setText(preguntaActual.getLabelPregunta());
+
+        preguntaCheckox=(TextView)findViewById(R.id.pregunta_checkbox);
+        preguntaCheckox.setText(preguntaActual.getLabelPregunta());
 
 
-        spinnerSelect = (Spinner)findViewById(R.id.spinner_select);
-        ArrayAdapter<CharSequence> adapter =
-                ArrayAdapter.createFromResource(this,
-                        R.array.paises,
-                        android.R.layout.simple_spinner_item);
-        spinnerSelect.setAdapter(adapter);
+        checkboxTecnologia1=(CheckBox)findViewById(R.id.checkbox_tecnologia1);
+        checkboxTecnologia2=(CheckBox)findViewById(R.id.checkbox_tecnologia2);
+        checkboxTecnologia3=(CheckBox)findViewById(R.id.checkbox_tecnologia3);
+        checkboxTecnologia4=(CheckBox)findViewById(R.id.checkbox_tecnologia4);
 
+        btnEnvioCheckBox= (Button)findViewById(R.id.btn_envio_checkbox);
 
-        btnEnvioSelect=(Button)findViewById(R.id.btn_envio_select);
-
-        btnEnvioSelect.setOnClickListener(new View.OnClickListener() {
+        btnEnvioCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
                 }
@@ -64,23 +67,23 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
 
                 if (preguntaSiguiente.getTipoPregunta().equals("text")){
 
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaText.class);
+                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaText.class);
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")){
 
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaTextArea.class);
+                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaTextArea.class);
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
 
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaCheckBox.class);
+                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaCheckBox.class);
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
 
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaSelect.class);
+                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaSelect.class);
 
                 } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")){
 
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaRadioButton.class);
+                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaRadioButton.class);
                 }
 
                 intent.putExtra("formulario", formulario);
