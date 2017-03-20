@@ -1,6 +1,7 @@
 package com.example.tictum.appcandidatos.activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +12,20 @@ import android.widget.VideoView;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
+import com.example.tictum.appcandidatos.beans.Formulario;
+import com.example.tictum.appcandidatos.beans.Pregunta;
 import com.example.tictum.appcandidatos.beans.Video;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Activity_Video_Intro_Transicion extends AppCompatActivity {
 
     private VideoView videoView;
+    private Entrevista entrevista;
+    private Formulario formulario;
+    private Pregunta preguntaActual;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +36,7 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
         setContentView(R.layout.layout_video_intro_transicion);
 
         // recibo el objeto entrevista de la activity anterior y reproduzco el video intro que tiene
-        Entrevista entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
 
         if (entrevista.TieneVideoIntro()) {
             // obtenemos el primer video que es el de transicion para todas las entrevistas si lo tiene
@@ -51,13 +61,42 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
             // reproducimos el video
             videoView.start();
 
-            // si posicion actual del video (tpo en seg) coincide con la duracion final del video llamamos a la actividad
-            if (videoView.getDuration() == videoView.getCurrentPosition()) {
-                // Despues de verse el video completo empezamos la actividad del formulario
-                Intent intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaText.class);
-                startActivity(intent);
-            }
-        }
+                    // Obtenemos la lista de formularios que tiene asociados la entrevista
+                    formulario = entrevista.getFormularios().get(0);
+                    // obtenemos la primera pregunta de la lista para mostrarla al usuario para que la conteste
+                    preguntaActual = formulario.getPreguntas().get(0);
 
+                        if (preguntaActual.getTipoPregunta().equals("text")){
+
+                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaText.class);
+
+                        } else if (preguntaActual.getTipoPregunta().equals("textArea")){
+
+                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaTextArea.class);
+
+                        } else if (preguntaActual.getTipoPregunta().equals("checkBox")){
+
+                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaTextBox.class);
+
+                        } else if (preguntaActual.getTipoPregunta().equals("select")){
+
+                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaSelect.class);
+
+                        } else if (preguntaActual.getTipoPregunta().equals("radioButton")){
+
+                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaRadioButton.class);
+                        }
+
+                        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mediaPlayer) {
+                                intent.putExtra("formulario", formulario);
+                                intent.putExtra("preguntaActual", preguntaActual);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+
+        }
     }
 }

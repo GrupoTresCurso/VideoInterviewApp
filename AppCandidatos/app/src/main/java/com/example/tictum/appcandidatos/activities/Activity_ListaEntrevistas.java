@@ -52,7 +52,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
 
         List<Formulario> listaformularios = new ArrayList<Formulario>();
         listaformularios.add(form1);
-        listaformularios.add(form2);
+        //listaformularios.add(form2);
 
         Video videoPrueba = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
         List<Video> listaVideos = new ArrayList<Video>();

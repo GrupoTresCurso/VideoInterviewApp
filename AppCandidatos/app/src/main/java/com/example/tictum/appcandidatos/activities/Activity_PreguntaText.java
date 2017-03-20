@@ -9,27 +9,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.beans.Formulario;
+import com.example.tictum.appcandidatos.beans.Pregunta;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
 public class Activity_PreguntaText extends AppCompatActivity {
 
-    private TextView preguntaText ;
+    private TextView preguntaText;
     private EditText respuestaText;
     private Button btnEnvioText;
 
+    Formulario formulario;
+    List<Pregunta> listaPreguntas;
+    Pregunta preguntaActual;
+    Pregunta preguntaSiguiente;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_text);
 
-        Activity_SplashScreen splashScreen=new Activity_SplashScreen();
+        formulario = (Formulario)getIntent().getSerializableExtra("formulario");
+        listaPreguntas = formulario.getPreguntas();
+        listaPreguntas.remove(0);
+        preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
 
         preguntaText = (TextView)findViewById(R.id.pregunta_text);
-
-        String preguntaPrueba;
-        /* preguntaText.setText(); */
+        preguntaText.setText(preguntaActual.getLabelPregunta());
 
         respuestaText = (EditText)findViewById(R.id.respuesta_text);
 
@@ -38,9 +48,38 @@ public class Activity_PreguntaText extends AppCompatActivity {
         btnEnvioText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity_PreguntaText.this,Activity_PreguntaTextArea.class);
 
+                if (listaPreguntas.isEmpty()){
+                    // rellenar con actividad donde ir si acabamos formulario
+                }
+
+                preguntaSiguiente = formulario.getPreguntas().get(0);
+
+                if (preguntaSiguiente.getTipoPregunta().equals("text")){
+
+                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaText.class);
+
+                } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")){
+
+                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaTextArea.class);
+
+                } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
+
+                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaTextBox.class);
+
+                } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
+
+                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaSelect.class);
+
+                } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")){
+
+                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaRadioButton.class);
+                }
+
+                intent.putExtra("formulario", formulario);
+                intent.putExtra("preguntaActual", preguntaSiguiente);
                 startActivity(intent);
+
             }
         });
 
