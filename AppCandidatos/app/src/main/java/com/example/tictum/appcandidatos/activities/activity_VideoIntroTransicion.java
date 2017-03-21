@@ -56,6 +56,10 @@ public class activity_VideoIntroTransicion extends AppCompatActivity{
                 Intent intent = new Intent(activity_VideoIntroTransicion.this, Activity_PreguntaText.class);
                 startActivity(intent);
             }
+        } else {
+            // si no tiene video intro entonces vamos al formulario con las preguntas
+            Intent intent = new Intent(activity_VideoIntroTransicion.this, Activity_PreguntaText.class);
+            startActivity(intent);
         }
     }
 }
