@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tictum.appcandidatos.activities.Activity_Video_Intro_Transicion">
+    tools:context="com.example.tictum.appcandidatos.activities.Activity_Video_Intro">
 
     <VideoView
         android:id="@+id/videoView"

@@ -17,7 +17,7 @@ import com.example.tictum.appcandidatos.beans.Pregunta;
 import com.example.tictum.appcandidatos.beans.Respuesta;
 import com.example.tictum.appcandidatos.beans.Video;
 
-public class Activity_Video_Intro_Transicion extends AppCompatActivity {
+public class Activity_Video_Intro extends AppCompatActivity {
 
     private VideoView videoView;
     private Entrevista entrevista;
@@ -47,7 +47,7 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
         respuesta.setIdCandidato(idCandidato);
 
         if (entrevista.TieneVideoIntro()) {
-            // obtenemos el primer video que es el de transicion para todas las entrevistas si lo tiene
+            // obtenemos el primer video que es el de introduccion para todas las entrevistas si lo tiene
             Video videoIntro = entrevista.getListaVideos().get(0);
 
             // donde vamos a reproducir el video
@@ -76,23 +76,23 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
 
                         if (preguntaActual.getTipoPregunta().equals("text")){
 
-                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaText.class);
+                            intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaText.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("textArea")){
 
-                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaTextArea.class);
+                             intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaTextArea.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("checkBox")){
 
-                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaCheckBox.class);
+                             intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaCheckBox.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("select")){
 
-                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaSelect.class);
+                            intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaSelect.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("radioButton")){
 
-                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaRadioButton.class);
+                            intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaRadioButton.class);
                         }
 
                         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

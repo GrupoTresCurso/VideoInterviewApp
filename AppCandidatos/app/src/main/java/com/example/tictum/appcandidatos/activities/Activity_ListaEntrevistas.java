@@ -79,7 +79,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
                     // Cogemos la entrevista seleccionada para mandar su id y recuperar sus atributos
                     Entrevista entrevistaSelected = (Entrevista) parent.getItemAtPosition(position);
                     // Desde DONDE estamos hacia DONDE queremos ir
-                    Intent intent = new Intent(Activity_ListaEntrevistas.this, Activity_Video_Intro_Transicion.class);
+                    Intent intent = new Intent(Activity_ListaEntrevistas.this, Activity_Video_Intro.class);
                     // Mandamos el objeto entrevista que ha seleccionado el usuario
                     intent.putExtra("entrevista", entrevistaSelected);
                     // LLamamos a la actividad Siguiente
