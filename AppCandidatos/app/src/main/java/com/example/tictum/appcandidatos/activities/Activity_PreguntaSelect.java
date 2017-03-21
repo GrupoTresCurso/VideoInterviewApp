@@ -4,24 +4,28 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.adapter.AdaptadorSpinner;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 
 import java.util.List;
 
-public class Activity_PreguntaSelect extends AppCompatActivity {
+public class Activity_PreguntaSelect extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
 
     private TextView preguntaSelect;
     private Spinner spinnerSelect;
     private Button btnEnvioSelect;
-
 
     private Formulario formulario;
     private List<Pregunta> listaPreguntas;
@@ -29,33 +33,56 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
     private Pregunta preguntaSiguiente;
     private Intent intent;
 
+    String[] opciones;
+    private String opcionSelected;
+    private Entrevista entrevista;
+    private Respuesta respuesta;
+    private int posicionOpcion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_select);
 
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
+
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
+        opciones = preguntaActual.getOpciones();
 
-        preguntaSelect=(TextView)findViewById(R.id.pregunta_select);
+        preguntaSelect = (TextView)findViewById(R.id.pregunta_select);
         preguntaSelect.setText(preguntaActual.getLabelPregunta());
 
-
         spinnerSelect = (Spinner)findViewById(R.id.spinner_select);
-        ArrayAdapter<CharSequence> adapter =
-                ArrayAdapter.createFromResource(this,
-                        R.array.paises,
-                        android.R.layout.simple_spinner_item);
-        spinnerSelect.setAdapter(adapter);
+        spinnerSelect.setOnItemSelectedListener(this);
 
+        AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(getApplicationContext(), opciones);
+        spinnerSelect.setAdapter(adaptadorSpinner);
 
-        btnEnvioSelect=(Button)findViewById(R.id.btn_envio_select);
+        spinnerSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                opcionSelected = (String) adapterView.getItemAtPosition(position);
+                respuesta.getRespuestas().add(opcionSelected);
+                posicionOpcion = position;
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        btnEnvioSelect = (Button)findViewById(R.id.btn_envio_select);
 
         btnEnvioSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
                 }
@@ -90,6 +117,16 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
         });
 
 
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getApplicationContext(), opciones[position], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

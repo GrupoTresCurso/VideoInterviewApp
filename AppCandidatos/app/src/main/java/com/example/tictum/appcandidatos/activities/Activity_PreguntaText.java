@@ -9,8 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class Activity_PreguntaText extends AppCompatActivity {
     List<Pregunta> listaPreguntas;
     Pregunta preguntaActual;
     Pregunta preguntaSiguiente;
+    Entrevista entrevista;
+    Respuesta respuesta;
     Intent intent;
 
     @Override
@@ -35,6 +39,8 @@ public class Activity_PreguntaText extends AppCompatActivity {
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         preguntaText = (TextView)findViewById(R.id.pregunta_text);
         preguntaText.setText(preguntaActual.getLabelPregunta());
@@ -74,13 +80,18 @@ public class Activity_PreguntaText extends AppCompatActivity {
                     intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaRadioButton.class);
                 }
 
+                //Modificar bean respuesta
+                respuesta.getRespuestas().add((String)respuestaText.getText().toString());
+
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
+                intent.putExtra("entrevista", entrevista);
+                intent.putExtra("respuesta", respuesta);
+
                 startActivity(intent);
 
             }
         });
-
 
 
     }

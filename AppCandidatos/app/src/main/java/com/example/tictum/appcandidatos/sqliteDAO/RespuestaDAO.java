@@ -80,13 +80,14 @@ public class RespuestaDAO {
             return  null;
         }
         Respuesta respuesta = new Respuesta();
-        String[] arrayRespuestas = cursor.getString(4).split(",");
+        List<String> listaRespuestas = new ArrayList<String>();
         if (cursor.moveToFirst()){
             respuesta.setIdRespuesta(cursor.getInt(0));
             respuesta.setIdEntrevista(cursor.getInt(1));
             respuesta.setIdCandidato(cursor.getInt(2));
             respuesta.setNotaCandidato(Float.parseFloat(cursor.getString(3)));
-            respuesta.setRespuestas(arrayRespuestas);
+            listaRespuestas.add(cursor.getString(4));
+            respuesta.setRespuestas(listaRespuestas);
         }
         // cerramos cursor para que elimine lo que tiene
         cursor.close();
@@ -103,6 +104,7 @@ public class RespuestaDAO {
         }
         //  creamos la lista donde vamos a tener todos los objetos formularios
         ArrayList<Respuesta> listaRespuestas = new ArrayList<Respuesta>();
+        List<String> listaDeRespuestas = new ArrayList<String>();
         // mientras que haya resultados en el cursor los convertimos en objetos formulario
         while (cursor.moveToNext()){
             Respuesta respuesta = new Respuesta();
@@ -110,8 +112,8 @@ public class RespuestaDAO {
             respuesta.setIdEntrevista(cursor.getInt(1));
             respuesta.setIdCandidato(cursor.getInt(2));
             respuesta.setNotaCandidato(Float.parseFloat(cursor.getString(3)));
-            String[] arrayRespuestas = cursor.getString(4).split(",");
-            respuesta.setRespuestas(arrayRespuestas);
+            listaDeRespuestas.add(cursor.getString(4));
+            respuesta.setRespuestas(listaDeRespuestas);
             listaRespuestas.add(respuesta);
         }
         cursor.close();

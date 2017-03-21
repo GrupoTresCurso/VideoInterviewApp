@@ -7,7 +7,7 @@
     <string name="opcionUno">Sin experiencia.</string>
     <string name="opcionDos">Entre 1 y 3 años.</string>
     <string name="opcionTres">Entre 3 y 5 años.</string>
-    <string name="opcionCuatro"><![CDATA[> 5 años.]]></string>
+    <string name="opcionCuatro">Más de 5 años.</string>
     <string name="nacionalidad">Selecciona tu país</string>
     <string name="tecnologia1">AngularJs</string>
     <string name="tecnologia2">PHP</string>

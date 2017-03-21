@@ -14,15 +14,19 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 import com.example.tictum.appcandidatos.beans.Video;
 
-public class Activity_Video_Intro_Transicion extends AppCompatActivity {
+public class Activity_Video_Intro extends AppCompatActivity {
 
     private VideoView videoView;
     private Entrevista entrevista;
     private Formulario formulario;
     private Pregunta preguntaActual;
     private Intent intent;
+    private Respuesta respuesta;
+    private int idCandidato;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +36,18 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.layout_video_intro_transicion);
 
+
         // recibo el objeto entrevista de la activity anterior y reproduzco el video intro que tiene
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
 
+        //Se crea un bean Respuesta que se irá enviando y rellenando a través de los siguientes activities
+        respuesta = new Respuesta();
+        respuesta.setIdEntrevista(entrevista.getIdEntrevista());
+        idCandidato = 1; //ID inventado, hay mirar cómo gestionar el envío y recogida del id del candidato que está realizando la entrevista
+        respuesta.setIdCandidato(idCandidato);
+
         if (entrevista.TieneVideoIntro()) {
-            // obtenemos el primer video que es el de transicion para todas las entrevistas si lo tiene
+            // obtenemos el primer video que es el de introduccion para todas las entrevistas si lo tiene
             Video videoIntro = entrevista.getListaVideos().get(0);
 
             // donde vamos a reproducir el video
@@ -65,23 +76,23 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
 
                         if (preguntaActual.getTipoPregunta().equals("text")){
 
-                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaText.class);
+                            intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaText.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("textArea")){
 
-                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaTextArea.class);
+                             intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaTextArea.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("checkBox")){
 
-                             intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaCheckBox.class);
+                             intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaCheckBox.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("select")){
 
-                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaSelect.class);
+                            intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaSelect.class);
 
                         } else if (preguntaActual.getTipoPregunta().equals("radioButton")){
 
-                            intent = new Intent(Activity_Video_Intro_Transicion.this, Activity_PreguntaRadioButton.class);
+                            intent = new Intent(Activity_Video_Intro.this, Activity_PreguntaRadioButton.class);
                         }
 
                         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -89,6 +100,8 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
                             public void onCompletion(MediaPlayer mediaPlayer) {
                                 intent.putExtra("formulario", formulario);
                                 intent.putExtra("preguntaActual", preguntaActual);
+                                intent.putExtra("entrevista", entrevista);
+                                intent.putExtra("respuesta", respuesta);
                                 startActivity(intent);
                                 finish();
                             }

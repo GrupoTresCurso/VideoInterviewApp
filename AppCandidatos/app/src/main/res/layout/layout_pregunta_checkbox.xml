@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaCheckBox">
 
-
     <TextView
         android:id="@+id/pregunta_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-
-        />
+        android:text="Texto de Prueba"
+        android:textSize="20sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayoutCheckBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/pregunta_checkbox"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical" />
 
-
-    <CheckBox
-        android:id="@+id/checkbox_tecnologia1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/BarraBotones"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tecnologia1" />
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/checkbox_tecnologia2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tecnologia2" />
+        <Button
+            android:background="@drawable/custom_border"
+            android:id="@+id/btn_envio_checkbox"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_envio_text" />
 
-    <CheckBox
-        android:id="@+id/checkbox_tecnologia3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tecnologia3" />
+    </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/checkbox_tecnologia4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tecnologia4" />
-</LinearLayout>
-
-
-
-    <Button
-        android:id="@+id/btn_envio_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_siguiente"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center" />
-
-</LinearLayout>
+</RelativeLayout>

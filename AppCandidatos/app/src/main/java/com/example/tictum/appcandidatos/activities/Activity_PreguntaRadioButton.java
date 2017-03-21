@@ -1,6 +1,7 @@
 package com.example.tictum.appcandidatos.activities;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +11,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 
 import java.util.List;
 
@@ -25,20 +28,27 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private List<Pregunta> listaPreguntas;
     private Pregunta preguntaActual;
     private Pregunta preguntaSiguiente;
+    private Entrevista entrevista;
     private Intent intent;
+    private  String[] opciones;
+    private Respuesta respuesta;
+    private String respuestaSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_radio_button);
 
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
-        String[] opciones = preguntaActual.getOpciones();
+        opciones = preguntaActual.getOpciones();
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
-        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio);
+        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio_button);
+        preguntaRadioButton.setText(preguntaActual.getLabelPregunta());
         radioGroupPregunta = (RadioGroup)findViewById(R.id.radio_group_pregunta);
         btnEnvioRadioButton = (Button)findViewById(R.id.btn_envio_radiobutton);
 
@@ -48,11 +58,6 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
             rdbtn.setText(opciones[i]);
             radioGroupPregunta.addView(rdbtn);
         }
-
-        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio_button);
-        preguntaRadioButton.setText(preguntaActual.getLabelPregunta());
-
-        btnEnvioRadioButton = (Button)findViewById(R.id.btn_envio_radiobutton);
 
         btnEnvioRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,32 +90,30 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
                     intent = new Intent(Activity_PreguntaRadioButton.this, Activity_PreguntaRadioButton.class);
                 }
 
+                //Modificar bean Respuesta
+
+                radioGroupPregunta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        RadioButton rdbAux;
+                        for (int i = 0; i < opciones.length; i++) {
+                            rdbAux = (RadioButton) findViewById(i);
+                            if(checkedId == rdbAux.getId()){
+                                respuestaSelected = rdbAux.getText().toString();
+                            }
+                        }
+
+                    }
+                });
+
+                respuesta.getRespuestas().add(respuestaSelected);
+
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
+                intent.putExtra("entrevista", entrevista);
+                intent.putExtra("respuesta", respuesta);
                 startActivity(intent);
             }
         });
 
-            }
     }
-
-    /*
-    private String getCheckedButton() {
-
-        int checkedRadioButtonId = radioGroupPregunta.getCheckedRadioButtonId();
-
-        String returnChecked = " ";
-
-        if (checkedRadioButtonId == R.id.radio_opcion1) {
-            returnChecked = "Sin experiencia.";
-        } else if (checkedRadioButtonId == R.id.radio_opcion2) {
-            returnChecked = "entre 1 a 3 años.";
-        } else if (checkedRadioButtonId == R.id.radio_opcion3) {
-            returnChecked = "entre 3 a 5 años.";
-        } else if (checkedRadioButtonId == R.id.radio_opcion4) {
-            returnChecked = "> 5 años.";
-        }
-        return returnChecked;
     }
-
-    */

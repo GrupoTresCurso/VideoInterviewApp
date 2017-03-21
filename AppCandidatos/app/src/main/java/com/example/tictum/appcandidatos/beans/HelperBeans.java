@@ -10,8 +10,10 @@ import java.util.List;
 
 public class HelperBeans {
 
-    public static String getStringFromArray(String[] array){
+    public static String getStringFromArray(List<String> array){
         String result = array.toString();
+
+        result.replace(",", "|");
 
         result.replace("[","");
         result.replace("]", "");
@@ -19,8 +21,8 @@ public class HelperBeans {
         return result;
     }
 
-    public static String[] getArrayFromString(String string){
-        String[] array = string.split(",");
+    public static List<String> getArrayFromString(String string){
+        List<String> array = Arrays.asList(string.split(","));
         return array;
     }
 }

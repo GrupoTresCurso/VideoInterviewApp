@@ -59,9 +59,10 @@
             android:name=".activities.Activity_PreguntaSelect"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Activity_Video_Intro_Transicion"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:name=".activities.Activity_Video_Intro"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activities.Activity_Video_Transicion"></activity>
     </application>
 
 </manifest>
