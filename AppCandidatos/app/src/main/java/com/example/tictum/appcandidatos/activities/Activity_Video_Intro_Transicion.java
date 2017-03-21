@@ -24,6 +24,7 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
     private Pregunta preguntaActual;
     private Intent intent;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +90,7 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
                             public void onCompletion(MediaPlayer mediaPlayer) {
                                 intent.putExtra("formulario", formulario);
                                 intent.putExtra("preguntaActual", preguntaActual);
+                                intent.putExtra("entrevista", entrevista);
                                 startActivity(intent);
                                 finish();
                             }

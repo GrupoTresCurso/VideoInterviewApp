@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
 
@@ -25,6 +26,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
     Pregunta preguntaActual;
     Pregunta preguntaSiguiente;
     Intent intent;
+    Entrevista entrevista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
 
         BtnEnvioTextArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +76,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
 
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
+                intent.putExtra("entrevista", entrevista);
                 startActivity(intent);
                 
             }
