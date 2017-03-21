@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.tictum.appcandidatos.R;
 
-public class Acitivity_PreguntaTextBox extends AppCompatActivity {
+public class Activity_PreguntaCheckBox extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
