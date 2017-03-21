@@ -27,7 +27,7 @@ public class Activity_PreguntaText extends AppCompatActivity {
     Pregunta preguntaActual;
     Pregunta preguntaSiguiente;
     Entrevista entrevista;
-    Respuesta respuesta;
+    Respuesta respuesta = new Respuesta();
     Intent intent;
 
     @Override
@@ -55,40 +55,43 @@ public class Activity_PreguntaText extends AppCompatActivity {
 
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
+                    intent = new Intent(Activity_PreguntaText.this,Activity_Video_Transicion.class);
+                    startActivity(intent);
+                } else {
+
+                    preguntaSiguiente = formulario.getPreguntas().get(0);
+
+                    if (preguntaSiguiente.getTipoPregunta().equals("text")) {
+
+                        intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaText.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")) {
+
+                        intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaTextArea.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")) {
+
+                        intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaCheckBox.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("select")) {
+
+                        intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaSelect.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")) {
+
+                        intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaRadioButton.class);
+                    }
+
+                    //Modificar bean respuesta
+                    //respuesta.getRespuestas().add(respuestaText.getText().toString());
+
+                    intent.putExtra("formulario", formulario);
+                    intent.putExtra("preguntaActual", preguntaSiguiente);
+                    intent.putExtra("entrevista", entrevista);
+                    intent.putExtra("respuesta", respuesta);
+
+                    startActivity(intent);
                 }
-
-                preguntaSiguiente = formulario.getPreguntas().get(0);
-
-                if (preguntaSiguiente.getTipoPregunta().equals("text")){
-
-                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaText.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")){
-
-                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaTextArea.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
-
-                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaCheckBox.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
-
-                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaSelect.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")){
-
-                    intent = new Intent(Activity_PreguntaText.this, Activity_PreguntaRadioButton.class);
-                }
-
-                //Modificar bean respuesta
-                respuesta.getRespuestas().add((String)respuestaText.getText().toString());
-
-                intent.putExtra("formulario", formulario);
-                intent.putExtra("preguntaActual", preguntaSiguiente);
-                intent.putExtra("entrevista", entrevista);
-                intent.putExtra("respuesta", respuesta);
-
-                startActivity(intent);
 
             }
         });

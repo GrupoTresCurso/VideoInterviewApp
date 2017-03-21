@@ -32,7 +32,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
     private Entrevista entrevista;
     private Intent intent;
     private String[] opciones;
-    private Respuesta respuesta;
+    private Respuesta respuesta = new Respuesta();
     private String respuestaSelected;
     List<String> checkedlist = new ArrayList<String>();
 
@@ -98,43 +98,48 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
 
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
+                    intent = new Intent(Activity_PreguntaCheckBox.this,Activity_Video_Transicion.class);
+                    intent.putExtra("entrevista", entrevista);
+                    startActivity(intent);
+
+                } else {
+
+                    // obtenemos la siguiente pregunta
+                    preguntaSiguiente = formulario.getPreguntas().get(0);
+
+                    // elegimos siguiente intent segun el tipo de la pregunta que este en la lista
+
+                    if (preguntaSiguiente.getTipoPregunta().equals("text")) {
+
+                        intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaText.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")) {
+
+                        intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaTextArea.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")) {
+
+                        intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaCheckBox.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("select")) {
+
+                        intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaSelect.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")) {
+
+                        intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaRadioButton.class);
+                    }
+
+                    // pasamos la lista a un string separado por comas
+                    String respuestaCB = checkedlist.toString();
+                    // añadimos la respuesta del checkbox a la lista de respuestas
+                    //respuesta.getRespuestas().add(respuestaSelected);
+
+                    intent.putExtra("formulario", formulario);
+                    intent.putExtra("preguntaActual", preguntaSiguiente);
+                    intent.putExtra("entrevista", entrevista);
+                    startActivity(intent);
                 }
-
-                // obtenemos la siguiente pregunta
-                preguntaSiguiente = formulario.getPreguntas().get(0);
-
-                // elegimos siguiente intent segun el tipo de la pregunta que este en la lista
-
-                if (preguntaSiguiente.getTipoPregunta().equals("text")){
-
-                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaText.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")){
-
-                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaTextArea.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
-
-                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaCheckBox.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
-
-                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaSelect.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")){
-
-                    intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaRadioButton.class);
-                }
-
-                // pasamos la lista a un string separado por comas
-               String respuestaCB = checkedlist.toString();
-                // añadimos la respuesta del checkbox a la lista de respuestas
-                respuesta.getRespuestas().add(respuestaSelected);
-
-                intent.putExtra("formulario", formulario);
-                intent.putExtra("preguntaActual", preguntaSiguiente);
-                intent.putExtra("entrevista", entrevista);
-                startActivity(intent);
             }
 
         });

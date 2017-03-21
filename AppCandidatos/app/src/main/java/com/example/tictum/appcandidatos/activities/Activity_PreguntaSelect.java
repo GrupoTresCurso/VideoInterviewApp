@@ -36,7 +36,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
     String[] opciones;
     private String opcionSelected;
     private Entrevista entrevista;
-    private Respuesta respuesta;
+    private Respuesta respuesta = new Respuesta();
     private int posicionOpcion;
 
     @Override
@@ -85,34 +85,39 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
 
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
+                    intent = new Intent(Activity_PreguntaSelect.this,Activity_Video_Transicion.class);
+                    intent.putExtra("entrevista",entrevista);
+                    startActivity(intent);
+
+                } else {
+
+                    preguntaSiguiente = formulario.getPreguntas().get(0);
+
+                    if (preguntaSiguiente.getTipoPregunta().equals("text")) {
+
+                        intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaText.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")) {
+
+                        intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaTextArea.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")) {
+
+                        intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaCheckBox.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("select")) {
+
+                        intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaSelect.class);
+
+                    } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")) {
+
+                        intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaRadioButton.class);
+                    }
+
+                    intent.putExtra("formulario", formulario);
+                    intent.putExtra("preguntaActual", preguntaSiguiente);
+                    startActivity(intent);
                 }
-
-                preguntaSiguiente = formulario.getPreguntas().get(0);
-
-                if (preguntaSiguiente.getTipoPregunta().equals("text")){
-
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaText.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("textArea")){
-
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaTextArea.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("checkBox")){
-
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaCheckBox.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("select")){
-
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaSelect.class);
-
-                } else if (preguntaSiguiente.getTipoPregunta().equals("radioButton")){
-
-                    intent = new Intent(Activity_PreguntaSelect.this, Activity_PreguntaRadioButton.class);
-                }
-
-                intent.putExtra("formulario", formulario);
-                intent.putExtra("preguntaActual", preguntaSiguiente);
-                startActivity(intent);
             }
         });
 

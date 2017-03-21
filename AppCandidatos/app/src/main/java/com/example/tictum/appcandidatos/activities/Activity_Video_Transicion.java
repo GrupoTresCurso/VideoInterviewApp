@@ -37,13 +37,13 @@ public class Activity_Video_Transicion extends AppCompatActivity {
         // recibo el objeto entrevista de la activity anterior y reproduzco el video transicion que tiene, el primero del List<Video>
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         listaVideos = entrevista.getListaVideos();
-        listaVideos.remove(0);
+        //listaVideos.remove(0);
 
         //recibo el bean respuesta
-        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
+        //respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         //Obtengo el video de transicion que es el primero en la lista de videos ya que se ha borrado el video introducción en caso de que lo hubiera
-        Video videoTrans = entrevista.getListaVideos().get(0);
+        Video videoTrans = listaVideos.get(0);
 
         // donde vamos a reproducir el video
         videoView = (VideoView) findViewById(R.id.videoView);
@@ -65,7 +65,6 @@ public class Activity_Video_Transicion extends AppCompatActivity {
         videoView.start();
 
         intent = new Intent(Activity_Video_Transicion.this, Activity_VideoPregunta.class);
-
 
 
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

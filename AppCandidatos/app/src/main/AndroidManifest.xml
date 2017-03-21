@@ -62,7 +62,10 @@
             android:name=".activities.Activity_Video_Intro"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activities.Activity_Video_Transicion"></activity>
+        <activity
+            android:name=".activities.Activity_Video_Transicion"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>

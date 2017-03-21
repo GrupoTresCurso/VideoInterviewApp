@@ -33,19 +33,23 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         String preguntaPrueba1 = "¿Cuantos años tienes?";
         String preguntaPrueba2 = "¿Cuántos años de experiencia en java tienes?";
         String preguntaPrueba3 = "Marca los lenguajes con los que has trabajado";
+       // String preguntaPrueba4 = "¿De qué pais eres?";
 
         String[] opcionesPrueba1 = {};
         String[] opcionesPrueba2 = {"Menos de 2","Entre 2 y 4","Más de 4"};
         String[] opcionesPrueba3 = {"java","C","phyton"};
+        //String[] opcionesPrueba4 = {"España","Francia","Italia","Alemania"};
 
         Pregunta pregunta1 = new Pregunta(1,preguntaPrueba1,"text",opcionesPrueba1,1);
         Pregunta pregunta2 = new Pregunta(2,preguntaPrueba2,"radioButton",opcionesPrueba2,2);
         Pregunta pregunta3 = new Pregunta(3,preguntaPrueba3,"checkBox",opcionesPrueba3,3);
+        //Pregunta pregunta4 = new Pregunta(4,preguntaPrueba4,"select",opcionesPrueba4,4);
 
         List<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
         listaPreguntas.add(pregunta1);
         listaPreguntas.add(pregunta2);
         listaPreguntas.add(pregunta3);
+        //listaPreguntas.add(pregunta4);
 
         Formulario form1 = new Formulario(1,"form1",listaPreguntas,1);
         Formulario form2 = new Formulario(2,"form2",listaPreguntas,2);
