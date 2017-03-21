@@ -81,20 +81,17 @@ public class Activity_PreguntaText extends AppCompatActivity {
                 }
 
                 //Modificar bean respuesta
-                //respuesta.getRespuestas().
+                respuesta.getRespuestas().add((String)respuestaText.getText().toString());
 
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
                 intent.putExtra("entrevista", entrevista);
+                intent.putExtra("respuesta", respuesta);
 
                 startActivity(intent);
 
             }
         });
-
-        //Recoger datos introducidos por el usario
-
-
 
 
     }
