@@ -126,7 +126,6 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     intent = new Intent(Activity_PreguntaCheckBox.this, Activity_PreguntaRadioButton.class);
                 }
 
-
                 // pasamos la lista a un string separado por comas
                String respuestaCB = checkedlist.toString();
                 // añadimos la respuesta del checkbox a la lista de respuestas
