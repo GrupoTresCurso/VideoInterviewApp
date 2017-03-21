@@ -22,7 +22,6 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
     private Spinner spinnerSelect;
     private Button btnEnvioSelect;
 
-
     private Formulario formulario;
     private List<Pregunta> listaPreguntas;
     private Pregunta preguntaActual;
@@ -38,24 +37,21 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
+        String[] opciones = preguntaActual.getOpciones();
 
-        preguntaSelect=(TextView)findViewById(R.id.pregunta_select);
+        preguntaSelect = (TextView)findViewById(R.id.pregunta_select);
         preguntaSelect.setText(preguntaActual.getLabelPregunta());
 
-
         spinnerSelect = (Spinner)findViewById(R.id.spinner_select);
-        ArrayAdapter<CharSequence> adapter =
-                ArrayAdapter.createFromResource(this,
-                        R.array.paises,
-                        android.R.layout.simple_spinner_item);
-        spinnerSelect.setAdapter(adapter);
+       //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,, android.R.layout.simple_spinner_item);
+        //spinnerSelect.setAdapter(adapter);
 
-
-        btnEnvioSelect=(Button)findViewById(R.id.btn_envio_select);
+        btnEnvioSelect = (Button)findViewById(R.id.btn_envio_select);
 
         btnEnvioSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (listaPreguntas.isEmpty()){
                     // rellenar con actividad donde ir si acabamos formulario
                 }

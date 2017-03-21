@@ -41,7 +41,8 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
         String[] opciones = preguntaActual.getOpciones();
 
-        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio);
+        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio_button);
+        preguntaRadioButton.setText(preguntaActual.getLabelPregunta());
         radioGroupPregunta = (RadioGroup)findViewById(R.id.radio_group_pregunta);
         btnEnvioRadioButton = (Button)findViewById(R.id.btn_envio_radiobutton);
 
@@ -51,11 +52,6 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
             rdbtn.setText(opciones[i]);
             radioGroupPregunta.addView(rdbtn);
         }
-
-        preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio_button);
-        preguntaRadioButton.setText(preguntaActual.getLabelPregunta());
-
-        btnEnvioRadioButton = (Button)findViewById(R.id.btn_envio_radiobutton);
 
         btnEnvioRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,26 +91,5 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
             }
         });
 
-            }
     }
-
-    /*
-    private String getCheckedButton() {
-
-        int checkedRadioButtonId = radioGroupPregunta.getCheckedRadioButtonId();
-
-        String returnChecked = " ";
-
-        if (checkedRadioButtonId == R.id.radio_opcion1) {
-            returnChecked = "Sin experiencia.";
-        } else if (checkedRadioButtonId == R.id.radio_opcion2) {
-            returnChecked = "entre 1 a 3 años.";
-        } else if (checkedRadioButtonId == R.id.radio_opcion3) {
-            returnChecked = "entre 3 a 5 años.";
-        } else if (checkedRadioButtonId == R.id.radio_opcion4) {
-            returnChecked = "> 5 años.";
-        }
-        return returnChecked;
     }
-
-    */

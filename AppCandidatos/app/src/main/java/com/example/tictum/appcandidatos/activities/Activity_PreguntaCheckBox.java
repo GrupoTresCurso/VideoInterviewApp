@@ -74,7 +74,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                 // obtenemos la siguiente pregunta
                 preguntaSiguiente = formulario.getPreguntas().get(0);
 
-                // elegimos siguiente intent segun
+                // elegimos siguiente intent segun el tipo de la pregunta que este en la lista
 
                 if (preguntaSiguiente.getTipoPregunta().equals("text")){
 
@@ -102,7 +102,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                 //intent.putExtra("entrevista", entrevista);
                 startActivity(intent);
             }
-            
+
         });
 
     }
