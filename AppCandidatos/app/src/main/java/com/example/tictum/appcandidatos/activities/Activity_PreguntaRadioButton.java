@@ -1,6 +1,7 @@
 package com.example.tictum.appcandidatos.activities;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 
 import java.util.List;
 
@@ -28,6 +30,9 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private Pregunta preguntaSiguiente;
     Entrevista entrevista;
     private Intent intent;
+    private  String[] opciones;
+    private Respuesta respuesta;
+    private String respuestaSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,8 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
-        String[] opciones = preguntaActual.getOpciones();
+        opciones = preguntaActual.getOpciones();
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         preguntaRadioButton = (TextView)findViewById(R.id.pregunta_radio_button);
         preguntaRadioButton.setText(preguntaActual.getLabelPregunta());
@@ -84,9 +90,29 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
                     intent = new Intent(Activity_PreguntaRadioButton.this, Activity_PreguntaRadioButton.class);
                 }
 
+
+
+                //Modificar bean Respuesta
+
+                radioGroupPregunta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        RadioButton rdbAux;
+                        for (int i = 0; i < opciones.length; i++) {
+                            rdbAux = (RadioButton) findViewById(i);
+                            if(checkedId == rdbAux.getId()){
+                                respuestaSelected = rdbAux.getText().toString();
+                            }
+                        }
+
+                    }
+                });
+
+                respuesta.getRespuestas().add(respuestaSelected);
+
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
                 intent.putExtra("entrevista", entrevista);
+                intent.putExtra("respuesta", respuesta);
                 startActivity(intent);
             }
         });

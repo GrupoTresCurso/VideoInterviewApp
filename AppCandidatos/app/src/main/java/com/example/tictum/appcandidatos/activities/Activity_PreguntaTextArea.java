@@ -12,6 +12,7 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
     Pregunta preguntaSiguiente;
     Intent intent;
     Entrevista entrevista;
+    Respuesta respuesta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         BtnEnvioTextArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +77,14 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
                     intent = new Intent(Activity_PreguntaTextArea.this, Activity_PreguntaRadioButton.class);
                 }
 
+                //Modificar bean respuesta
+                respuesta.getRespuestas().add((String)respuestaTextArea.getText().toString());
+
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
                 intent.putExtra("entrevista", entrevista);
+                intent.putExtra("respuesta", respuesta);
+                
                 startActivity(intent);
                 
             }
