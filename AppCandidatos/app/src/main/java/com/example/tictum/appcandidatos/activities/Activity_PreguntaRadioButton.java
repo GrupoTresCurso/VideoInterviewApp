@@ -28,7 +28,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private List<Pregunta> listaPreguntas;
     private Pregunta preguntaActual;
     private Pregunta preguntaSiguiente;
-    Entrevista entrevista;
+    private Entrevista entrevista;
     private Intent intent;
     private  String[] opciones;
     private Respuesta respuesta;
@@ -89,8 +89,6 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
 
                     intent = new Intent(Activity_PreguntaRadioButton.this, Activity_PreguntaRadioButton.class);
                 }
-
-
 
                 //Modificar bean Respuesta
 
