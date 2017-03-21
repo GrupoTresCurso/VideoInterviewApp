@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
 
@@ -25,6 +26,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private List<Pregunta> listaPreguntas;
     private Pregunta preguntaActual;
     private Pregunta preguntaSiguiente;
+    Entrevista entrevista;
     private Intent intent;
 
     @Override
@@ -32,6 +34,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_radio_button);
 
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
@@ -87,6 +90,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
 
                 intent.putExtra("formulario", formulario);
                 intent.putExtra("preguntaActual", preguntaSiguiente);
+                intent.putExtra("entrevista", entrevista);
                 startActivity(intent);
             }
         });
