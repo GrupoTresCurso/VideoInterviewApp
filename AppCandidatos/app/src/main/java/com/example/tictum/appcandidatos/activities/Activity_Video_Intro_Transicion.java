@@ -14,6 +14,7 @@ import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 import com.example.tictum.appcandidatos.beans.Video;
 
 public class Activity_Video_Intro_Transicion extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
     private Formulario formulario;
     private Pregunta preguntaActual;
     private Intent intent;
+    private Respuesta respuesta;
+    private int idCandidato;
 
 
     @Override
@@ -33,8 +36,15 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.layout_video_intro_transicion);
 
+
         // recibo el objeto entrevista de la activity anterior y reproduzco el video intro que tiene
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+
+        //Se crea un bean Respuesta que se irá enviando y rellenando a través de los siguientes activities
+        respuesta = new Respuesta();
+        respuesta.setIdEntrevista(entrevista.getIdEntrevista());
+        idCandidato = 1; //ID inventado, hay mirar cómo gestionar el envío y recogida del id del candidato que está realizando la entrevista
+        respuesta.setIdCandidato(idCandidato);
 
         if (entrevista.TieneVideoIntro()) {
             // obtenemos el primer video que es el de transicion para todas las entrevistas si lo tiene
@@ -91,6 +101,7 @@ public class Activity_Video_Intro_Transicion extends AppCompatActivity {
                                 intent.putExtra("formulario", formulario);
                                 intent.putExtra("preguntaActual", preguntaActual);
                                 intent.putExtra("entrevista", entrevista);
+                                intent.putExtra("respuesta", respuesta);
                                 startActivity(intent);
                                 finish();
                             }

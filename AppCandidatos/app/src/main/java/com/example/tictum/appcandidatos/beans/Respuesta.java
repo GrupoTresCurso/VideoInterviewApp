@@ -1,15 +1,16 @@
 package com.example.tictum.appcandidatos.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Respuesta {
+public class Respuesta implements Serializable {
 
 	private int idRespuesta;
 	private int idEntrevista;
 	private int idCandidato;
 	private List<Video> videosRespuestas;
 	private String respuestasString;
-	private String[] respuestas;
+	private List<String> respuestas;
 	private List<Archivo> archivosAdjuntos;
 	private float notaCandidato;
 
@@ -17,7 +18,7 @@ public class Respuesta {
 
 
 	//Constructores con idRespuesta
-	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, String[] respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
+	public Respuesta(int idRespuesta, int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
 
 		this.idRespuesta = idRespuesta;
 		this.idEntrevista = idEntrevista;
@@ -44,7 +45,7 @@ public class Respuesta {
 
 	//Constructores sin idRespuesta
 
-	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, String[] respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
+	public Respuesta(int idEntrevista, int idCandidato, List<Video> videosRespuestas, List<String> respuestas, List<Archivo> archivosAdjuntos, float notaCandidato) {
 
 		this.idEntrevista = idEntrevista;
 		this.idCandidato = idCandidato;
@@ -98,11 +99,11 @@ public class Respuesta {
 		this.videosRespuestas = videosRespuestas;
 	}
 
-	public String[] getRespuestas() {
+	public List<String> getRespuestas() {
 		return respuestas;
 	}
 
-	public void setRespuestas(String[] respuestas) {
+	public void setRespuestas(List<String> respuestas) {
 		this.respuestas = respuestas;
 	}
 
