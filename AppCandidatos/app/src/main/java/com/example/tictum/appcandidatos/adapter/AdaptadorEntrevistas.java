@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
 
-import java.util.ArrayList;
-
 public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
 
     class ViewHolder{
@@ -20,13 +18,13 @@ public class AdaptadorEntrevistas extends ArrayAdapter<Entrevista> {
 
     // constructor del adaptador para mostrar la lista de entrevistas
     public AdaptadorEntrevistas(Context context,Entrevista[] listaEntrevistas) {
-        super(context, R.layout.layout__lista_entrevistas,listaEntrevistas);
+        super(context, R.layout.layout_lista_entrevistas,listaEntrevistas);
     }
 
     // obtenemos la vista de cada objeto entrevista y lo mostramos
     public View getView(int posicion,View convertView, ViewGroup parent){
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View itemView = inflater.inflate(R.layout.layout__lista_entrevistas,null);
+        View itemView = inflater.inflate(R.layout.layout_lista_entrevistas,null);
         AdaptadorEntrevistas.ViewHolder holder;
         holder = new AdaptadorEntrevistas.ViewHolder();
 

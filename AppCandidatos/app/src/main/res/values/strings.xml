@@ -23,5 +23,7 @@
     <string name="peregunta7">Danos tu opinion con respecto a la experiencia que has tenido al realizar esta entrevista con Video Interview App</string>
     <string name="btn_envio_text">Siguiente</string>
     <string name="btn_envio_textarea">Siguiente</string>
+    <string name="adjuntarArchivo">Adjuntar Archivo</string>
+    <string name="textoAdjuntarArchivo">Adjunta tu curriculum en PDF:</string>
 
 </resources>
