@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.adapter.AdaptadorSpinner;
@@ -31,9 +32,12 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
     private Pregunta preguntaActual;
     private Pregunta preguntaSiguiente;
     private Intent intent;
+
+    String[] opciones;
     private String opcionSelected;
     private Entrevista entrevista;
     private Respuesta respuesta;
+    private int posicionOpcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
-        String[] opciones = preguntaActual.getOpciones();
+        opciones = preguntaActual.getOpciones();
 
         preguntaSelect = (TextView)findViewById(R.id.pregunta_select);
         preguntaSelect.setText(preguntaActual.getLabelPregunta());
@@ -63,6 +67,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 opcionSelected = (String) adapterView.getItemAtPosition(position);
                 respuesta.getRespuestas().add(opcionSelected);
+                posicionOpcion = position;
 
             }
 
@@ -117,7 +122,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        Toast.makeText(getApplicationContext(), opciones[position], Toast.LENGTH_LONG).show();
     }
 
     @Override

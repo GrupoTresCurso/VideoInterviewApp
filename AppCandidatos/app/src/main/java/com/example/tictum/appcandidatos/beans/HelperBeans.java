@@ -13,6 +13,8 @@ public class HelperBeans {
     public static String getStringFromArray(List<String> array){
         String result = array.toString();
 
+        result.replace(",", "|");
+
         result.replace("[","");
         result.replace("]", "");
 
