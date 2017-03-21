@@ -8,14 +8,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.tictum.appcandidatos.R;
-import com.example.tictum.appcandidatos.beans.Candidato;
-import com.example.tictum.appcandidatos.beans.Entrevista;
-import com.example.tictum.appcandidatos.beans.Formulario;
-import com.example.tictum.appcandidatos.beans.Pregunta;
-import com.example.tictum.appcandidatos.beans.Video;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Activity_SplashScreen extends AppCompatActivity {
 
@@ -26,7 +18,7 @@ public class Activity_SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.layout__splash_screen);
+        setContentView(R.layout.layout_splash_screen);
 
         new Handler().postDelayed(new Runnable() {
             @Override
