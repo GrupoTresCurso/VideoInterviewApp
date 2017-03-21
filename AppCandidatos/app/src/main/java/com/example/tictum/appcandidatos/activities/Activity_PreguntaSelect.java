@@ -4,18 +4,22 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.tictum.appcandidatos.R;
+import com.example.tictum.appcandidatos.adapter.AdaptadorSpinner;
+import com.example.tictum.appcandidatos.beans.Entrevista;
 import com.example.tictum.appcandidatos.beans.Formulario;
 import com.example.tictum.appcandidatos.beans.Pregunta;
+import com.example.tictum.appcandidatos.beans.Respuesta;
 
 import java.util.List;
 
-public class Activity_PreguntaSelect extends AppCompatActivity {
+public class Activity_PreguntaSelect extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
 
     private TextView preguntaSelect;
@@ -27,11 +31,17 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
     private Pregunta preguntaActual;
     private Pregunta preguntaSiguiente;
     private Intent intent;
+    private String opcionSelected;
+    private Entrevista entrevista;
+    private Respuesta respuesta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_select);
+
+        entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
@@ -43,8 +53,24 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
         preguntaSelect.setText(preguntaActual.getLabelPregunta());
 
         spinnerSelect = (Spinner)findViewById(R.id.spinner_select);
-       //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,, android.R.layout.simple_spinner_item);
-        //spinnerSelect.setAdapter(adapter);
+        spinnerSelect.setOnItemSelectedListener(this);
+
+        AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(getApplicationContext(), opciones);
+        spinnerSelect.setAdapter(adaptadorSpinner);
+
+        spinnerSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                opcionSelected = (String) adapterView.getItemAtPosition(position);
+                respuesta.getRespuestas().add(opcionSelected);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         btnEnvioSelect = (Button)findViewById(R.id.btn_envio_select);
 
@@ -86,6 +112,16 @@ public class Activity_PreguntaSelect extends AppCompatActivity {
         });
 
 
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }
