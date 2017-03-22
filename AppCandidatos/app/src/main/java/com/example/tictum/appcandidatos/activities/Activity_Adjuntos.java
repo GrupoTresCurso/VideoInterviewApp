@@ -21,8 +21,6 @@ public class Activity_Adjuntos extends AppCompatActivity {
 
     private Button btnAdjuntarArchivo;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +62,6 @@ public class Activity_Adjuntos extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent resultData) {
-
 
         if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
 

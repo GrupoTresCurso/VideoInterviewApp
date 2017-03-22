@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/etiquetaAdjunto"
-            android:text="@string/textoAdjuntarArchivo"
+            android:text="textoAdjuntarArchivo"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
 
         <Button
             android:id="@+id/btn_adjuntar_adjunto"
-            android:text="@string/adjuntarArchivo"
+            android:text="adjuntar Archivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"/>

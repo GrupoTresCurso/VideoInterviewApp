@@ -60,6 +60,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
         spinnerSelect.setOnItemSelectedListener(this);
 
         AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(getApplicationContext(), opciones);
+
         spinnerSelect.setAdapter(adaptadorSpinner);
 
         spinnerSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
