@@ -3,6 +3,7 @@ package com.example.tictum.appcandidatos.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,7 +33,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
     private Entrevista entrevista;
     private Intent intent;
     private String[] opciones;
-    private Respuesta respuesta = new Respuesta();
+    private Respuesta respuesta;
     private String respuestaSelected;
     List<String> checkedlist = new ArrayList<String>();
 
@@ -44,6 +45,8 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         // recuperamos formulario para acceder a las preguntas
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
+        // recuperamos respuesta
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
         // recuperamos la lista de preguntas nuevamente
         listaPreguntas = formulario.getPreguntas();
         // borramos la pregunta de la primera posicion que es la que vamos a contestar ahora
@@ -99,9 +102,22 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (listaPreguntas.isEmpty()){
+                    // Modificar bean Respuesta
+                    Log.d("NUMERO OPCIONES", String.valueOf(checkedlist.size()));
+                    for(String respuesta: checkedlist){
+                        Log.d("OPCION SELECTED CB", respuesta);
+                    }
+                    respuestaSelected = checkedlist.toString();
+                    Log.d("OPCIONES SELE STRING", respuestaSelected);
+                    // añadimos la respuesta del checkbox a la lista de respuestas
+                    respuesta.addRespuesta(respuestaSelected);
+                    for(String respuestaString: respuesta.getRespuestas()) {
+                        Log.d("RESPUESTA", respuestaString);
+                    }
                     // rellenar con actividad donde ir si acabamos formulario
                     intent = new Intent(Activity_PreguntaCheckBox.this,Activity_Video_Transicion.class);
                     intent.putExtra("entrevista", entrevista);
+                    intent.putExtra("respuesta", respuesta);
                     startActivity(intent);
 
                 } else {
@@ -134,12 +150,23 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
 
                     // pasamos la lista a un string separado por comas
                      respuestaSelected = checkedlist.toString();
+
+                    Log.d("NUMERO OPCIONES", String.valueOf(checkedlist.size()));
+                    for(String respuesta: checkedlist){
+                        Log.d("OPCION SELECTED CB", respuesta);
+                    }
+                    
+                    Log.d("OPCIONES SELE STRING", respuestaSelected);
                     // añadimos la respuesta del checkbox a la lista de respuestas
-                    //respuesta.getRespuestas().add(respuestaSelected);
+                    respuesta.addRespuesta(respuestaSelected);
+                    for(String respuestaString: respuesta.getRespuestas()) {
+                        Log.d("RESPUESTA", respuestaString);
+                    }
 
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("preguntaActual", preguntaSiguiente);
                     intent.putExtra("entrevista", entrevista);
+                    intent.putExtra("respuesta", respuesta);
                     startActivity(intent);
                 }
             }

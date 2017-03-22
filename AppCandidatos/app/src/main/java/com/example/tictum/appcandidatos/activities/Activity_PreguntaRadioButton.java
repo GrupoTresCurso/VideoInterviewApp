@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -31,7 +32,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private Entrevista entrevista;
     private Intent intent;
     private  String[] opciones;
-    private Respuesta respuesta = new Respuesta();
+    private Respuesta respuesta;
     private String respuestaSelected;
 
     @Override
@@ -58,14 +59,37 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
             rdbtn.setText(opciones[i]);
             radioGroupPregunta.addView(rdbtn);
         }
+        radioGroupPregunta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rdbAux;
+                for (int i = 0; i < opciones.length; i++) {
+                    rdbAux = (RadioButton) findViewById(i);
+                    if (checkedId == rdbAux.getId()) {
+                        respuestaSelected = rdbAux.getText().toString();
+                        Log.d("Respuesta selected: ", respuestaSelected);
+                    }
+                }
+
+            }
+        });
 
         btnEnvioRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (listaPreguntas.isEmpty()){
+                    //Modificar bean Respuesta
+
+                    Log.d("Nº de respuestas: ", String.valueOf(respuesta.getRespuestas().size()));
+                    respuesta.addRespuesta(respuestaSelected);
+                    Log.d("Nº de respuestas: ", String.valueOf(respuesta.getRespuestas().size()));
+                    for(String respuestaString: respuesta.getRespuestas()) {
+                        Log.d("RESPUESTA", respuestaString);
+                    }
                     // rellenar con actividad donde ir si acabamos formulario
                     intent = new Intent(Activity_PreguntaRadioButton.this,Activity_Video_Transicion.class);
+                    intent.putExtra("entrevista",entrevista);
+                    intent.putExtra("respuesta", respuesta);
                     startActivity(intent);
 
                 } else {
@@ -95,20 +119,12 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
 
                     //Modificar bean Respuesta
 
-                    radioGroupPregunta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                        public void onCheckedChanged(RadioGroup group, int checkedId) {
-                            RadioButton rdbAux;
-                            for (int i = 0; i < opciones.length; i++) {
-                                rdbAux = (RadioButton) findViewById(i);
-                                if (checkedId == rdbAux.getId()) {
-                                    respuestaSelected = rdbAux.getText().toString();
-                                }
-                            }
-
-                        }
-                    });
-
-                    // respuesta.getRespuestas().add(respuestaSelected);
+                    Log.d("Nº de respuestas: ", String.valueOf(respuesta.getRespuestas().size()));
+                    respuesta.addRespuesta(respuestaSelected);
+                    Log.d("Nº de respuestas: ", String.valueOf(respuesta.getRespuestas().size()));
+                    for(String respuestaString: respuesta.getRespuestas()) {
+                        Log.d("RESPUESTA", respuestaString);
+                    }
 
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("preguntaActual", preguntaSiguiente);

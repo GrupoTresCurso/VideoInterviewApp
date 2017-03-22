@@ -1,6 +1,7 @@
 package com.example.tictum.appcandidatos.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Respuesta implements Serializable {
@@ -121,5 +122,18 @@ public class Respuesta implements Serializable {
 
 	public void setNotaCandidato(float notaCandidato) {
 		this.notaCandidato = notaCandidato;
+	}
+
+	public void addRespuesta (String respuestaString){
+		if(this.getRespuestas() == null) {
+			List<String> nuevaListaRespuestas = new ArrayList<>();
+			nuevaListaRespuestas.add(respuestaString);
+			this.setRespuestas(nuevaListaRespuestas);
+		}
+		else{
+			List<String> listaRespuestas = this.getRespuestas();
+			listaRespuestas.add(respuestaString);
+			this.setRespuestas(listaRespuestas);
+		}
 	}
 }
