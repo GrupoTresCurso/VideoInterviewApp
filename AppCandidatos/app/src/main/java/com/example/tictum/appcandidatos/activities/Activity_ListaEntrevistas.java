@@ -58,9 +58,17 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaformularios.add(form1);
         //listaformularios.add(form2);
 
-        Video videoPrueba = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
+        Video videoIntro = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
+        Video videoTransicion = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
+        Video videoPregunta1 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
+        Video videoPregunta2 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
+        Video videoPregunta3 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
         List<Video> listaVideos = new ArrayList<Video>();
-        listaVideos.add(videoPrueba);
+        listaVideos.add(videoIntro);
+        listaVideos.add(videoTransicion);
+        listaVideos.add(videoPregunta1);
+        listaVideos.add(videoPregunta2);
+        listaVideos.add(videoPregunta3);
         Formulario formSatisfaccion = new Formulario(3,"formSatisfaccion",listaPreguntas,3);
         String mensajePrueba = "Muchas gracias, hasta luego";
         List<Candidato> listaCandidatos = new ArrayList<Candidato>();
