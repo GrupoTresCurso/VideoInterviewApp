@@ -6,25 +6,27 @@
     android:orientation="vertical"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaCheckBox">
 
-        <TextView
-            android:id="@+id/pregunta_checkbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Texto de Prueba"
-            android:textSize="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="100dp"
-            android:gravity="center"/>
+    <TextView
+        android:id="@+id/pregunta_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texto de Prueba"
+        android:textSize="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"/>
 
-        <LinearLayout
-            android:id="@+id/linearLayoutCheckBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pregunta_checkbox"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:orientation="vertical" />
+    <LinearLayout
+        android:id="@+id/linearLayoutCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pregunta_checkbox"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical" />
+
 
         <LinearLayout
             android:id="@+id/BarraBotones"

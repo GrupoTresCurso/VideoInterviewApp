@@ -87,6 +87,8 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
             cb.setId(i);
             // ponemos el texto del array de strings que viene
             cb.setText(opciones[i]);
+            // el tamaño de la letra de cada opcion
+            cb.setTextSize(18);
             // añadimos al linearLayout cada checkbox creado
             linearLayout.addView(cb);
             // añadimos el listener para capturar los checkbox clicados
@@ -147,11 +149,13 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     }
 
                     // pasamos la lista a un string separado por comas
+                     respuestaSelected = checkedlist.toString();
+
                     Log.d("NUMERO OPCIONES", String.valueOf(checkedlist.size()));
                     for(String respuesta: checkedlist){
                         Log.d("OPCION SELECTED CB", respuesta);
                     }
-                    respuestaSelected = checkedlist.toString();
+                    
                     Log.d("OPCIONES SELE STRING", respuestaSelected);
                     // añadimos la respuesta del checkbox a la lista de respuestas
                     respuesta.addRespuesta(respuestaSelected);

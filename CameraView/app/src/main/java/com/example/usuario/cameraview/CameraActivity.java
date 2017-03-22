@@ -10,107 +10,51 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.Surface;
+import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private Camera mCamera;
     private CameraPreview mPreview;
+    private boolean recording = false;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-
         //Solicitar permisos
         getPermissions();
 
+        mPreview = (CameraPreview) findViewById(R.id.camera_preview);
+        mPreview.setOnTouchListener(new View.OnTouchListener() {
 
+            @Override
 
+            public boolean onTouch(View view, MotionEvent event) {
 
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (recording) {
+                        Log.i("YO", "Saliendo.");
+                        mPreview.getRecorder().stop();
+                        mPreview.getRecorder().release();
+                        finish();
+                    } else {
 
-    }
-
-    private boolean checkCameraHardware(Context context) {
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
-            // this device has a camera
-            return true;
-        } else {
-            // no camera on this device
-            return false;
-        }
-    }
-
-    /** Check if this device has a front camera */
-    private boolean checkFrontCameraHardware(Camera camera) {
-        if (camera.getNumberOfCameras() > 1){
-            // this device has more than two cameras
-            return true;
-        } else {
-            // this device has less than two cameras
-            return false;
-        }
-    }
-
-    /** A safe way to get an instance of the Camera object.  */
-    //Abre la camara normal
-    public static Camera getCameraInstance(){
-        Camera camera = null;
-        try {
-            camera = Camera.open(1); // attempt to get a Camera instance
-        }
-        catch (Exception e){
-            Log.d("Excepcion", "getCameraInstance", e);
-        }
-        return camera; // returns null if camera is unavailable
-    }
-
-    //Abre la camara frontal
-    private Camera getFrontCameraInstance() {
-        int cameraCount = 0;
-        Camera camera = null;
-        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-        cameraCount = Camera.getNumberOfCameras();
-        for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
-            Camera.getCameraInfo(camIdx, cameraInfo);
-            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-                try {
-                    camera = Camera.open(camIdx);
-                } catch (RuntimeException e) {
-                    Log.e("Excepcion", "Camara frontal falla al abrirse: " + e.getLocalizedMessage());
+                        recording = true;
+                        Log.i("YO", "Grabando.");
+                        mPreview.getRecorder().start();
+                    }
+                    return true;
                 }
+                return false;
             }
-        }
-
-        return camera;
-    }
-
-    //Orientación de la camara
-    public static void setCameraDisplayOrientation(Activity activity,
-                                                   int cameraId, android.hardware.Camera camera) {
-        android.hardware.Camera.CameraInfo info =
-                new android.hardware.Camera.CameraInfo();
-        android.hardware.Camera.getCameraInfo(cameraId, info);
-        int rotation = activity.getWindowManager().getDefaultDisplay()
-                .getRotation();
-        int degrees = 0;
-        switch (rotation) {
-            case Surface.ROTATION_0: degrees = 0; break;
-            case Surface.ROTATION_90: degrees = 90; break;
-            case Surface.ROTATION_180: degrees = 180; break;
-            case Surface.ROTATION_270: degrees = 270; break;
-        }
-
-        int result;
-        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-            result = (info.orientation + degrees) % 360;
-            result = (360 - result) % 360;  // compensate the mirror
-        } else {  // back-facing
-            result = (info.orientation - degrees + 360) % 360;
-        }
-        camera.setDisplayOrientation(result);
+        });
     }
 
     //Permisos par la camara
@@ -125,14 +69,14 @@ public class CameraActivity extends AppCompatActivity {
                     MY_PERMISSIONS_REQUEST_CAMERA);
         }
         else{
-            mCamera = getCameraInstance();
+           // mCamera = getCameraInstance();
 
             // Configurar orientación de la camara
-            setCameraDisplayOrientation(this, 1, mCamera);
+            //setCameraDisplayOrientation(this, 1, mCamera);
 
 
             // Create our Preview view and set it as the content of our activity.
-            mPreview = new CameraPreview(this, mCamera);
+            //mPreview = new CameraPreview(this, mCamera);
             FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
             preview.addView(mPreview);
         }
@@ -146,14 +90,14 @@ public class CameraActivity extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    mCamera = getCameraInstance();
+                   // mCamera = getCameraInstance();
 
                     // Configurar orientación de la camara
-                    setCameraDisplayOrientation(this, 1, mCamera);
+                  //  setCameraDisplayOrientation(this, 1, mCamera);
 
 
                     // Create our Preview view and set it as the content of our activity.
-                    mPreview = new CameraPreview(this, mCamera);
+                   // mPreview = new CameraPreview(this, mCamera);
                     FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
                     preview.addView(mPreview);
 
