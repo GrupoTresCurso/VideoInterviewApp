@@ -125,8 +125,15 @@ public class Respuesta implements Serializable {
 	}
 
 	public void addRespuesta (String respuestaString){
-		List<String> nuevaListaRespuestas = new ArrayList<>();
-		nuevaListaRespuestas.add(respuestaString);
-		this.setRespuestas(nuevaListaRespuestas);
+		if(this.getRespuestas() == null) {
+			List<String> nuevaListaRespuestas = new ArrayList<>();
+			nuevaListaRespuestas.add(respuestaString);
+			this.setRespuestas(nuevaListaRespuestas);
+		}
+		else{
+			List<String> listaRespuestas = this.getRespuestas();
+			listaRespuestas.add(respuestaString);
+			this.setRespuestas(listaRespuestas);
+		}
 	}
 }

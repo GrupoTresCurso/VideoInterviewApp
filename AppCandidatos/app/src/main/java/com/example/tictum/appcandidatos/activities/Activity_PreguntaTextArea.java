@@ -3,6 +3,7 @@ package com.example.tictum.appcandidatos.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +29,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
     Pregunta preguntaSiguiente;
     Intent intent;
     Entrevista entrevista;
-    Respuesta respuesta = new Respuesta();
+    Respuesta respuesta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,15 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (listaPreguntas.isEmpty()){
+                    //Modificar bean respuesta
+                    respuesta.addRespuesta(respuestaTextArea.getText().toString());
+                    for(String respuestaString: respuesta.getRespuestas()) {
+                        Log.d("RESPUESTA", respuestaString);
+                    }
                     // rellenar con actividad donde ir si acabamos formulario
                     intent = new Intent(Activity_PreguntaTextArea.this,Activity_Video_Transicion.class);
+                    intent.putExtra("entrevista", entrevista);
+                    intent.putExtra("respuesta", respuesta);
                     startActivity(intent);
 
                 } else {
@@ -82,6 +90,9 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
 
                     //Modificar bean respuesta
                     respuesta.addRespuesta(respuestaTextArea.getText().toString());
+                    for(String respuestaString: respuesta.getRespuestas()) {
+                        Log.d("RESPUESTA", respuestaString);
+                    }
 
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("preguntaActual", preguntaSiguiente);
