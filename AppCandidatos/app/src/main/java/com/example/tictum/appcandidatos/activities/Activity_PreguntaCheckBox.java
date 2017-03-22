@@ -133,7 +133,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     // pasamos la lista a un string separado por comas
                     String respuestaCB = checkedlist.toString();
                     // añadimos la respuesta del checkbox a la lista de respuestas
-                    //respuesta.getRespuestas().add(respuestaSelected);
+                    respuesta.addRespuesta(respuestaSelected);
 
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("preguntaActual", preguntaSiguiente);

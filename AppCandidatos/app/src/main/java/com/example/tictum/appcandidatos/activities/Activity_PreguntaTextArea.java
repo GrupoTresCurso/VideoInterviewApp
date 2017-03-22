@@ -81,7 +81,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
                     }
 
                     //Modificar bean respuesta
-                    // respuesta.getRespuestas().add(respuestaTextArea.getText().toString());
+                    respuesta.addRespuesta(respuestaTextArea.getText().toString());
 
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("preguntaActual", preguntaSiguiente);

@@ -108,7 +108,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
                         }
                     });
 
-                    // respuesta.getRespuestas().add(respuestaSelected);
+                    respuesta.addRespuesta(respuestaSelected);
 
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("preguntaActual", preguntaSiguiente);

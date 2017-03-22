@@ -3,6 +3,7 @@ package com.example.tictum.appcandidatos.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -52,6 +53,9 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
         opciones = preguntaActual.getOpciones();
+        for(String opcion: opciones){
+            Log.d("OPCION", opcion);
+        }
 
         preguntaSelect = (TextView)findViewById(R.id.pregunta_select);
         preguntaSelect.setText(preguntaActual.getLabelPregunta());
@@ -60,6 +64,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
         spinnerSelect.setOnItemSelectedListener(this);
 
         AdaptadorSpinner adaptadorSpinner = new AdaptadorSpinner(getApplicationContext(), opciones);
+
         spinnerSelect.setAdapter(adaptadorSpinner);
 
         spinnerSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
