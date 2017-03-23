@@ -27,6 +27,7 @@ public class Activity_Video_Intro extends AppCompatActivity {
     private Respuesta respuesta;
     private int idCandidato;
     private int numeroPreguntasFormulario1;
+    private boolean isCuestionarioSatisfaccion = false;
 
 
     @Override
@@ -109,6 +110,7 @@ public class Activity_Video_Intro extends AppCompatActivity {
                                 intent.putExtra("respuesta", respuesta);
                                 intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario1);
                                 intent.putExtra("numeroPregunta", 1);
+                                intent.putExtra("isCuestionarioSatisfaccion", isCuestionarioSatisfaccion);
                                 startActivity(intent);
                                 finish();
                             }

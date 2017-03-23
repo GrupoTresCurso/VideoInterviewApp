@@ -37,6 +37,8 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private int numeroPreguntasFormulario;
     private int numeroPregunta;
     private TextView numeroPreguntaTextView;
+    private boolean isCuestionarioSatisfaccion;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,17 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
         numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
-        formulario = (Formulario)getIntent().getSerializableExtra("formulario");
+
+        isCuestionarioSatisfaccion = (boolean)getIntent().getSerializableExtra("isCuestionarioSatisfaccion");
+
+        if (isCuestionarioSatisfaccion) {
+            // recibimos el formulario de satisfaccion para mostrarlo
+            formulario = entrevista.getCuestionarioSatisfaccion();
+        } else {
+            // recibimos el formulario a mostrar que no es el de satisfaccion
+            formulario = (Formulario) getIntent().getSerializableExtra("formulario");
+        }
+
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
@@ -145,6 +157,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
                     intent.putExtra("respuesta", respuesta);
                     intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
                     intent.putExtra("numeroPregunta", numeroPregunta + 1);
+                    intent.putExtra("isCuestionarioSatisfaccion", isCuestionarioSatisfaccion);
                     startActivity(intent);
                 }
             }

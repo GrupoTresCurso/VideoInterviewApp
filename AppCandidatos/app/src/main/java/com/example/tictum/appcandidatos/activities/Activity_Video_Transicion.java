@@ -24,7 +24,8 @@ public class Activity_Video_Transicion extends AppCompatActivity {
     private Respuesta respuesta;
     private List<Video> listaVideos;
     private Intent intent;
-    private int numeroPreguntasViveo;
+    private int numeroPreguntasVideo;
+    private boolean isCuestionarioSatisfaccion = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class Activity_Video_Transicion extends AppCompatActivity {
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         listaVideos = entrevista.getListaVideos();
         listaVideos.remove(0);
-        numeroPreguntasViveo = listaVideos.size() - 1;
+        numeroPreguntasVideo = listaVideos.size() - 1;
 
         //recibo el bean respuesta
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
@@ -74,9 +75,9 @@ public class Activity_Video_Transicion extends AppCompatActivity {
             public void onCompletion(MediaPlayer mediaPlayer) {
                 intent.putExtra("entrevista", entrevista);
                 intent.putExtra("respuesta", respuesta);
-                intent.putExtra("numeroPreguntasViveo", numeroPreguntasViveo);
+                intent.putExtra("numeroPreguntasViveo", numeroPreguntasVideo);
                 intent.putExtra("numeroPregunta", 1);
-
+                intent.putExtra("isCuestionarioSatisfaccion", isCuestionarioSatisfaccion);
                 startActivity(intent);
                 finish();
             }

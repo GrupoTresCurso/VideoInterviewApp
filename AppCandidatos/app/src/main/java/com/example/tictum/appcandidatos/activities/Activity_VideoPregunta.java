@@ -28,7 +28,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
     private List<Video> listaVideos;
     private Respuesta respuesta;
     private Intent intent;
-    private int numeroPreguntasViveo;
+    private int numeroPreguntasVideo;
     private int numeroPregunta;
 
     @Override
@@ -41,7 +41,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
 
         // recibo el objeto entrevista de la activity anterior y reproduzco el video transicion que tiene, el primero del List<Video>
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
-        numeroPreguntasViveo = (int) getIntent().getSerializableExtra("numeroPreguntasViveo");
+        numeroPreguntasVideo = (int) getIntent().getSerializableExtra("numeroPreguntasVideo");
         numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
         listaVideos = entrevista.getListaVideos();
         listaVideos.remove(0);
@@ -51,7 +51,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
 
         //Modificao el TextView del numero de pregunta
         numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
-        numeroPreguntaTextView.setText("Pregunta" + String.valueOf(numeroPregunta) + "/" + String.valueOf(numeroPreguntasViveo));
+        numeroPreguntaTextView.setText("Pregunta" + String.valueOf(numeroPregunta) + "/" + String.valueOf(numeroPreguntasVideo));
 
         //Obtengo el video de pregunta que es el primero en la lista de videos ya que se ha borrado el video anterior
         Video videoPregunta = entrevista.getListaVideos().get(0);
@@ -82,7 +82,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
             public void onCompletion(MediaPlayer mediaPlayer) {
                 intent.putExtra("entrevista", entrevista);
                 intent.putExtra("respuesta", respuesta);
-                intent.putExtra("numeroPreguntasViveo", numeroPreguntasViveo);
+                intent.putExtra("numeroPreguntasViveo", numeroPreguntasVideo);
                 intent.putExtra("numeroPregunta", numeroPregunta + 1);
                 startActivity(intent);
                 finish();
