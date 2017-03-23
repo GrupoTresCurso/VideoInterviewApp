@@ -100,11 +100,20 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
                     for(String respuestaString: respuesta.getRespuestas()) {
                         Log.d("RESPUESTA", respuestaString);
                     }
-                    // rellenar con actividad donde ir si acabamos formulario
-                    intent = new Intent(Activity_PreguntaSelect.this,Activity_Video_Transicion.class);
-                    intent.putExtra("entrevista",entrevista);
-                    intent.putExtra("respuesta", respuesta);
-                    startActivity(intent);
+
+                    if (isCuestionarioSatisfaccion){
+                        // si es el cuestionario de satisfaccion vamos a la subida de un archivo adjunto, curriculum,etc
+                        intent = new Intent(Activity_PreguntaSelect.this,Activity_Adjuntos.class);
+                        intent.putExtra("entrevista", entrevista);
+                        intent.putExtra("respuesta", respuesta);
+                        startActivity(intent);
+                    } else {
+                        // rellenar con actividad donde ir si acabamos formulario
+                        intent = new Intent(Activity_PreguntaSelect.this, Activity_Video_Transicion.class);
+                        intent.putExtra("entrevista", entrevista);
+                        intent.putExtra("respuesta", respuesta);
+                        startActivity(intent);
+                    }
 
                 } else {
 
