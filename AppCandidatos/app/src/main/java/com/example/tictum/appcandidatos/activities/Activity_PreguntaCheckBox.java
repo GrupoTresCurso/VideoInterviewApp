@@ -57,13 +57,10 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
 
         isCuestionarioSatisfaccion = (boolean)getIntent().getSerializableExtra("isCuestionarioSatisfaccion");
 
-        if (isCuestionarioSatisfaccion) {
-            // recibimos el formulario de satisfaccion para mostrarlo
-            formulario = entrevista.getCuestionarioSatisfaccion();
-        } else {
+
             // recibimos el formulario a mostrar que no es el de satisfaccion
             formulario = (Formulario) getIntent().getSerializableExtra("formulario");
-        }
+
 
         // recuperamos la lista de preguntas nuevamente
         listaPreguntas = formulario.getPreguntas();
@@ -117,8 +114,10 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
             // añadimos el listener para capturar los checkbox clicados
             cb.setOnClickListener(checkBoxListener);
         }
+        String otros = "otros";
         CheckBox cbOtros = new CheckBox(this);
         cbOtros.setId(i + 1);
+        cbOtros.setText(otros);
         cbOtros.setTextSize(20);
         linearLayout.addView(cbOtros);
 

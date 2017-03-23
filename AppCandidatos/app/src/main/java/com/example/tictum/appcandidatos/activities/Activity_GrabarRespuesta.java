@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
@@ -51,7 +53,9 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.layout_grabar_video);
 
         //recogemos los extras del inten
@@ -62,11 +66,9 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
         isUltimaPregunta = (boolean) getIntent().getSerializableExtra("isUltimaPregunta");
 
 
-
     }
 
     public void examplePermission(View view) {
-
         checkPermissionWrite();
     }
 
@@ -116,8 +118,8 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
             // si el permiso es obtenido
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // llamar a la camara nativa del dispositivo android
-                Intent intent = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
-                startActivityForResult(intent, VIDEO_CAMERA);
+                Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                startActivityForResult(intent, VIDEO_CAPTURE);
             } else {
                 // si el usuario no da los permisos terminamos la actividad
                 finish();
@@ -134,10 +136,10 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
 
                 Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
 
-                Uri videoUri = Uri.fromFile(linkVideo);
+                //Uri videoUri = Uri.fromFile(linkVideo);
 
                // intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
-                startActivityForResult(intent, VIDEO_CAPTURE);
+               startActivityForResult(intent, VIDEO_CAPTURE);
 
             } else {
                 // si el usuario no da los permisos terminamos la actividad
@@ -164,8 +166,8 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
                 // comprobar si es la ultima respuesta
                 if(isUltimaPregunta){
                     //crear intent mirando que tipo de pregunta es la primera del cuetionario de satisfacción
-                    Formulario cuestionarioStisfaccion = entrevista.getCuestionarioSatisfaccion();
-                    Pregunta preguntaActual = cuestionarioStisfaccion.getPreguntas().get(0);
+                    Formulario cuestionarioSatisfaccion = entrevista.getCuestionarioSatisfaccion();
+                    Pregunta preguntaActual = cuestionarioSatisfaccion.getPreguntas().get(0);
 
                     if (preguntaActual.getTipoPregunta().equals("text")){
 
@@ -191,10 +193,10 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
 
                     intent.putExtra("entrevista", entrevista);
                     intent.putExtra("respuesta", respuesta);
-                    intent.putExtra("formulario", cuestionarioStisfaccion);
+                    intent.putExtra("formulario", cuestionarioSatisfaccion);
                     intent.putExtra("isCuestionarioSatisfaccion", true);
                     intent.putExtra("preguntaActual", preguntaActual);
-                    intent.putExtra("numeroPreguntasFormulario", cuestionarioStisfaccion.getPreguntas().size());
+                    intent.putExtra("numeroPreguntasFormulario", cuestionarioSatisfaccion.getPreguntas().size());
                     intent.putExtra("numeroPregunta", 1);
 
                     startActivity(intent);
@@ -202,7 +204,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
 
                 }
                 else{
-                    //crear inten
+                    //crear intent
                     intent = new Intent(Activity_GrabarRespuesta.this, Activity_VideoPregunta.class);
 
                     intent.putExtra("entrevista", entrevista);

@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_GrabarRespuesta">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test"
+        android:text="@string/Responder_Pregunta"
         android:id="@+id/button"
-        android:textSize="20sp"
-        android:layout_marginTop="74dp"
+        android:textSize="15sp"
+        android:layout_marginTop = "230dp"
         android:layout_centerHorizontal="true"
         android:onClick="examplePermission"/>
 

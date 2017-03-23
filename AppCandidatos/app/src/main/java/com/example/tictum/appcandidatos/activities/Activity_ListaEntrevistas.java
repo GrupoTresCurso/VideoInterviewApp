@@ -33,17 +33,29 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         String preguntaPrueba1 = "¿Cuantos años tienes?";
         String preguntaPrueba2 = "¿Cuántos años de experiencia en java tienes?";
         String preguntaPrueba3 = "Marca los lenguajes con los que has trabajado";
-       String preguntaPrueba4 = "¿De qué pais eres?";
+        String preguntaPrueba4 = "¿De qué pais eres?";
+
+        String preguntaCuest1 = "¿Cual es tu grado de satisfacción con la calidad de la entrevista?";
+        String preguntaCuest2 = "¿La calidad de comunicación ha sido?";
+        String preguntaCuest3 = "¿Danos tu opinion con respecto a la experiencia que has tenido al realizar esta entrevista con Video Interview App?";
 
         String[] opcionesPrueba1 = {};
         String[] opcionesPrueba2 = {"Menos de 2","Entre 2 y 4","Más de 4"};
         String[] opcionesPrueba3 = {"java","C","phyton"};
         String[] opcionesPrueba4 = {"España","Francia","Italia","Alemania"};
 
+        String[] opcionesCuest1 = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String[] opcionesCuest2 = {"Mala","Regular","Buena","Muy Buena","Excelente"};
+        String[] opcionesCuest3 = {};
+
         Pregunta pregunta1 = new Pregunta(1,preguntaPrueba1,"text",opcionesPrueba1,1);
         Pregunta pregunta2 = new Pregunta(2,preguntaPrueba2,"radioButton",opcionesPrueba2,2);
         Pregunta pregunta3 = new Pregunta(3,preguntaPrueba3,"checkBox",opcionesPrueba3,3);
         Pregunta pregunta4 = new Pregunta(4,preguntaPrueba4,"select",opcionesPrueba4,4);
+
+        Pregunta preguntaCuestS1 = new Pregunta(1,preguntaCuest1,"select",opcionesCuest1,1);
+        Pregunta preguntaCuestS2 = new Pregunta(2,preguntaCuest2,"radioButton",opcionesCuest2,2);
+        Pregunta preguntaCuestS3 = new Pregunta(3,preguntaCuest3,"textArea",opcionesCuest3,3);
 
         List<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
         listaPreguntas.add(pregunta1);
@@ -51,8 +63,13 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaPreguntas.add(pregunta3);
         listaPreguntas.add(pregunta4);
 
+        List<Pregunta> listaPreguntasCS = new ArrayList<Pregunta>();
+        listaPreguntasCS.add(preguntaCuestS1);
+        listaPreguntasCS.add(preguntaCuestS2);
+        listaPreguntasCS.add(preguntaCuestS3);
+
         Formulario form1 = new Formulario(1,"form1",listaPreguntas,1);
-        Formulario form2 = new Formulario(2,"form2",listaPreguntas,2);
+        //Formulario form2 = new Formulario(2,"form2",listaPreguntas,2);
 
         List<Formulario> listaformularios = new ArrayList<Formulario>();
         listaformularios.add(form1);
@@ -69,7 +86,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaVideos.add(videoPregunta1);
         listaVideos.add(videoPregunta2);
         listaVideos.add(videoPregunta3);
-        Formulario formSatisfaccion = new Formulario(3,"formSatisfaccion",listaPreguntas,3);
+        Formulario formSatisfaccion = new Formulario(3,"formSatisfaccion",listaPreguntasCS,3);
         String mensajePrueba = "Muchas gracias, hasta luego";
         List<Candidato> listaCandidatos = new ArrayList<Candidato>();
         Candidato candidato1 = new Candidato(1,"pepe","lopez","00000","email@email.com",24,"hombre","123456789","ruta/del/CV");

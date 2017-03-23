@@ -50,13 +50,8 @@ public class Activity_PreguntaText extends AppCompatActivity {
         numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
         isCuestionarioSatisfaccion = (boolean)getIntent().getSerializableExtra("isCuestionarioSatisfaccion");
 
-        if (isCuestionarioSatisfaccion) {
-            // recibimos el formulario de satisfaccion para mostrarlo
-            formulario = entrevista.getCuestionarioSatisfaccion();
-        } else {
-            // recibimos el formulario a mostrar que no es el de satisfaccion
+            // recibimos el formulario a mostrar
             formulario = (Formulario) getIntent().getSerializableExtra("formulario");
-        }
 
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);

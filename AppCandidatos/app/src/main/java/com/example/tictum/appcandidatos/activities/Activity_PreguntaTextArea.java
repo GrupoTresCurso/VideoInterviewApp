@@ -49,24 +49,24 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
         numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
         numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
-        preguntaTextArea = (TextView) findViewById(R.id.pregunta_textarea);
+
         respuestaTextArea = (EditText) findViewById(R.id.respuesta_textarea);
         btnEnvioTextArea = (Button) findViewById(R.id.btn_envio_textarea);
         isCuestionarioSatisfaccion = (boolean)getIntent().getSerializableExtra("isCuestionarioSatisfaccion");
 
-        if (isCuestionarioSatisfaccion) {
-            // recibimos el formulario de satisfaccion para mostrarlo
-            formulario = entrevista.getCuestionarioSatisfaccion();
-        } else {
-            // recibimos el formulario a mostrar que no es el de satisfaccion
+
+            // recibimos el formulario a mostrar
             formulario = (Formulario) getIntent().getSerializableExtra("formulario");
-        }
+
 
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
+
+        preguntaTextArea = (TextView) findViewById(R.id.pregunta_textarea);
+        preguntaTextArea.setText(preguntaActual.getLabelPregunta());
 
         respuestaTextArea.addTextChangedListener(new TextWatcher() {
 

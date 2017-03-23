@@ -68,7 +68,10 @@
             android:name=".activities.Activity_Video_Transicion"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activities.Activity_GrabarRespuesta"></activity>
+        <activity
+            android:name=".activities.Activity_GrabarRespuesta"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>

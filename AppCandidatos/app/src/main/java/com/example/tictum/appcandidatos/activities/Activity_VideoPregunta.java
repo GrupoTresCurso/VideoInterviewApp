@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
     private int numeroPreguntaVideo;
     private boolean isUltimaPregunta;
     private int numeroPregunta;
+
 
 
     @Override
@@ -91,28 +93,25 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         // reproducimos el video
         videoView.start();
 
-        intent = new Intent(Activity_VideoPregunta.this, Activity_GrabarRespuesta.class);
 
-        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                intent.putExtra("entrevista", entrevista);
-                intent.putExtra("respuesta", respuesta);
-                intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
-                intent.putExtra("numeroPreguntaVideo", numeroPreguntaVideo + 1);
-                intent.putExtra("isUltimaPregunta", isUltimaPregunta);
+            intent = new Intent(Activity_VideoPregunta.this, Activity_GrabarRespuesta.class);
 
-                startActivity(intent);
-                finish();
-            }
-        });
 
+            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    intent.putExtra("entrevista", entrevista);
+                    intent.putExtra("respuesta", respuesta);
+                    intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
+                    intent.putExtra("numeroPreguntaVideo", numeroPreguntaVideo + 1);
+                    intent.putExtra("isUltimaPregunta", isUltimaPregunta);
+                    startActivity(intent);
+                    finish();
+                }
+            });
 
 
     }
-
-
-
 
 
     private void alertOptionsVideo() {
@@ -136,7 +135,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         builder.setNeutralButton("LEFT", new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int id) {
-                Intent intent=new Intent(Activity_VideoPregunta.this,Activity_GrabarRespuesta0.class);
+                Intent intent=new Intent(Activity_VideoPregunta.this,Activity_GrabarRespuesta.class);
             }
 
 

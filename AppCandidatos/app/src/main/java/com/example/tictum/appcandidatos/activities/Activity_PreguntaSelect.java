@@ -61,13 +61,9 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
         isCuestionarioSatisfaccion = (boolean)getIntent().getSerializableExtra("isCuestionarioSatisfaccion");
 
-        if (isCuestionarioSatisfaccion) {
-            // recibimos el formulario de satisfaccion para mostrarlo
-            formulario = entrevista.getCuestionarioSatisfaccion();
-        } else {
-            // recibimos el formulario a mostrar que no es el de satisfaccion
+
+            // recibimos el formulario a mostrar
             formulario = (Formulario) getIntent().getSerializableExtra("formulario");
-        }
 
         listaPreguntas = formulario.getPreguntas();
         listaPreguntas.remove(0);
@@ -168,7 +164,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
         //Se activa el boton de enviar
         btnEnvioSelect.setEnabled(true);
 
-        Toast.makeText(getApplicationContext(), opciones[position], Toast.LENGTH_LONG).show();
+        // Toast.makeText(getApplicationContext(), opciones[position], Toast.LENGTH_LONG).show();
         opcionSelected = opciones[position];
         Log.d("OPCION SELECTED S", opcionSelected);
         Log.d("Orden", "opcion seleccionada: " + opcionSelected);
