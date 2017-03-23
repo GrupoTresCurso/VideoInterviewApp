@@ -165,6 +165,9 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
 
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
+        //Se activa el boton de enviar
+        btnEnvioSelect.setEnabled(true);
+
         Toast.makeText(getApplicationContext(), opciones[position], Toast.LENGTH_LONG).show();
         opcionSelected = opciones[position];
         Log.d("OPCION SELECTED S", opcionSelected);

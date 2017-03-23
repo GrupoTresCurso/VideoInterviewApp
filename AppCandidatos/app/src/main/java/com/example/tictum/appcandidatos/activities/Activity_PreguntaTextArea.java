@@ -3,6 +3,8 @@ package com.example.tictum.appcandidatos.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +23,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
 
     private TextView preguntaTextArea;
     private EditText respuestaTextArea;
-    private Button BtnEnvioTextArea;
+    private Button btnEnvioTextArea;
 
     private Formulario formulario;
     private List<Pregunta> listaPreguntas;
@@ -48,7 +50,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
 
         preguntaTextArea = (TextView) findViewById(R.id.pregunta_textarea);
         respuestaTextArea = (EditText) findViewById(R.id.respuesta_textarea);
-        BtnEnvioTextArea = (Button) findViewById(R.id.btn_envio_textarea);
+        btnEnvioTextArea = (Button) findViewById(R.id.btn_envio_textarea);
 
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
@@ -57,7 +59,22 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
-        BtnEnvioTextArea.setOnClickListener(new View.OnClickListener() {
+        respuestaTextArea.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                if(!s.equals("") ){
+                    //Se activa el boton de enviar
+                    btnEnvioTextArea.setEnabled(true);
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {          }
+
+            public void afterTextChanged(Editable s) {          }
+        });
+
+        btnEnvioTextArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

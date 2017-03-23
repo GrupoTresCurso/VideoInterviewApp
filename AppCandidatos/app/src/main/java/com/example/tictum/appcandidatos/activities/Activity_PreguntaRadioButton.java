@@ -71,6 +71,9 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
         }
         radioGroupPregunta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //Se activa el boton de enviar
+                btnEnvioRadioButton.setEnabled(true);
+
                 RadioButton rdbAux;
                 for (int i = 0; i < opciones.length; i++) {
                     rdbAux = (RadioButton) findViewById(i);
