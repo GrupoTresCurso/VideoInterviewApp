@@ -23,18 +23,29 @@ public class Activity_PreguntaText extends AppCompatActivity {
     private EditText respuestaText;
     private Button btnEnvioText;
 
-    Formulario formulario;
-    List<Pregunta> listaPreguntas;
-    Pregunta preguntaActual;
-    Pregunta preguntaSiguiente;
-    Entrevista entrevista;
-    Respuesta respuesta;
-    Intent intent;
+    private Formulario formulario;
+    private List<Pregunta> listaPreguntas;
+    private Pregunta preguntaActual;
+    private Pregunta preguntaSiguiente;
+    private Entrevista entrevista;
+    private Respuesta respuesta;
+    private Intent intent;
+
+    private int numeroPreguntasFormulario;
+    private int numeroPregunta;
+    private TextView numeroPreguntaTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_text);
+
+        //Recuperamos el numero de preguntas del formulario y el orden de la presente pregunta par mostrarlo en la interfaz
+        numeroPreguntasFormulario = (int)getIntent().getSerializableExtra("numeroPreguntasFormulario");
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+        //Se modifica la interfaz
+        numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+        numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
         listaPreguntas = formulario.getPreguntas();
@@ -100,6 +111,8 @@ public class Activity_PreguntaText extends AppCompatActivity {
                     intent.putExtra("preguntaActual", preguntaSiguiente);
                     intent.putExtra("entrevista", entrevista);
                     intent.putExtra("respuesta", respuesta);
+                    intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
+                    intent.putExtra("numeroPregunta", numeroPregunta + 1);
 
                     startActivity(intent);
                 }

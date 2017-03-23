@@ -9,6 +9,7 @@ public class Pregunta implements Serializable {
     private String tipoPregunta;
     private String[] opciones;
     private int posicionEnFormulario;
+    private boolean favorito;
 
     public Pregunta() {
     }

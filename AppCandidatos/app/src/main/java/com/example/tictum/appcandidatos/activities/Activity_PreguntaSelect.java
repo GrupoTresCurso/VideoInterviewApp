@@ -40,10 +40,21 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
     private Respuesta respuesta;
     private int posicionOpcion;
 
+    private int numeroPreguntasFormulario;
+    private int numeroPregunta;
+    private TextView numeroPreguntaTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_select);
+
+        //Recuperamos el numero de preguntas del formulario y el orden de la presente pregunta par mostrarlo en la interfaz
+        numeroPreguntasFormulario = (int)getIntent().getSerializableExtra("numeroPreguntasFormulario");
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+        //Se modifica la interfaz
+        numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+        numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
@@ -141,6 +152,8 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("respuesta", respuesta);
                     intent.putExtra("preguntaActual", preguntaSiguiente);
+                    intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
+                    intent.putExtra("numeroPregunta", numeroPregunta + 1);
                     startActivity(intent);
                 }
             }
