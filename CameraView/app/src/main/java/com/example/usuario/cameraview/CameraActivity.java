@@ -1,118 +1,118 @@
 package com.example.usuario.cameraview;
 
+
 import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.Surface;
 import android.view.View;
 import android.view.Window;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private CameraPreview mPreview;
-    private boolean recording = false;
-    public static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
+    int permisoEscritura = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    int permisoCamara = ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA);
+
+    private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+    private final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
+    final static int REQUEST_VIDEO_CAPTURED = 1;
+    Uri uriVideo = null;
+    VideoView videoviewPlay;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+       // requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        //Solicitar permisos
-        getPermissions();
 
-        mPreview = (CameraPreview) findViewById(R.id.camera_preview);
-        mPreview.setOnTouchListener(new View.OnTouchListener() {
+
+
+        Button buttonRecording = (Button)findViewById(R.id.recording);
+        Button buttonPlayback = (Button)findViewById(R.id.playback);
+
+
+
+        buttonRecording.setOnClickListener(new Button.OnClickListener(){
 
             @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
+                startActivityForResult(intent, REQUEST_VIDEO_CAPTURED);
+            }});
 
-            public boolean onTouch(View view, MotionEvent event) {
+        buttonPlayback.setOnClickListener(new Button.OnClickListener(){
 
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    if (recording) {
-                        Log.i("YO", "Saliendo.");
-                        mPreview.getRecorder().stop();
-                        mPreview.getRecorder().release();
-                        finish();
-                    } else {
-
-                        recording = true;
-                        Log.i("YO", "Grabando.");
-                        mPreview.getRecorder().start();
-                    }
-                    return true;
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                if(uriVideo == null){
+                    Toast.makeText(CameraActivity.this,
+                            "No Video",
+                            Toast.LENGTH_LONG)
+                            .show();
+                }else{
+                    Toast.makeText(CameraActivity.this,
+                            "Playback: " + uriVideo.getPath(),
+                            Toast.LENGTH_LONG)
+                            .show();
+                    videoviewPlay.setVideoURI(uriVideo);
+                    videoviewPlay.start();
                 }
-                return false;
+            }});
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+            if (MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE == requestCode) {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+
+                }
+                return;
             }
-        });
-    }
 
-    //Permisos par la camara
-    public void getPermissions(){
-        // Here, thisActivity is the current activity
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.CAMERA},
-                    MY_PERMISSIONS_REQUEST_CAMERA);
-        }
-        else{
-           // mCamera = getCameraInstance();
-
-            // Configurar orientación de la camara
-            //setCameraDisplayOrientation(this, 1, mCamera);
-
-
-            // Create our Preview view and set it as the content of our activity.
-            //mPreview = new CameraPreview(this, mCamera);
-            FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-            preview.addView(mPreview);
-        }
-    }
-
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_CAMERA: {
+            if (MY_PERMISSIONS_REQUEST_CAMERA == requestCode) {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                   // mCamera = getCameraInstance();
-
-                    // Configurar orientación de la camara
-                  //  setCameraDisplayOrientation(this, 1, mCamera);
-
-
-                    // Create our Preview view and set it as the content of our activity.
-                   // mPreview = new CameraPreview(this, mCamera);
-                    FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-                    preview.addView(mPreview);
-
-
-
                 } else {
 
-                    // permission denied,
                 }
+                return;
             }
-
-            return;
         }
 
-        // other 'case' lines to check for other
-        // permissions this app might request
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+// TODO Auto-generated method stub
+        if(resultCode == RESULT_OK){
+            if(requestCode == REQUEST_VIDEO_CAPTURED){
+                uriVideo = data.getData();
+                Toast.makeText(CameraActivity.this,
+                        uriVideo.getPath(),
+                        Toast.LENGTH_LONG)
+                        .show();
+            }
+        }else if(resultCode == RESULT_CANCELED){
+            uriVideo = null;
+            Toast.makeText(CameraActivity.this,
+                    "Cancelled!",
+                    Toast.LENGTH_LONG)
+                    .show();
+        }
     }
-}
+    }
+

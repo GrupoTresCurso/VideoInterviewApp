@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="25dp"
+            android:textSize="24dp"
             android:background="@drawable/custom_border"
             android:text="Pregunta 1/10"/>
 
@@ -55,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="25dp"
+            android:textSize="24dp"
             android:text="@string/btn_envio_text" />
 
     </LinearLayout>
