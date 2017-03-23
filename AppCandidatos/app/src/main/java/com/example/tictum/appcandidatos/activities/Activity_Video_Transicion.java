@@ -74,6 +74,8 @@ public class Activity_Video_Transicion extends AppCompatActivity {
             public void onCompletion(MediaPlayer mediaPlayer) {
                 intent.putExtra("entrevista", entrevista);
                 intent.putExtra("respuesta", respuesta);
+                intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
+                intent.putExtra("numeroPreguntaVideo", 1);
                 intent.putExtra("numeroPreguntasViveo", numeroPreguntasVideo);
                 intent.putExtra("numeroPregunta", 1);
                 startActivity(intent);
