@@ -26,6 +26,7 @@ public class Activity_Video_Transicion extends AppCompatActivity {
     private Intent intent;
     private int numeroPreguntasVideo;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -76,8 +77,8 @@ public class Activity_Video_Transicion extends AppCompatActivity {
                 intent.putExtra("respuesta", respuesta);
                 intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
                 intent.putExtra("numeroPreguntaVideo", 1);
-
-
+                intent.putExtra("numeroPreguntasViveo", numeroPreguntasVideo);
+                intent.putExtra("numeroPregunta", 1);
                 startActivity(intent);
                 finish();
             }

@@ -50,6 +50,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // setContentView(R.layout.layout_grabar_respuesta);
 
         //recogemos los extras del inten
@@ -58,6 +59,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
         numeroPreguntaVideo = (int) getIntent().getSerializableExtra("numeroPreguntaVideo");
         numeroPreguntasVideo = (int) getIntent().getSerializableExtra("numeroPreguntasVideo");
         isUltimaPregunta = (boolean) getIntent().getSerializableExtra("isUltimaPregunta");
+
 
         checkPermissionCamara();
     }

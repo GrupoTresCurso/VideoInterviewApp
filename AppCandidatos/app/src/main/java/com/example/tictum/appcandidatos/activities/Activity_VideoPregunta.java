@@ -31,6 +31,8 @@ public class Activity_VideoPregunta extends AppCompatActivity {
     private int numeroPreguntasVideo;
     private int numeroPreguntaVideo;
     private boolean isUltimaPregunta;
+    private int numeroPregunta;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,11 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         // recibo el objeto entrevista de la activity anterior y reproduzco el video transicion que tiene, el primero del List<Video>
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         numeroPreguntasVideo = (int) getIntent().getSerializableExtra("numeroPreguntasVideo");
+
         numeroPreguntaVideo = (int) getIntent().getSerializableExtra("numeroPreguntaVideo");
+
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+
         listaVideos = entrevista.getListaVideos();
         listaVideos.remove(0);
 
@@ -60,7 +66,9 @@ public class Activity_VideoPregunta extends AppCompatActivity {
 
         //Modificao el TextView del numero de pregunta
         numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+
         numeroPreguntaTextView.setText("Pregunta" + String.valueOf(numeroPreguntaVideo) + "/" + String.valueOf(numeroPreguntasVideo));
+
 
         //Obtengo el video de pregunta que es el primero en la lista de videos ya que se ha borrado el video anterior
         Video videoPregunta = entrevista.getListaVideos().get(0);
@@ -94,6 +102,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
                 intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
                 intent.putExtra("numeroPreguntaVideo", numeroPreguntaVideo + 1);
                 intent.putExtra("isUltimaPregunta", isUltimaPregunta);
+
                 startActivity(intent);
                 finish();
             }
