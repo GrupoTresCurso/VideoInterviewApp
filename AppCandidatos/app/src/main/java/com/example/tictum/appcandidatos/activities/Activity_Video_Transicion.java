@@ -25,7 +25,6 @@ public class Activity_Video_Transicion extends AppCompatActivity {
     private List<Video> listaVideos;
     private Intent intent;
     private int numeroPreguntasVideo;
-    private boolean isCuestionarioSatisfaccion = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +76,6 @@ public class Activity_Video_Transicion extends AppCompatActivity {
                 intent.putExtra("respuesta", respuesta);
                 intent.putExtra("numeroPreguntasViveo", numeroPreguntasVideo);
                 intent.putExtra("numeroPregunta", 1);
-                intent.putExtra("isCuestionarioSatisfaccion", isCuestionarioSatisfaccion);
                 startActivity(intent);
                 finish();
             }
