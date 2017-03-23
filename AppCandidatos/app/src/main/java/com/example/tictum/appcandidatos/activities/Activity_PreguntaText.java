@@ -3,6 +3,8 @@ package com.example.tictum.appcandidatos.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -57,9 +59,26 @@ public class Activity_PreguntaText extends AppCompatActivity {
         preguntaText = (TextView)findViewById(R.id.pregunta_text);
         preguntaText.setText(preguntaActual.getLabelPregunta());
 
+        btnEnvioText = (Button)findViewById(R.id.btn_envio_text);
+
         respuestaText = (EditText)findViewById(R.id.respuesta_text);
 
-        btnEnvioText = (Button)findViewById(R.id.btn_envio_text);
+        respuestaText.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                if(!s.equals("") ){
+                    //Se activa el boton de enviar
+                    btnEnvioText.setEnabled(true);
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {          }
+
+            public void afterTextChanged(Editable s) {          }
+        });
+
+
 
         btnEnvioText.setOnClickListener(new View.OnClickListener() {
             @Override

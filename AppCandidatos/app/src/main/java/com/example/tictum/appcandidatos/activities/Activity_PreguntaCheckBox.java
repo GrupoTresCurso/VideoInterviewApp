@@ -77,6 +77,8 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
         View.OnClickListener checkBoxListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Se activa el boton de enviar
+                btnEnvioCheckBox.setEnabled(true);
                 // obtenemos posicion del array que checkea o no el usuario
                 int id = view.getId();
                 // creamos boolean para preguntar si esta o no checkeado
