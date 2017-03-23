@@ -34,11 +34,21 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
     private  String[] opciones;
     private Respuesta respuesta;
     private String respuestaSelected;
+    private int numeroPreguntasFormulario;
+    private int numeroPregunta;
+    private TextView numeroPreguntaTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_radio_button);
+
+        //Recuperamos el numero de preguntas del formulario y el orden de la presente pregunta par mostrarlo en la interfaz
+        numeroPreguntasFormulario = (int)getIntent().getSerializableExtra("numeroPreguntasFormulario");
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+        //Se modifica la interfaz
+        numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+        numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         formulario = (Formulario)getIntent().getSerializableExtra("formulario");
@@ -130,6 +140,8 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
                     intent.putExtra("preguntaActual", preguntaSiguiente);
                     intent.putExtra("entrevista", entrevista);
                     intent.putExtra("respuesta", respuesta);
+                    intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
+                    intent.putExtra("numeroPregunta", numeroPregunta + 1);
                     startActivity(intent);
                 }
             }

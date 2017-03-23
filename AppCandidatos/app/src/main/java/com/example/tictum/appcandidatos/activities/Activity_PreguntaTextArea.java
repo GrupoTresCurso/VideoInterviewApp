@@ -23,18 +23,28 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
     private EditText respuestaTextArea;
     private Button BtnEnvioTextArea;
 
-    Formulario formulario;
-    List<Pregunta> listaPreguntas;
-    Pregunta preguntaActual;
-    Pregunta preguntaSiguiente;
-    Intent intent;
-    Entrevista entrevista;
-    Respuesta respuesta;
+    private Formulario formulario;
+    private List<Pregunta> listaPreguntas;
+    private Pregunta preguntaActual;
+    private Pregunta preguntaSiguiente;
+    private Intent intent;
+    private Entrevista entrevista;
+    private Respuesta respuesta;
+    private int numeroPreguntasFormulario;
+    private int numeroPregunta;
+    private TextView numeroPreguntaTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_textarea);
+
+        //Recuperamos el numero de preguntas del formulario y el orden de la presente pregunta par mostrarlo en la interfaz
+        numeroPreguntasFormulario = (int)getIntent().getSerializableExtra("numeroPreguntasFormulario");
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+        //Se modifica la interfaz
+        numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+        numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
         preguntaTextArea = (TextView) findViewById(R.id.pregunta_textarea);
         respuestaTextArea = (EditText) findViewById(R.id.respuesta_textarea);
@@ -98,6 +108,8 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
                     intent.putExtra("preguntaActual", preguntaSiguiente);
                     intent.putExtra("entrevista", entrevista);
                     intent.putExtra("respuesta", respuesta);
+                    intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
+                    intent.putExtra("numeroPregunta", numeroPregunta + 1);
 
                     startActivity(intent);
                 }

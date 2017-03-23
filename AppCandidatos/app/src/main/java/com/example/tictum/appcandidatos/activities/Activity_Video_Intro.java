@@ -26,6 +26,7 @@ public class Activity_Video_Intro extends AppCompatActivity {
     private Intent intent;
     private Respuesta respuesta;
     private int idCandidato;
+    private int numeroPreguntasFormulario1;
 
 
     @Override
@@ -39,6 +40,7 @@ public class Activity_Video_Intro extends AppCompatActivity {
 
         // recibo el objeto entrevista de la activity anterior y reproduzco el video intro que tiene
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+
 
         //Se crea un bean Respuesta que se irá enviando y rellenando a través de los siguientes activities
         respuesta = new Respuesta();
@@ -71,6 +73,9 @@ public class Activity_Video_Intro extends AppCompatActivity {
 
                     // Obtenemos la lista de formularios que tiene asociados la entrevista
                     formulario = entrevista.getFormularios().get(0);
+
+                    //Miramos el numero de preguntas para mostrarlo en la interfaz
+                    numeroPreguntasFormulario1 = formulario.getPreguntas().size();
                     // obtenemos la primera pregunta de la lista para mostrarla al usuario para que la conteste
                     preguntaActual = formulario.getPreguntas().get(0);
 
@@ -102,6 +107,8 @@ public class Activity_Video_Intro extends AppCompatActivity {
                                 intent.putExtra("preguntaActual", preguntaActual);
                                 intent.putExtra("entrevista", entrevista);
                                 intent.putExtra("respuesta", respuesta);
+                                intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario1);
+                                intent.putExtra("numeroPregunta", 1);
                                 startActivity(intent);
                                 finish();
                             }

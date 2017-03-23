@@ -35,12 +35,22 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
     private String[] opciones;
     private Respuesta respuesta;
     private String respuestaSelected;
-    List<String> checkedlist = new ArrayList<String>();
+    private List<String> checkedlist = new ArrayList<String>();
+    private int numeroPreguntasFormulario;
+    private int numeroPregunta;
+    private TextView numeroPreguntaTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_checkbox);
+
+        //Recuperamos el numero de preguntas del formulario y el orden de la presente pregunta par mostrarlo en la interfaz
+        numeroPreguntasFormulario = (int)getIntent().getSerializableExtra("numeroPreguntasFormulario");
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+        //Se modifica la interfaz
+        numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+        numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
 
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
         // recuperamos formulario para acceder a las preguntas
@@ -167,6 +177,8 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     intent.putExtra("preguntaActual", preguntaSiguiente);
                     intent.putExtra("entrevista", entrevista);
                     intent.putExtra("respuesta", respuesta);
+                    intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
+                    intent.putExtra("numeroPregunta", numeroPregunta + 1);
                     startActivity(intent);
                 }
             }
