@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.tictum.appcandidatos.R;
 import com.example.tictum.appcandidatos.beans.Entrevista;
@@ -51,7 +52,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // setContentView(R.layout.layout_grabar_respuesta);
+        setContentView(R.layout.layout_grabar_video);
 
         //recogemos los extras del inten
         entrevista = (Entrevista)getIntent().getSerializableExtra("entrevista");
@@ -61,7 +62,12 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
         isUltimaPregunta = (boolean) getIntent().getSerializableExtra("isUltimaPregunta");
 
 
-        checkPermissionCamara();
+
+    }
+
+    public void examplePermission(View view) {
+
+        checkPermissionWrite();
     }
 
 
@@ -130,7 +136,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
 
                 Uri videoUri = Uri.fromFile(linkVideo);
 
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+               // intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
                 startActivityForResult(intent, VIDEO_CAPTURE);
 
             } else {

@@ -48,7 +48,6 @@ public class Activity_VideoPregunta extends AppCompatActivity {
 
         numeroPreguntaVideo = (int) getIntent().getSerializableExtra("numeroPreguntaVideo");
 
-        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
 
         listaVideos = entrevista.getListaVideos();
         listaVideos.remove(0);
