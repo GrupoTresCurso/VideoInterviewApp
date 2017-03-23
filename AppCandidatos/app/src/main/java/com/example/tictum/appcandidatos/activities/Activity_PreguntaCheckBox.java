@@ -155,7 +155,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     for(String respuesta: checkedlist){
                         Log.d("OPCION SELECTED CB", respuesta);
                     }
-                    
+
                     Log.d("OPCIONES SELE STRING", respuestaSelected);
                     // añadimos la respuesta del checkbox a la lista de respuestas
                     respuesta.addRespuesta(respuestaSelected);

@@ -75,7 +75,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         // reproducimos el video
         videoView.start();
 
-        intent = new Intent(Activity_VideoPregunta.this, Activity_GrabarRespuesta.class);
+        intent = new Intent(Activity_VideoPregunta.this, Activity_GrabarRespuesta0.class);
 
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -118,7 +118,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         builder.setNeutralButton("LEFT", new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int id) {
-                Intent intent=new Intent(Activity_VideoPregunta.this,Activity_GrabarRespuesta.class);
+                Intent intent=new Intent(Activity_VideoPregunta.this,Activity_GrabarRespuesta0.class);
             }
 
 
