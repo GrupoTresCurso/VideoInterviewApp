@@ -12,18 +12,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Texto de Prueba"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="100dp"
-            android:gravity="center"
-            />
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/SpinnerOpciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
             android:layout_below="@id/pregunta_select"
@@ -43,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:background="@drawable/custom_border"
             android:text="Pregunta 1/10"/>
 
@@ -54,12 +52,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-<<<<<<< HEAD
-            android:textSize="24dp"
-=======
-            android:textSize="25dp"
+            android:textSize="24sp"
             android:enabled="false"
->>>>>>> adc9b29afcfba3155b383891effa17f799558e58
             android:text="@string/btn_envio_text" />
 
     </LinearLayout>
