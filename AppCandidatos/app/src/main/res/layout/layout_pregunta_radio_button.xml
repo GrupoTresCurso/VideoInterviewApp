@@ -31,8 +31,10 @@
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/numeroPregunta"
@@ -51,7 +53,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+<<<<<<< HEAD
             android:textSize="24dp"
+=======
+            android:textSize="25dp"
+            android:enabled="false"
+>>>>>>> adc9b29afcfba3155b383891effa17f799558e58
             android:text="@string/btn_envio_text" />
 
     </LinearLayout>

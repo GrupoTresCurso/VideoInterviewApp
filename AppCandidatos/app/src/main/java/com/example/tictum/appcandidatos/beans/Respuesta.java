@@ -136,4 +136,18 @@ public class Respuesta implements Serializable {
 			this.setRespuestas(listaRespuestas);
 		}
 	}
+
+	public void addVideoRespuesta(Video video){
+		if(this.getVideosRespuestas() == null){
+			List<Video> nuevaListaVideosRespuesta = new ArrayList<>();
+			nuevaListaVideosRespuesta.add(video);
+			this.setVideosRespuestas(nuevaListaVideosRespuesta);
+		}
+		else{
+			List<Video> listaVideosRespuesta = this.getVideosRespuestas();
+			listaVideosRespuesta.add(video);
+			this.setVideosRespuestas(listaVideosRespuesta);
+
+		}
+	}
 }

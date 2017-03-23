@@ -35,18 +35,36 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
     private String[] opciones;
     private Respuesta respuesta;
     private String respuestaSelected;
-    List<String> checkedlist = new ArrayList<String>();
+    private List<String> checkedlist = new ArrayList<String>();
+    private int numeroPreguntasFormulario;
+    private int numeroPregunta;
+    private TextView numeroPreguntaTextView;
+    private boolean isCuestionarioSatisfaccion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pregunta_checkbox);
 
+        //Recuperamos el numero de preguntas del formulario y el orden de la presente pregunta par mostrarlo en la interfaz
+        numeroPreguntasFormulario = (int)getIntent().getSerializableExtra("numeroPreguntasFormulario");
+        numeroPregunta = (int) getIntent().getSerializableExtra("numeroPregunta");
+        //Se modifica la interfaz
+        numeroPreguntaTextView = (TextView) findViewById(R.id.numeroPregunta);
+        numeroPreguntaTextView.setText("Pregunta" + numeroPregunta + "/" + numeroPreguntasFormulario);
+
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
-        // recuperamos formulario para acceder a las preguntas
-        formulario = (Formulario)getIntent().getSerializableExtra("formulario");
-        // recuperamos respuesta
-        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
+
+        isCuestionarioSatisfaccion = (boolean)getIntent().getSerializableExtra("isCuestionarioSatisfaccion");
+
+        if (isCuestionarioSatisfaccion) {
+            // recibimos el formulario de satisfaccion para mostrarlo
+            formulario = entrevista.getCuestionarioSatisfaccion();
+        } else {
+            // recibimos el formulario a mostrar que no es el de satisfaccion
+            formulario = (Formulario) getIntent().getSerializableExtra("formulario");
+        }
+
         // recuperamos la lista de preguntas nuevamente
         listaPreguntas = formulario.getPreguntas();
         // borramos la pregunta de la primera posicion que es la que vamos a contestar ahora
@@ -55,6 +73,8 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
         preguntaActual = (Pregunta)getIntent().getSerializableExtra("preguntaActual");
         // obtenemos el array de opciones que tiene la pregunta para mostrarlos
         opciones = preguntaActual.getOpciones();
+        // recuperamos respuesta
+        respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         // ponemos la pregunta en el layout
         preguntaCheckBox = (TextView) findViewById(R.id.pregunta_checkbox);
@@ -67,6 +87,8 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
         View.OnClickListener checkBoxListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Se activa el boton de enviar
+                btnEnvioCheckBox.setEnabled(true);
                 // obtenemos posicion del array que checkea o no el usuario
                 int id = view.getId();
                 // creamos boolean para preguntar si esta o no checkeado
@@ -82,18 +104,24 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
         };
 
         // creamos el array que va a añadir tantos checkbox como tamaño tenga el array
-        for (int i = 0; i < opciones.length; i++) {
+        int i;
+        for (i = 0; i < opciones.length; i++) {
             CheckBox cb = new CheckBox(this);
             cb.setId(i);
             // ponemos el texto del array de strings que viene
             cb.setText(opciones[i]);
             // el tamaño de la letra de cada opcion
-            cb.setTextSize(18);
+            cb.setTextSize(20);
             // añadimos al linearLayout cada checkbox creado
             linearLayout.addView(cb);
             // añadimos el listener para capturar los checkbox clicados
             cb.setOnClickListener(checkBoxListener);
         }
+        CheckBox cbOtros = new CheckBox(this);
+        cbOtros.setId(i + 1);
+        cbOtros.setTextSize(20);
+        linearLayout.addView(cbOtros);
+
 
         // accion del boton SIGUIENTE
 
@@ -114,11 +142,20 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     for(String respuestaString: respuesta.getRespuestas()) {
                         Log.d("RESPUESTA", respuestaString);
                     }
-                    // rellenar con actividad donde ir si acabamos formulario
-                    intent = new Intent(Activity_PreguntaCheckBox.this,Activity_Video_Transicion.class);
-                    intent.putExtra("entrevista", entrevista);
-                    intent.putExtra("respuesta", respuesta);
-                    startActivity(intent);
+
+                    if (isCuestionarioSatisfaccion){
+                        // si es el cuestionario de satisfaccion vamos a la subida de un archivo adjunto, curriculum,etc
+                        intent = new Intent(Activity_PreguntaCheckBox.this,Activity_Adjuntos.class);
+                        intent.putExtra("entrevista", entrevista);
+                        intent.putExtra("respuesta", respuesta);
+                        startActivity(intent);
+                    } else {
+                        // rellenar con actividad donde ir si acabamos formulario
+                        intent = new Intent(Activity_PreguntaCheckBox.this, Activity_Video_Transicion.class);
+                        intent.putExtra("entrevista", entrevista);
+                        intent.putExtra("respuesta", respuesta);
+                        startActivity(intent);
+                    }
 
                 } else {
 
@@ -155,7 +192,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     for(String respuesta: checkedlist){
                         Log.d("OPCION SELECTED CB", respuesta);
                     }
-                    
+
                     Log.d("OPCIONES SELE STRING", respuestaSelected);
                     // añadimos la respuesta del checkbox a la lista de respuestas
                     respuesta.addRespuesta(respuestaSelected);
@@ -167,6 +204,9 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
                     intent.putExtra("preguntaActual", preguntaSiguiente);
                     intent.putExtra("entrevista", entrevista);
                     intent.putExtra("respuesta", respuesta);
+                    intent.putExtra("numeroPreguntasFormulario", numeroPreguntasFormulario);
+                    intent.putExtra("numeroPregunta", numeroPregunta + 1);
+                    intent.putExtra("isCuestionarioSatisfaccion", isCuestionarioSatisfaccion);
                     startActivity(intent);
                 }
             }
