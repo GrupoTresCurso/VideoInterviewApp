@@ -98,13 +98,13 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         Video videoTransicion = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
         Video videoPregunta1 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
         Video videoPregunta2 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
-        Video videoPregunta3 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
+        //Video videoPregunta3 = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
         List<Video> listaVideos = new ArrayList<Video>();
         listaVideos.add(videoIntro);
         listaVideos.add(videoTransicion);
         listaVideos.add(videoPregunta1);
         listaVideos.add(videoPregunta2);
-        listaVideos.add(videoPregunta3);
+        //listaVideos.add(videoPregunta3);
         Formulario formSatisfaccion = new Formulario(3,"formSatisfaccion",listaPreguntasCS,3);
         String mensajePrueba = "Muchas gracias, hasta luego";
         List<Candidato> listaCandidatos = new ArrayList<Candidato>();

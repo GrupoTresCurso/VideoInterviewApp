@@ -26,7 +26,7 @@ public class Activity_Despedida extends AppCompatActivity {
 
         mensaje = entrevista.getMensaje();
 
-        mensajeDespedida = (TextView) findViewById(R.id.pregunta_checkbox);
+        mensajeDespedida = (TextView) findViewById(R.id.mensaje_despedida);
         mensajeDespedida.setText(mensaje);
 
 

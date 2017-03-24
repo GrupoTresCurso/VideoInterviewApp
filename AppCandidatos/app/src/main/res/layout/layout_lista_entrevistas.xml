@@ -7,18 +7,32 @@
 
     tools:context="com.example.tictum.appcandidatos.activities.Activity_ListaEntrevistas">
 
-    <include android:id="@+id/appbar" layout="@layout/toolbar" />
 
 
-    <TextView
-        android:id="@+id/nombreEntrevista"
+
+
+    <LinearLayout
+        android:id="@+id/etiquetaAdjunto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nombre Entrevista"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@drawable/custom_border">
+        <ImageView
+            android:id="@+id/ImagenLocal"
+            android:layout_margin="20dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/form"
+            />
+        <TextView
+            android:id="@+id/nombreEntrevista"
+            android:text="Programador"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:textSize="25sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
 
 </LinearLayout>
