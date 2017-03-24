@@ -68,6 +68,14 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaPreguntasCS.add(preguntaCuestS2);
         listaPreguntasCS.add(preguntaCuestS3);
 
+        Pregunta pregunta5 = new Pregunta(5, "Adjunta tu CV", "adjunto", opcionesPrueba1, 1);
+        Pregunta pregunta6 = new Pregunta(6, "Adjunta tu Carat de Presentación", "adjunto", opcionesPrueba1, 2);
+
+        List<Pregunta> listaPreguntas2 = new ArrayList<>();
+        listaPreguntas2.add(pregunta5);
+        listaPreguntas2.add(pregunta6);
+
+
         Formulario form1 = new Formulario(1,"form1",listaPreguntas,1);
         Formulario form2 = new Formulario(2,"form2",listaPreguntas2,2);
 
