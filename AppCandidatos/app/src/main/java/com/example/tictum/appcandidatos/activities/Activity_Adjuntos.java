@@ -117,24 +117,9 @@ public class Activity_Adjuntos extends AppCompatActivity {
             if (resultData != null) {
                 // Si tienen un resultado recoge la ubicación del objeto.
                 uri = resultData.getData();
-<<<<<<< HEAD
 
-                entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
-
-                respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
-
-
-           /*   Adjunto[] listaAdjuntos = {};
-
-                Adjunto adjunto1 = new Adjunto(0, "add cv", 0);
-
-                AdaptadorAdjuntos adapter = new AdaptadorAdjuntos(this, listaAdjuntos);
-                ListView lista = (ListView) findViewById(R.id.listaAdjuntos);
-                lista.setAdapter(adapter);*/
-
-=======
                 guardarArchivoAdjunto(uri.toString());
->>>>>>> 50e66574cd7fd3079b13d57f7ace5000c865403f
+
 
             }
         }
