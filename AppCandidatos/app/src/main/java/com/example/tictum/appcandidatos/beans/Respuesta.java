@@ -150,4 +150,15 @@ public class Respuesta implements Serializable {
 
 		}
 	}
+
+	public void addArchivo(Archivo archivo){
+		if(this.getArchivosAdjuntos() == null){
+			List<Archivo> nuevaListaArchivos = new ArrayList<>();
+			nuevaListaArchivos.add(archivo);
+		}
+		else{
+			List<Archivo> listaArchivos = this.getArchivosAdjuntos();
+			listaArchivos.add(archivo);
+		}
+	}
 }
