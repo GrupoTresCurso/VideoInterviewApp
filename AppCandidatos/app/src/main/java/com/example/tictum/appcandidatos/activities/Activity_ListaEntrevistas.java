@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import android.support.v7.widget.Toolbar;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -27,6 +30,13 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_mostrar_entrevistas);
+
+      /*  Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);*/
+
+
+
         // Creamos la lista de las entrevistas para hacerles un listener a cada una
         // esta lista se va a traer de la base de datos
         // el adaptador para ver la lista de las entrevistas
@@ -101,7 +111,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         Candidato candidato1 = new Candidato(1,"pepe","lopez","00000","email@email.com",24,"hombre","123456789","ruta/del/CV");
         listaCandidatos.add(candidato1);
 
-        entrevista1 = new Entrevista(1,"entrevista1","Programador",true,listaformularios,listaVideos,formSatisfaccion,mensajePrueba,listaCandidatos);
+        entrevista1 = new Entrevista(1,"entrevista1","Programador",true,listaformularios,listaVideos,formSatisfaccion,"¡Gracias por realizar la entrevista!",listaCandidatos);
         Entrevista[] listaEntrevista = {entrevista1};
 
         AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaEntrevista);
