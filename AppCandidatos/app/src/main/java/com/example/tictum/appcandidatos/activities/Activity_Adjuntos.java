@@ -76,13 +76,13 @@ public class Activity_Adjuntos extends AppCompatActivity {
                 respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
 
-              Adjunto[] listaAdjuntos = {};
+           /*   Adjunto[] listaAdjuntos = {};
 
                 Adjunto adjunto1 = new Adjunto(0, "add cv", 0);
 
                 AdaptadorAdjuntos adapter = new AdaptadorAdjuntos(this, listaAdjuntos);
                 ListView lista = (ListView) findViewById(R.id.listaAdjuntos);
-                lista.setAdapter(adapter);
+                lista.setAdapter(adapter);*/
 
 
             }
