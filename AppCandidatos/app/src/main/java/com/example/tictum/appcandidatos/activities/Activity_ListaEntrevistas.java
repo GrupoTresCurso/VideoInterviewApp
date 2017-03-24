@@ -69,7 +69,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaPreguntasCS.add(preguntaCuestS3);
 
         Formulario form1 = new Formulario(1,"form1",listaPreguntas,1);
-        //Formulario form2 = new Formulario(2,"form2",listaPreguntas,2);
+        Formulario form2 = new Formulario(2,"form2",listaPreguntas2,2);
 
         List<Formulario> listaformularios = new ArrayList<Formulario>();
         listaformularios.add(form1);
