@@ -29,6 +29,7 @@ android:padding="0dp">
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:textColor="#ffff"
                 android:textSize="25dp"
                 android:text="Pregunta 1/10"/>
 
