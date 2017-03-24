@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaRadioButton">
-
+    <include android:id="@+id/appbar" layout="@layout/toolbar" />
     <TextView
         android:id="@+id/pregunta_radio_button"
         android:layout_width="match_parent"
