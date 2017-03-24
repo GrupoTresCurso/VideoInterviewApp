@@ -21,6 +21,7 @@ android:padding="0dp">
             android:layout_margin="0dp"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
+            android:backgroundTint="#00000"
             android:background="@drawable/custom_border"
             android:layout_weight="1">
 
