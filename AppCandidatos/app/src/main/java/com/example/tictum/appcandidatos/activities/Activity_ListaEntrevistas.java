@@ -44,7 +44,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         String[] opcionesPrueba3 = {"java","C","phyton"};
         String[] opcionesPrueba4 = {"España","Francia","Italia","Alemania"};
 
-        String[] opcionesCuest1 = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String[] opcionesCuest1 = {"1", "2", "3", "4", "5"};
         String[] opcionesCuest2 = {"Mala","Regular","Buena","Muy Buena","Excelente"};
         String[] opcionesCuest3 = {};
 
@@ -69,7 +69,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaPreguntasCS.add(preguntaCuestS3);
 
         Pregunta pregunta5 = new Pregunta(5, "Adjunta tu CV", "adjunto", opcionesPrueba1, 1);
-        Pregunta pregunta6 = new Pregunta(6, "Adjunta tu Carat de Presentación", "adjunto", opcionesPrueba1, 2);
+        Pregunta pregunta6 = new Pregunta(6, "Adjunta tu Carata de Presentación", "adjunto", opcionesPrueba1, 2);
 
         List<Pregunta> listaPreguntas2 = new ArrayList<>();
         listaPreguntas2.add(pregunta5);
@@ -81,7 +81,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
 
         List<Formulario> listaformularios = new ArrayList<Formulario>();
         listaformularios.add(form1);
-        //listaformularios.add(form2);
+        listaformularios.add(form2);
 
         Video videoIntro = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
         Video videoTransicion = new Video(1,"video1","android.resource://"+getPackageName()+"/"+R.raw.prueba_vertical,1,"transicion");
