@@ -97,6 +97,7 @@ public class Activity_PreguntaTextArea extends AppCompatActivity {
                             // si es el cuestionario de satisfaccion vamos a la subida de un archivo adjunto, curriculum,etc
                             intent = new Intent(Activity_PreguntaTextArea.this,Activity_Adjuntos.class);
                             intent.putExtra("entrevista", entrevista);
+                            Log.d("NOMBRE ENTREVISTA", entrevista.getNombrePuesto());
                             intent.putExtra("respuesta", respuesta);
                             startActivity(intent);
                         } else {

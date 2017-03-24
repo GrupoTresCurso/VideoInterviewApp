@@ -3,6 +3,7 @@ package com.example.tictum.appcandidatos.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -119,6 +120,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
                     Intent intent = new Intent(Activity_ListaEntrevistas.this, Activity_Video_Intro.class);
                     // Mandamos el objeto entrevista que ha seleccionado el usuario
                     intent.putExtra("entrevista", entrevistaSelected);
+                    Log.d("NOMBRE ENTREVISTA", entrevistaSelected.getNombrePuesto());
                     // LLamamos a la actividad Siguiente
                     startActivity(intent);
                 }

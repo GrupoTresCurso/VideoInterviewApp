@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -45,6 +46,7 @@ public class Activity_Adjuntos extends AppCompatActivity {
 
         //Se recoge del intent el bean Respuesta y el bean Entrevista
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
+        Log.d("NOMBRE ENTREVISTA", entrevista.getNombrePuesto());
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
 
         //Se coge del bean Entrevista el formulario donde están los adjuntos (ultimo formulariode la lista de formularios) y se coge sus preguntas

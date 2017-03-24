@@ -192,6 +192,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
 
 
                     intent.putExtra("entrevista", entrevista);
+                    Log.d("NOMBRE ENTREVISTA", entrevista.getNombrePuesto());
                     intent.putExtra("respuesta", respuesta);
                     intent.putExtra("formulario", cuestionarioSatisfaccion);
                     intent.putExtra("isCuestionarioSatisfaccion", true);
@@ -208,6 +209,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
                     intent = new Intent(Activity_GrabarRespuesta.this, Activity_VideoPregunta.class);
 
                     intent.putExtra("entrevista", entrevista);
+                    Log.d("NOMBRE ENTREVISTA", entrevista.getNombrePuesto());
                     intent.putExtra("respuesta", respuesta);
                     intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
                     intent.putExtra("numeroPreguntaVideo", numeroPreguntaVideo);

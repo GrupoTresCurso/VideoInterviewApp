@@ -144,6 +144,7 @@ public class Activity_PreguntaSelect extends AppCompatActivity implements Adapte
                         Log.d("RESPUESTA", respuestaString);
                     }
 
+                    intent.putExtra("entrevista", entrevista);
                     intent.putExtra("formulario", formulario);
                     intent.putExtra("respuesta", respuesta);
                     intent.putExtra("preguntaActual", preguntaSiguiente);

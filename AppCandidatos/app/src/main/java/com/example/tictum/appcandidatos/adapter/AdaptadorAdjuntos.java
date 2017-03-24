@@ -38,7 +38,7 @@ public class AdaptadorAdjuntos extends ArrayAdapter<Pregunta> {
             itemView = inflater.inflate(R.layout.item_adjunto, null);
 
             holder = new ViewHolder();
-            holder.etiquetaAdjunto = (TextView) itemView.findViewById(R.id.etiquetaAdjunto);
+            holder.etiquetaAdjunto = (TextView) itemView.findViewById(R.id.nombreEntrevista);
 
             itemView.setTag(holder);
         }
