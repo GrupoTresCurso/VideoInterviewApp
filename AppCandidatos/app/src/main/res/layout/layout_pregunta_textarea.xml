@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaTextArea">
 
 
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Texto de Prueba"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -21,6 +23,7 @@
     <EditText
         android:id="@+id/respuesta_textarea"
         android:layout_width="match_parent"
+        android:padding="10dp"
         android:layout_height="160dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -28,7 +31,9 @@
         android:layout_gravity="center"
         android:layout_below="@+id/pregunta_textarea"
         android:inputType="textMultiLine"
-        android:lines="15" />
+        android:background="@drawable/custom_border"
+        android:lines="15"
+        />
 
     <LinearLayout
         android:id="@+id/BarraBotones"
@@ -45,11 +50,12 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="24sp"
-            android:background="@drawable/custom_border"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/boton"
             android:text="Pregunta 1/10"/>
 
         <Button
-            android:background="@drawable/custom_border"
+            android:background="@drawable/boton"
             android:id="@+id/btn_envio_textarea"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"

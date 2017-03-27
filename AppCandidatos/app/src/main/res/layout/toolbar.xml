@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/iconoApp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/videointerview"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/logo_tictum_blanco"
         />
 
     <TextView

@@ -6,16 +6,34 @@
     android:background="@drawable/pregunta"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_GrabarRespuesta">
 
-    <Button
-        android:layout_width="200dp"
+
+
+    <TextView
+        android:id="@+id/textoTip"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="A continuación vas a grabar tu respuesta a la pregunta previa. Asegúraté de que estás en un lugar adecuado para ello y se tú mismo"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textoTip"
         android:text="@string/Responder_Pregunta"
         android:id="@+id/button"
-        android:textSize="15sp"
-        android:background="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:background="@drawable/boton_blanco"
+        android:layout_gravity="center"
         android:textAlignment="center"
-        android:layout_marginTop = "250dp"
+        android:layout_marginTop = "60dp"
         android:layout_centerHorizontal="true"
         android:onClick="examplePermission"/>
+
+
 
 </RelativeLayout>

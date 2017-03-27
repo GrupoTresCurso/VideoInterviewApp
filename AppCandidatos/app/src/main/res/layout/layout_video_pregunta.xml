@@ -20,7 +20,8 @@ android:padding="0dp">
             android:layout_margin="10dp"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/custom_border">
+            android:background="@drawable/custom_border"
+            >
 
 
             <TextView

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
 
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaCheckBox">
 
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Texto de Prueba"
         android:textSize="30sp"
+        android:textColor="@color/colorPrimary"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="100dp"
@@ -43,12 +45,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
+
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
-                android:background="@drawable/custom_border"
+                android:background="@drawable/boton"
                 android:text="Pregunta 1/10"/>
 
             <Button
-                android:background="@drawable/custom_border"
+                android:background="@drawable/boton"
                 android:id="@+id/btn_envio_checkbox"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"

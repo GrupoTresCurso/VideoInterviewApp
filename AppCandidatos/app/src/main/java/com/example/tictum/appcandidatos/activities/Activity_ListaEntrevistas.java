@@ -112,7 +112,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
         listaCandidatos.add(candidato1);
 
         entrevista1 = new Entrevista(1,"entrevista1","Programador",true,listaformularios,listaVideos,formSatisfaccion,"¡Gracias por realizar la entrevista!",listaCandidatos);
-        Entrevista[] listaEntrevista = {entrevista1};
+        Entrevista[] listaEntrevista = {entrevista1, entrevista1};
 
         AdaptadorEntrevistas adaptador = new AdaptadorEntrevistas(this,listaEntrevista);
         // Donde vamos a mostrar los objetos Entrevista

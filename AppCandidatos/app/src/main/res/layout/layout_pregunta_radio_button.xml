@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaRadioButton">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Texto de Prueba"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -23,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/pregunta_radio_button"
         android:layout_marginTop="50dp"
-        android:paddingLeft="100dp"/>
+        android:paddingLeft="100dp"
+        android:weightSum="1">
+    </RadioGroup>
 
 
     <LinearLayout
@@ -43,11 +47,12 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="24sp"
-            android:background="@drawable/custom_border"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/boton"
             android:text="Pregunta 1/10"/>
 
         <Button
-            android:background="@drawable/custom_border"
+            android:background="@drawable/boton"
             android:id="@+id/btn_envio_radiobutton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"

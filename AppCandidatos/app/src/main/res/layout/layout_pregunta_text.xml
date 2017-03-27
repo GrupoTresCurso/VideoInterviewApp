@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaText">
 
     <TextView
@@ -11,21 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Texto de Prueba"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="100dp"
         android:gravity="center" />
 
-    <EditText
-        android:id="@+id/respuesta_text"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:layout_marginTop="80dp"
-        android:layout_gravity="center"
-        android:layout_below="@+id/pregunta_text"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/respuesta_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center"
+            android:layout_below="@+id/pregunta_text"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/edit_text_border"
+            android:gravity="center"
+            />
 
     <LinearLayout
         android:id="@+id/BarraBotones"
@@ -42,11 +47,12 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="24dp"
-            android:background="@drawable/custom_border"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/boton"
             android:text="Pregunta 1/10"/>
 
         <Button
-            android:background="@drawable/custom_border"
+            android:background="@drawable/boton"
             android:id="@+id/btn_envio_text"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"

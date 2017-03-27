@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/despedida"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_Despedida">
 
 
@@ -14,12 +12,38 @@
         android:id="@+id/mensaje_despedida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
+        android:text="Muchas gracias y hasta pronto"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
    
         />
 
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mensaje_despedida"
+        android:text="INICIO"
+        android:id="@+id/button"
+        android:textSize="25sp"
+        android:background="@drawable/boton_blanco"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginTop = "60dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_tictum_blanco"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
-</LinearLayout>
+
+</RelativeLayout>

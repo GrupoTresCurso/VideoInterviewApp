@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        android:background="@drawable/custom_border">
+        android:background="@drawable/custom_border_list">
         <ImageView
             android:id="@+id/ImagenLocal"
             android:layout_margin="20dp"

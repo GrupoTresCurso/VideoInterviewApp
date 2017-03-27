@@ -76,7 +76,7 @@ public class Activity_PreguntaRadioButton extends AppCompatActivity {
             RadioButton rdbtn = new RadioButton(this);
             rdbtn.setId(i);
             rdbtn.setText(opciones[i]);
-            rdbtn.setTextSize(20);
+            rdbtn.setTextSize(25);
             radioGroupPregunta.addView(rdbtn);
         }
         radioGroupPregunta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

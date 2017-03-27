@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:text="Texto de Prueba"
             android:textSize="30sp"
+            android:textColor="@color/colorPrimary"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="100dp"
@@ -42,17 +43,19 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="24sp"
-            android:background="@drawable/custom_border"
-            android:text="Pregunta 1/10"/>
+            android:background="@drawable/boton"
+            android:text="Pregunta 1/10"
+
+            android:textColor="@color/colorPrimaryDark"/>
 
         <Button
-            android:background="@drawable/custom_border"
             android:id="@+id/btn_envio_select"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="24sp"
+            android:background="@drawable/boton"
             android:enabled="false"
             android:text="@string/btn_envio_text" />
 

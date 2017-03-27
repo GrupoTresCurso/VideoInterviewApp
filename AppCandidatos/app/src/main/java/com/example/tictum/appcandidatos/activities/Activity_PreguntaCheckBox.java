@@ -108,7 +108,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
             // ponemos el texto del array de strings que viene
             cb.setText(opciones[i]);
             // el tamaño de la letra de cada opcion
-            cb.setTextSize(20);
+            cb.setTextSize(25);
             // añadimos al linearLayout cada checkbox creado
             linearLayout.addView(cb);
             // añadimos el listener para capturar los checkbox clicados
@@ -118,7 +118,7 @@ public class Activity_PreguntaCheckBox extends AppCompatActivity {
         CheckBox cbOtros = new CheckBox(this);
         cbOtros.setId(i + 1);
         cbOtros.setText(otros);
-        cbOtros.setTextSize(20);
+        cbOtros.setTextSize(25);
         linearLayout.addView(cbOtros);
 
 
