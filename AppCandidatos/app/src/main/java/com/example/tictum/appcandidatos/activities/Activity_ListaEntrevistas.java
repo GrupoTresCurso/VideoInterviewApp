@@ -52,7 +52,7 @@ public class Activity_ListaEntrevistas extends AppCompatActivity {
 
         String[] opcionesPrueba1 = {};
         String[] opcionesPrueba2 = {"Menos de 2","Entre 2 y 4","Más de 4"};
-        String[] opcionesPrueba3 = {"java","C","phyton"};
+        String[] opcionesPrueba3 = {"java","C","phyton", "otros"};
         String[] opcionesPrueba4 = {"España","Francia","Italia","Alemania"};
 
         String[] opcionesCuest1 = {"1", "2", "3", "4", "5"};
