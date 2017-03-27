@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaText">
-
+    <include android:id="@+id/appbar" layout="@layout/toolbar" />
     <TextView
         android:id="@+id/pregunta_text"
         android:layout_width="match_parent"

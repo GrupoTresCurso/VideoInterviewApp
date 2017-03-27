@@ -7,7 +7,7 @@
     android:background="@color/background"
 
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaCheckBox">
-
+    <include android:id="@+id/appbar" layout="@layout/toolbar" />
     <TextView
         android:id="@+id/pregunta_checkbox"
         android:layout_width="match_parent"
@@ -45,7 +45,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 android:background="@drawable/boton"
