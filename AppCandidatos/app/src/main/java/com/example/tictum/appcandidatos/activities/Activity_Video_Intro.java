@@ -42,7 +42,6 @@ public class Activity_Video_Intro extends AppCompatActivity {
         // recibo el objeto entrevista de la activity anterior y reproduzco el video intro que tiene
         entrevista = (Entrevista) getIntent().getSerializableExtra("entrevista");
 
-
         //Se crea un bean Respuesta que se irá enviando y rellenando a través de los siguientes activities
         respuesta = new Respuesta();
         respuesta.setIdEntrevista(entrevista.getIdEntrevista());

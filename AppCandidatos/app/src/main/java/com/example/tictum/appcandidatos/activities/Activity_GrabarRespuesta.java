@@ -49,6 +49,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
     private int numeroPreguntasVideo;
     private int numeroPreguntaVideo;
     private boolean isUltimaPregunta;
+    private boolean tengoPermiso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +57,22 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.layout_grabar_video);
 
-        //recogemos los extras del inten
+        //recogemos los extras del intent
         entrevista = (Entrevista)getIntent().getSerializableExtra("entrevista");
         respuesta = (Respuesta) getIntent().getSerializableExtra("respuesta");
         numeroPreguntaVideo = (int) getIntent().getSerializableExtra("numeroPreguntaVideo");
         numeroPreguntasVideo = (int) getIntent().getSerializableExtra("numeroPreguntasVideo");
         isUltimaPregunta = (boolean) getIntent().getSerializableExtra("isUltimaPregunta");
+        tengoPermiso = (boolean) getIntent().getSerializableExtra("tengoPermiso");
 
+
+        if (!tengoPermiso) {
+            setContentView(R.layout.layout_grabar_video);
+        } else {
+            Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            startActivityForResult(intent, VIDEO_CAPTURE);
+        }
 
     }
 
@@ -84,6 +92,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA);
                 tengoPermisoCamara = true;
+                tengoPermiso = true;
             }
             return tengoPermisoCamara;
             // si tengo permiso para acceder a la camara del dispositivo llamamos a la aplicacion de la camara
@@ -103,6 +112,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_WRITE_EXTERNAL_STORAGE);
                 tengoPermisoEscritura = true;
+                tengoPermiso = true;
             }
             return tengoPermisoEscritura;
         } else {
@@ -213,7 +223,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
                     intent.putExtra("respuesta", respuesta);
                     intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
                     intent.putExtra("numeroPreguntaVideo", numeroPreguntaVideo);
-
+                    intent.putExtra("tengoPermiso",tengoPermiso);
                     startActivity(intent);
                 }
 

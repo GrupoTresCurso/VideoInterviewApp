@@ -33,6 +33,8 @@ public class Activity_VideoPregunta extends AppCompatActivity {
     private int numeroPreguntaVideo;
     private boolean isUltimaPregunta;
     private int numeroPregunta;
+    private boolean tengoPermiso;
+
 
 
 
@@ -49,6 +51,8 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         numeroPreguntasVideo = (int) getIntent().getSerializableExtra("numeroPreguntasVideo");
 
         numeroPreguntaVideo = (int) getIntent().getSerializableExtra("numeroPreguntaVideo");
+
+        tengoPermiso = (boolean) getIntent().getSerializableExtra("tengoPermiso");
 
 
         listaVideos = entrevista.getListaVideos();
@@ -93,9 +97,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
         // reproducimos el video
         videoView.start();
 
-
-            intent = new Intent(Activity_VideoPregunta.this, Activity_GrabarRespuesta.class);
-
+                intent = new Intent(Activity_VideoPregunta.this, Activity_GrabarRespuesta.class);
 
             videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -105,6 +107,7 @@ public class Activity_VideoPregunta extends AppCompatActivity {
                     intent.putExtra("numeroPreguntasVideo", numeroPreguntasVideo);
                     intent.putExtra("numeroPreguntaVideo", numeroPreguntaVideo + 1);
                     intent.putExtra("isUltimaPregunta", isUltimaPregunta);
+                    intent.putExtra("tengoPermiso",tengoPermiso);
                     startActivity(intent);
                     finish();
                 }
