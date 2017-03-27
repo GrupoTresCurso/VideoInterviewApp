@@ -70,6 +70,7 @@ public class Activity_GrabarRespuesta extends AppCompatActivity {
         if (!tengoPermiso) {
             setContentView(R.layout.layout_grabar_video);
         } else {
+            linkVideo = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/video.mp4");
             Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
             startActivityForResult(intent, VIDEO_CAPTURE);
         }
