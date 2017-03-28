@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:background="@color/background"
     tools:context="com.example.tictum.appcandidatos.activities.Activity_PreguntaSelect">
     <include android:id="@+id/appbar" layout="@layout/toolbar" />
         <TextView

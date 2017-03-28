@@ -8,19 +8,20 @@
     android:elevation="4dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <ImageView
-        android:id="@+id/iconoApp"
-        android:layout_width="150dp"
-        android:layout_height="match_parent"
-        android:background="@drawable/logo_tictum_blanco"
-        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tituloToolbar"
         style="@style/estilosToolbar"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="30dp"
+        />
+    <ImageView
+        android:id="@+id/iconoApp"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/logo_tictum_blanco"
         />
 
 
